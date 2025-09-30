@@ -221,6 +221,29 @@
       return;
     }
 
+    const analyzeButton = document.createElement('button');
+    analyzeButton.type = 'button';
+    analyzeButton.className = 'btn';
+    analyzeButton.textContent = 'Analyze URL';
+    analyzeButton.style.display = 'none';
+    form.querySelector('.form-actions').prepend(analyzeButton);
+
+    input.addEventListener('input', () => {
+        try {
+            const url = new URL(input.value.trim());
+            analyzeButton.style.display = 'inline-block';
+        } catch (e) {
+            analyzeButton.style.display = 'none';
+        }
+    });
+
+    analyzeButton.addEventListener('click', () => {
+        const url = input.value.trim();
+        handleCrawlCommand(`/crawl kw:analyse seeds:${url} depth:1 pages:10`);
+        input.value = '';
+        analyzeButton.style.display = 'none';
+    });
+
     temp.addEventListener('input', () => {
       tempValue.textContent = parseFloat(temp.value).toFixed(2);
     });

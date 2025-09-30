@@ -6,7 +6,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from .routes import agents, chat, crawler, models, sd, vision, gemini
+from .routes import agents, chat, crawler, models, sd, vision
 from .config import get_settings
 from .services.crawler import crawler_manager
 
@@ -39,7 +39,7 @@ def create_app() -> FastAPI:
     app.include_router(vision.router, prefix="/v1")
     app.include_router(sd.router, prefix="/v1")
     app.include_router(crawler.router, prefix="/v1")
-    app.include_router(gemini.router, prefix="/v1")
+    # app.include_router(gemini.router, prefix="/v1")
 
     if settings.crawler_enabled:
         @app.on_event("startup")

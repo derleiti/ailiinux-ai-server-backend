@@ -9,11 +9,21 @@ from ..config import get_settings
 from ..services.model_registry import ModelInfo
 from ..utils.errors import api_error
 from ..utils.http import extract_http_error
+from . import web_search
 
 MISTRAL_MODEL_ALIASES = {
     "mistral/mixtral-8x7b": "open-mixtral-8x7b",
     "mistral/open-mixtral-8x7b": "open-mixtral-8x7b",
 }
+
+UNCERTAINTY_PHRASES = [
+    "i don't know",
+    "i am not sure",
+    "i cannot answer",
+    "i can't answer",
+    "i do not have information",
+    "i don't have information",
+]
 
 
 def _format_messages(messages: Iterable[dict[str, str]]) -> List[dict[str, str]]:
@@ -29,6 +39,53 @@ def _format_messages(messages: Iterable[dict[str, str]]) -> List[dict[str, str]]
     return formatted
 
 
+async def _get_initial_response(
+    model: ModelInfo,
+    request_model: str,
+    messages: List[dict[str, str]],
+    temperature: Optional[float],
+    settings,
+) -> str:
+    chunks = []
+    if model.provider == "ollama":
+        async for chunk in _stream_ollama(
+            request_model,
+            messages,
+            temperature=temperature,
+            stream=True,
+            timeout=settings.request_timeout,
+        ):
+            chunks.append(chunk)
+    elif model.provider == "mistral":
+        if not settings.mixtral_api_key:
+            raise api_error("Mistral support is not configured", status_code=503, code="mistral_unavailable")
+        async for chunk in _stream_mistral(
+            request_model,
+            messages,
+            api_key=settings.mixtral_api_key,
+            organisation_id=settings.ailinux_mixtral_organisation_id,
+            temperature=temperature,
+            stream=True,
+            timeout=settings.request_timeout,
+        ):
+            chunks.append(chunk)
+    elif model.provider == "gemini":
+        if not settings.gemini_api_key:
+            raise api_error("Gemini support is not configured", status_code=503, code="gemini_unavailable")
+        async for chunk in _stream_gemini(
+            request_model,
+            messages,
+            api_key=settings.gemini_api_key,
+            temperature=temperature,
+            stream=True,
+            timeout=settings.request_timeout,
+        ):
+            chunks.append(chunk)
+    else:
+        raise api_error("Unsupported provider", status_code=400, code="unsupported_provider")
+    return "".join(chunks)
+
+
 async def stream_chat(
     model: ModelInfo,
     request_model: str,
@@ -39,48 +96,50 @@ async def stream_chat(
 ) -> AsyncGenerator[str, None]:
     settings = get_settings()
     formatted_messages = _format_messages(messages)
+    
+    # Get initial response
+    initial_response = await _get_initial_response(model, request_model, formatted_messages, temperature, settings)
 
-    if model.provider == "ollama":
-        async for chunk in _stream_ollama(
-            request_model,
-            formatted_messages,
-            temperature=temperature,
-            stream=stream,
-            timeout=settings.request_timeout,
-        ):
-            yield chunk
-        return
+    # Check for uncertainty
+    if any(phrase in initial_response.lower() for phrase in UNCERTAINTY_PHRASES):
+        user_query = formatted_messages[-1]["content"]
+        yield "Ich bin mir nicht sicher, aber ich werde im Web danach suchen...\n\n"
+        
+        search_results = await web_search.search_web(user_query)
+        
+        if not search_results:
+            yield "Ich konnte keine relevanten Informationen online finden."
+            return
 
-    if model.provider == "mistral":
-        if not settings.mixtral_api_key:
-            raise api_error("Mistral support is not configured", status_code=503, code="mistral_unavailable")
-        async for chunk in _stream_mistral(
-            request_model,
-            formatted_messages,
-            api_key=settings.mixtral_api_key,
-            organisation_id=settings.ailinux_mixtral_organisation_id,
-            temperature=temperature,
-            stream=stream,
-            timeout=settings.request_timeout,
-        ):
-            yield chunk
-        return
+        context = "Web search results:\n"
+        for res in search_results:
+            context += f"- Title: {res['title']}\n"
+            context += f"  URL: {res['url']}\n"
+            context += f"  Snippet: {res['snippet']}\n\n"
 
-    if model.provider == "gemini":
-        if not settings.gemini_api_key:
-            raise api_error("Gemini support is not configured", status_code=503, code="gemini_unavailable")
-        async for chunk in _stream_gemini(
-            request_model,
-            formatted_messages,
-            api_key=settings.gemini_api_key,
-            temperature=temperature,
-            stream=stream,
-            timeout=settings.request_timeout,
-        ):
-            yield chunk
-        return
-
-    raise api_error("Unsupported provider", status_code=400, code="unsupported_provider")
+        augmented_messages = formatted_messages + [
+            {"role": "system", "content": "Here is some context from a web search:"},
+            {"role": "system", "content": context},
+            {"role": "user", "content": f"Based on the web search results, please answer my original question: {user_query}"}
+        ]
+        
+        if model.provider == "ollama":
+            async for chunk in _stream_ollama(
+                request_model, augmented_messages, temperature=temperature, stream=stream, timeout=settings.request_timeout
+            ):
+                yield chunk
+        elif model.provider == "mistral":
+            async for chunk in _stream_mistral(
+                request_model, augmented_messages, api_key=settings.mixtral_api_key, organisation_id=settings.ailinux_mixtral_organisation_id, temperature=temperature, stream=stream, timeout=settings.request_timeout
+            ):
+                yield chunk
+        elif model.provider == "gemini":
+            async for chunk in _stream_gemini(
+                request_model, augmented_messages, api_key=settings.gemini_api_key, temperature=temperature, stream=stream, timeout=settings.request_timeout
+            ):
+                yield chunk
+    else:
+        yield initial_response
 
 
 async def _stream_ollama(

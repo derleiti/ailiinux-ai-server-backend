@@ -14,6 +14,9 @@ from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
 from urllib.parse import urljoin, urlparse
 from urllib.robotparser import RobotFileParser
 
+from playwright.async_api import async_playwright, Playwright
+
+
 import httpx
 from bs4 import BeautifulSoup
 from dateutil import parser as dateparser
@@ -348,6 +351,7 @@ class CrawlerManager:
         self._stop_event = asyncio.Event()
         self._lock = asyncio.Lock()
         self._random = random.Random()
+        self._playwright: Optional[Playwright] = None
 
         # Training data management
         self._train_dir = Path(getattr(settings, "crawler_train_dir", "data/crawler_spool/train"))
@@ -379,6 +383,7 @@ class CrawlerManager:
         if self._worker_task and not self._worker_task.done():
             return
         self._client = httpx.AsyncClient(headers=DEFAULT_HEADERS, follow_redirects=True, timeout=20.0)
+        self._playwright = await async_playwright().start()
         self._stop_event.clear()
         self._worker_task = asyncio.create_task(self._run_worker(), name="crawler-worker")
         logger.info("Crawler manager started")
@@ -482,6 +487,9 @@ class CrawlerManager:
         if self._client:
             await self._client.aclose()
             self._client = None
+        if self._playwright:
+            await self._playwright.stop()
+            self._playwright = None
         logger.info("Crawler manager stopped")
 
     async def create_job(
@@ -679,6 +687,7 @@ class CrawlerManager:
 
     async def _process_job(self, job: CrawlJob) -> None:
         assert self._client is not None
+        assert self._playwright is not None
         job.status = "running"
         job.updated_at = datetime.now(timezone.utc)
         await self._persist_job(job)
@@ -686,6 +695,9 @@ class CrawlerManager:
         for seed in job.seeds:
             queue.append((seed, 0, None))
         visited: Set[str] = set()
+
+        browser = await self._playwright.chromium.launch()
+        page = await browser.new_page()
 
         while queue and job.pages_crawled < job.max_pages:
             url, depth, parent = queue.popleft()
@@ -698,16 +710,17 @@ class CrawlerManager:
                 continue
             await asyncio.sleep(job.rate_limit + self._random.uniform(0.0, job.rate_limit))
             try:
-                response = await self._client.get(url)
+                await page.goto(url, wait_until="networkidle")
+                html_content = await page.content()
+                response_status = 200 # If goto succeeds, we can assume 200
             except Exception as exc:  # pragma: no cover - network issues
                 logger.warning("Crawler fetch failed for %s: %s", url, exc)
                 continue
-            if response.status_code >= 400:
+            
+            if response_status >= 400:
                 continue
-            content_type = response.headers.get("Content-Type", "").lower()
-            if "text/html" not in content_type:
-                continue
-            soup = BeautifulSoup(response.text, "html.parser")
+
+            soup = BeautifulSoup(html_content, "html.parser")
             text_content = self._extract_text(soup)
             score, matched_keywords = self._score_content(text_content, job.keywords)
             if score >= job.relevance_threshold:
@@ -734,6 +747,7 @@ class CrawlerManager:
                     if link not in visited:
                         queue.append((link, depth + 1, url))
 
+        await browser.close()
         job.status = "completed"
         job.completed_at = datetime.now(timezone.utc)
         job.updated_at = datetime.now(timezone.utc)
@@ -875,10 +889,15 @@ class CrawlerManager:
 
     def _extract_links(self, base_url: str, soup: BeautifulSoup, job: CrawlJob) -> List[str]:
         links: List[str] = []
+        excluded_keywords = ["login", "register", "signin", "signup", "admin", "cart", "checkout"]
         for anchor in soup.find_all("a", href=True):
             href = anchor["href"].strip()
             if not href:
                 continue
+            
+            if any(keyword in href for keyword in excluded_keywords):
+                continue
+
             absolute = urljoin(base_url, href)
             parsed = urlparse(absolute)
             if parsed.scheme not in {"http", "https"}:
