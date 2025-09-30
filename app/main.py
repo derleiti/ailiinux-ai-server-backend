@@ -1,5 +1,15 @@
 from __future__ import annotations
 
+import sys
+import os
+
+# Add the virtual environment's site-packages directory to the sys.path
+# This is a workaround for an environment issue where the uvicorn process
+# is not correctly using the virtual environment.
+venv_path = '/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages'
+if venv_path not in sys.path:
+    sys.path.insert(0, venv_path)
+
 import time
 import asyncio
 from fastapi import FastAPI, HTTPException, Request
@@ -56,6 +66,10 @@ def create_app() -> FastAPI:
     @app.get("/health")
     async def health_check() -> dict[str, object]:
         return {"ok": True, "ts": int(time.time())}
+
+    @app.get("/dummy")
+    async def dummy_route() -> dict[str, object]:
+        return {"dummy": "route"}
 
     return app
 

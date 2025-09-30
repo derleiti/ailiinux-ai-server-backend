@@ -4,7 +4,6 @@ import asyncio
 import json
 import random
 import re
-import time
 import uuid
 from collections import OrderedDict, deque
 from dataclasses import dataclass, field, asdict
@@ -710,7 +709,7 @@ class CrawlerManager:
                 continue
             await asyncio.sleep(job.rate_limit + self._random.uniform(0.0, job.rate_limit))
             try:
-                await page.goto(url, wait_until="networkidle")
+                await page.goto(url, wait_until="domcontentloaded")
                 html_content = await page.content()
                 response_status = 200 # If goto succeeds, we can assume 200
             except Exception as exc:  # pragma: no cover - network issues

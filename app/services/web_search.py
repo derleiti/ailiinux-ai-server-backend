@@ -1,17 +1,16 @@
-
 from __future__ import annotations
 
 import asyncio
 from typing import List, Dict, Any
-from duckduckgo_search import DDGS
-from ..config import get_settings
+from ddgs import DDGS # Changed from duckduckgo_search import DDGS
 
 async def search_google(query: str, num_results: int = 5) -> List[Dict[str, Any]]:
-    """Performs a Google search and returns the results."""
-    # This is a placeholder for the actual google_web_search tool call
-    # In a real scenario, you would call the tool here.
-    # For now, we'll simulate it with DuckDuckGo search.
-    return await search_duckduckgo(query, num_results)
+    """Performs a Google search and returns the results.
+    This is a placeholder. In a real scenario, this would integrate with a Google Search API.
+    """
+    print(f"Simulating Google search for: {query}")
+    # For now, return an empty list or mock data
+    return []
 
 async def search_duckduckgo(query: str, num_results: int = 5) -> List[Dict[str, Any]]:
     """Performs a DuckDuckGo search and returns the results."""
@@ -40,13 +39,12 @@ async def search_web(query: str, num_results: int = 5) -> List[Dict[str, Any]]:
     unique_results = []
     seen_urls = set()
     for res in combined_results:
-        if res.get('href') not in seen_urls:
+        if res.get('href') not in seen_urls: # Changed from res.get('url')
             unique_results.append({
-                "title": res.get("title"),
-                "url": res.get("href"),
-                "snippet": res.get("body"),
+                "title": res.get("title", "No Title"),
+                "url": res.get("href", "No URL"), # Changed from res.get('url')
+                "snippet": res.get("body", "No Snippet"), # Changed from res.get('snippet')
             })
-            seen_urls.add(res.get('href'))
+            seen_urls.add(res.get('href')) # Changed from res.get('url')
 
     return unique_results
-

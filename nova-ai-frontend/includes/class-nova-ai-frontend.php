@@ -17,7 +17,7 @@ class Frontend
     private const OPTION_CRAWLER_FORUM = 'nova_ai_crawler_forum';
     private const OPTION_CRAWLER_AUTHOR = 'nova_ai_crawler_author';
     private const OPTION_CHAT_CRAWLER_TOOLS_ENABLED = 'nova_ai_chat_crawler_tools_enabled';
-    private const DEFAULT_API_BASE = 'https://api.ailinux.me:9000';
+    private const DEFAULT_API_BASE = 'http://0.0.0.0:9100';
 
     private static bool $shortcodeRendered = false;
     private static ?string $shortcodeUrl = null;
@@ -304,7 +304,7 @@ class Frontend
 
     public static function enqueue_assets(): void
     {
-        if (is_admin() || !self::page_has_shortcode()) {
+        if (is_admin()) {
             return;
         }
 
@@ -337,7 +337,7 @@ class Frontend
 
     public static function inject_manifest_link(): void
     {
-        if (!self::page_has_shortcode()) {
+        if (!is_singular()) {
             return;
         }
 
@@ -387,7 +387,7 @@ class Frontend
 
     public static function enqueue_post_discussion_assets(): void
     {
-        if (is_admin() || !is_singular('post')) {
+        if (is_admin() || !is_singular(['post', 'page'])) {
             return;
         }
 
@@ -422,7 +422,7 @@ class Frontend
 
     public static function append_discussion_button(string $content): string
     {
-        if (is_admin() || !is_singular('post') || !in_the_loop() || !is_main_query()) {
+        if (is_admin() || !is_singular(['post', 'page']) || !in_the_loop() || !is_main_query()) {
             return $content;
         }
 

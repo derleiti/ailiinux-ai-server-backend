@@ -438,7 +438,7 @@
     return data;
   }
 
-  function streamChat(payload, bubble) {
+  async function streamChat(payload, bubble) {
     const response = await fetch(`${API_BASE}/v1/chat`, {
       method: 'POST',
       headers: {
