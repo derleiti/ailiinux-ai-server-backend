@@ -1,0 +1,23 @@
+{
+  "url": "https://www.wired.com/category/gear/#main-content",
+  "unique_key": "75f63045b3ebda9b637adc279de1a62a2b0d097e4edb16b98b6e700e4aa171ee",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.wired.com/category/gear/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.wired.com/category/gear/#main-content",
+  "handled_at": "2025-10-01 22:30:50.459723+00:00",
+  "id": "4JQOUv0TewUjacC",
+  "json_": "{\n  \"url\": \"https://www.wired.com/category/gear/#main-content\",\n  \"unique_key\": \"75f63045b3ebda9b637adc279de1a62a2b0d097e4edb16b98b6e700e4aa171ee\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.wired.com/category/gear/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.wired.com/category/gear/#main-content\",\n  \"handled_at\": \"2025-10-01 22:30:50.459723+00:00\",\n  \"id\": \"4JQOUv0TewUjacC\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

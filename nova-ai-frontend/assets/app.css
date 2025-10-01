@@ -372,3 +372,50 @@
   color: var(--nova-text-muted);
   margin-top: 0.4rem;
 }
+
+.nova-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background: #333;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  z-index: 10000;
+  animation: slideIn 0.3s ease;
+}
+
+.nova-notification.success {
+  background: #28a745;
+}
+
+.nova-notification.warning {
+  background: #ffc107;
+  color: #333;
+}
+
+.nova-notification.error {
+  background: #dc3545;
+}
+
+.nova-notification.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.bubble.error {
+  background-color: #fee;
+  border-left: 4px solid #dc3545;
+}

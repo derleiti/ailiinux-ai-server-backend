@@ -1,0 +1,23 @@
+{
+  "url": "https://www.bloomberg.com/news/articles/2025-06-12/us-says-huawei-s-2025-output-is-no-more-than-200-000-ai-chips",
+  "unique_key": "86176f3b797a5adec3679272ccbba34d1c5cb2a0866817569e8a213b24780d90",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.bloomberg.com/news/articles/2025-06-12/us-says-huawei-s-2025-output-is-no-more-than-200-000-ai-chips",
+  "handled_at": "2025-10-01 22:41:28.553020+00:00",
+  "id": "i9588UvObOclo5J",
+  "json_": "{\n  \"url\": \"https://www.bloomberg.com/news/articles/2025-06-12/us-says-huawei-s-2025-output-is-no-more-than-200-000-ai-chips\",\n  \"unique_key\": \"86176f3b797a5adec3679272ccbba34d1c5cb2a0866817569e8a213b24780d90\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.bloomberg.com/news/articles/2025-06-12/us-says-huawei-s-2025-output-is-no-more-than-200-000-ai-chips\",\n  \"handled_at\": \"2025-10-01 22:41:28.553020+00:00\",\n  \"id\": \"i9588UvObOclo5J\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

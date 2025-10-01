@@ -1,0 +1,22 @@
+{
+  "url": "https://assets.anthropic.com/m/218c82b858610fac/original/Economic-Index.pdf",
+  "unique_key": "19f9ba52cb800a2dd27f050314fa61e7230332a115401249449212b4854a51e5",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/research/anthropic-economic-index-september-2025-report"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 5
+    },
+    "depth": 5
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "NKSecsjjMJCGxPM",
+  "json_": "{\n  \"url\": \"https://assets.anthropic.com/m/218c82b858610fac/original/Economic-Index.pdf\",\n  \"unique_key\": \"19f9ba52cb800a2dd27f050314fa61e7230332a115401249449212b4854a51e5\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/research/anthropic-economic-index-september-2025-report\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"NKSecsjjMJCGxPM\",\n  \"order_no\": \"1759358749709.101915\"\n}",
+  "order_no": "1759358749709.101915"
+}

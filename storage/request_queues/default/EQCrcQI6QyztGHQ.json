@@ -1,0 +1,23 @@
+{
+  "url": "https://www.wired.com/category/science/#main-content",
+  "unique_key": "e9d18fb0633c57ee7ae7300a02b510dc161ec2a043e7599dc8b2af11b78a05e8",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.wired.com/category/science/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.wired.com/category/science/#main-content",
+  "handled_at": "2025-10-01 22:30:30.017215+00:00",
+  "id": "EQCrcQI6QyztGHQ",
+  "json_": "{\n  \"url\": \"https://www.wired.com/category/science/#main-content\",\n  \"unique_key\": \"e9d18fb0633c57ee7ae7300a02b510dc161ec2a043e7599dc8b2af11b78a05e8\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.wired.com/category/science/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.wired.com/category/science/#main-content\",\n  \"handled_at\": \"2025-10-01 22:30:30.017215+00:00\",\n  \"id\": \"EQCrcQI6QyztGHQ\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

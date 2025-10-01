@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/claude-code",
+  "unique_key": "02083ae91410c750311d71eda8a03191ea3b11c6398e2c3f938462808a4bef4d",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://anthropic.com/engineering/building-agents-with-the-claude-agent-sdk"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "55OB0dlKtTDo1p0",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/claude-code\",\n  \"unique_key\": \"02083ae91410c750311d71eda8a03191ea3b11c6398e2c3f938462808a4bef4d\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://anthropic.com/engineering/building-agents-with-the-claude-agent-sdk\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"55OB0dlKtTDo1p0\",\n  \"order_no\": \"1759358539804.222107\"\n}",
+  "order_no": "1759358539804.222107"
+}

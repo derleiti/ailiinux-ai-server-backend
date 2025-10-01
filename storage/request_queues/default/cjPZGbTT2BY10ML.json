@@ -1,0 +1,22 @@
+{
+  "url": "https://docs.claude.com/",
+  "unique_key": "39b5c5f635c0e64d2692b3629b04dc2a2ff5e47da89904a54c3b791e48e9a5ab",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://claude.com/product/overview"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "cjPZGbTT2BY10ML",
+  "json_": "{\n  \"url\": \"https://docs.claude.com/\",\n  \"unique_key\": \"39b5c5f635c0e64d2692b3629b04dc2a2ff5e47da89904a54c3b791e48e9a5ab\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://claude.com/product/overview\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"cjPZGbTT2BY10ML\",\n  \"order_no\": \"1759358509782.546997\"\n}",
+  "order_no": "1759358509782.546997"
+}

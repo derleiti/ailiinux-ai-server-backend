@@ -1,0 +1,23 @@
+{
+  "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+  "unique_key": "e724db341d6e0065372768e9d1cab46dde566e84f4718b4ea05ea61795f39bc4",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.darioamodei.com/post/the-urgency-of-interpretability"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+  "handled_at": "2025-10-01 22:46:41.182865+00:00",
+  "id": "22jdC3HllJXS91x",
+  "json_": "{\n  \"url\": \"https://transformer-circuits.pub/2024/scaling-monosemanticity/\",\n  \"unique_key\": \"e724db341d6e0065372768e9d1cab46dde566e84f4718b4ea05ea61795f39bc4\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.darioamodei.com/post/the-urgency-of-interpretability\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://transformer-circuits.pub/2024/scaling-monosemanticity/\",\n  \"handled_at\": \"2025-10-01 22:46:41.182865+00:00\",\n  \"id\": \"22jdC3HllJXS91x\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

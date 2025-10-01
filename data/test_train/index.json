@@ -1,0 +1,10 @@
+{
+  "shards": [
+    {
+      "name": "crawl-train-20251001-22.jsonl",
+      "records": 1,
+      "size_bytes": 688,
+      "created_at": "2025-10-01T22:14:52.067885+00:00"
+    }
+  ]
+}

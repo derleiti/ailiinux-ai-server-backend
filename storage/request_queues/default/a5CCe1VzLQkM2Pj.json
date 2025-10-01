@@ -1,0 +1,23 @@
+{
+  "url": "https://www.wired.com/category/politics/#main-content",
+  "unique_key": "3c7dd1e943452326c72edcbc603443a1b270a89f9844eb1784c644b85023f7a6",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.wired.com/category/politics/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.wired.com/category/politics/#main-content",
+  "handled_at": "2025-10-01 22:30:22.878345+00:00",
+  "id": "a5CCe1VzLQkM2Pj",
+  "json_": "{\n  \"url\": \"https://www.wired.com/category/politics/#main-content\",\n  \"unique_key\": \"3c7dd1e943452326c72edcbc603443a1b270a89f9844eb1784c644b85023f7a6\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.wired.com/category/politics/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.wired.com/category/politics/#main-content\",\n  \"handled_at\": \"2025-10-01 22:30:22.878345+00:00\",\n  \"id\": \"a5CCe1VzLQkM2Pj\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

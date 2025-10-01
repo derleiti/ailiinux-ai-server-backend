@@ -1,0 +1,23 @@
+{
+  "url": "https://www.theverge.com/tech#content",
+  "unique_key": "bd7ded8572c1e99902f160a835c7df7c5daf2141ceda56e2159f9c26a0730670",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.theverge.com/tech"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.theverge.com/tech#content",
+  "handled_at": "2025-10-01 22:20:16.070178+00:00",
+  "id": "UqCEXHS8JamXPgQ",
+  "json_": "{\n  \"url\": \"https://www.theverge.com/tech#content\",\n  \"unique_key\": \"bd7ded8572c1e99902f160a835c7df7c5daf2141ceda56e2159f9c26a0730670\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.theverge.com/tech\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.theverge.com/tech#content\",\n  \"handled_at\": \"2025-10-01 22:20:16.070178+00:00\",\n  \"id\": \"UqCEXHS8JamXPgQ\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

@@ -124,6 +124,14 @@
         textarea.focus({ preventScroll: true });
       }
     });
+
+    textarea.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        // Trigger form submission handler directly
+        handleSubmit(event);
+      }
+    });
   }
 
   function resetConversation(context) {
@@ -265,38 +273,52 @@
   }
 
   async function streamChat(messages, bubble) {
-    const response = await fetch(`${API_BASE}/v1/chat`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'text/plain',
-        'X-AILinux-Client': CLIENT_HEADER,
-      },
-      body: JSON.stringify({
-        model: modelSelect.value,
-        messages,
-        stream: true,
-        temperature: 0.7,
-      }),
-    });
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 60000); // 60s timeout
 
-    if (!response.ok || !response.body) {
-      throw await safeJson(response);
-    }
+    try {
+      const response = await fetch(`${API_BASE}/v1/chat/completions`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'text/plain',
+          'X-AILinux-Client': CLIENT_HEADER,
+        },
+        body: JSON.stringify({
+          model: modelSelect.value,
+          messages,
+          stream: true,
+          temperature: 0.7,
+        }),
+        signal: controller.signal,
+      });
 
-    bubble.classList.add('is-streaming');
-    const reader = response.body.getReader();
+      clearTimeout(timeout);
 
-    while (true) {
-      const { value, done } = await reader.read();
-      if (done) {
-        break;
+      if (!response.ok || !response.body) {
+        throw await safeJson(response);
       }
-      const chunk = decoder.decode(value, { stream: true });
-      bubble.textContent += chunk;
-    }
 
-    bubble.classList.remove('is-streaming');
+      bubble.classList.add('is-streaming');
+      const reader = response.body.getReader();
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) {
+          break;
+        }
+        const chunk = decoder.decode(value, { stream: true });
+        bubble.textContent += chunk;
+      }
+
+      bubble.classList.remove('is-streaming');
+    } catch (error) {
+      clearTimeout(timeout);
+      if (error.name === 'AbortError') {
+        throw new Error('Request timeout after 60 seconds');
+      }
+      throw error;
+    }
   }
 
   function appendMessage(role, message) {

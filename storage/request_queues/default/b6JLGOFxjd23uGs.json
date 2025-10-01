@@ -1,0 +1,23 @@
+{
+  "url": "https://dev.to/magicrani35/i-am-new-here-hoping-to-make-some-friends-41nd",
+  "unique_key": "ecc8e7dc7a85520f9cbdcf2134405d4de1a6eaa6d6125a82cfc413e4f999d260",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://dev.to/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://dev.to/magicrani35/i-am-new-here-hoping-to-make-some-friends-41nd",
+  "handled_at": "2025-10-01 22:34:26.421849+00:00",
+  "id": "b6JLGOFxjd23uGs",
+  "json_": "{\n  \"url\": \"https://dev.to/magicrani35/i-am-new-here-hoping-to-make-some-friends-41nd\",\n  \"unique_key\": \"ecc8e7dc7a85520f9cbdcf2134405d4de1a6eaa6d6125a82cfc413e4f999d260\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://dev.to/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://dev.to/magicrani35/i-am-new-here-hoping-to-make-some-friends-41nd\",\n  \"handled_at\": \"2025-10-01 22:34:26.421849+00:00\",\n  \"id\": \"b6JLGOFxjd23uGs\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

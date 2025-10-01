@@ -1,0 +1,21 @@
+{
+  "url": "https://www.theverge.com/",
+  "unique_key": "decafead784dcea570f6951e3631d75e558068da8fb3392848c2b798850d249f",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "seed"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3
+    }
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.theverge.com/",
+  "handled_at": "2025-10-01 22:19:16.421905+00:00",
+  "id": "uGC4XOChdB48Sy3",
+  "json_": "{\n  \"url\": \"https://www.theverge.com/\",\n  \"unique_key\": \"decafead784dcea570f6951e3631d75e558068da8fb3392848c2b798850d249f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"seed\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3\n    }\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.theverge.com/\",\n  \"handled_at\": \"2025-10-01 22:19:16.421905+00:00\",\n  \"id\": \"uGC4XOChdB48Sy3\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

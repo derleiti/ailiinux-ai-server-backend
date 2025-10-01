@@ -1,0 +1,23 @@
+{
+  "url": "https://red.anthropic.com/2025/ai-for-cyber-defenders",
+  "unique_key": "6f5716a20c37032e260dcb612b0751832789560b16bfea305853cc74c1669e24",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/claude-sonnet-4-5#footer"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://red.anthropic.com/2025/ai-for-cyber-defenders/",
+  "handled_at": "2025-10-01 22:42:48.790853+00:00",
+  "id": "T0yd3h8BNQ0v2qo",
+  "json_": "{\n  \"url\": \"https://red.anthropic.com/2025/ai-for-cyber-defenders\",\n  \"unique_key\": \"6f5716a20c37032e260dcb612b0751832789560b16bfea305853cc74c1669e24\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/claude-sonnet-4-5#footer\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://red.anthropic.com/2025/ai-for-cyber-defenders/\",\n  \"handled_at\": \"2025-10-01 22:42:48.790853+00:00\",\n  \"id\": \"T0yd3h8BNQ0v2qo\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

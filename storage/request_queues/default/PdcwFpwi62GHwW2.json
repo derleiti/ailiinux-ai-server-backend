@@ -1,0 +1,23 @@
+{
+  "url": "https://techcrunch.com/category/security/",
+  "unique_key": "520fae05556be0c17fa0284b6d901a56879b06a4484b3f7df0c734ec0755addf",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://techcrunch.com/category/artificial-intelligence/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://techcrunch.com/category/security/",
+  "handled_at": "2025-10-01 22:36:18.253217+00:00",
+  "id": "PdcwFpwi62GHwW2",
+  "json_": "{\n  \"url\": \"https://techcrunch.com/category/security/\",\n  \"unique_key\": \"520fae05556be0c17fa0284b6d901a56879b06a4484b3f7df0c734ec0755addf\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://techcrunch.com/category/artificial-intelligence/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://techcrunch.com/category/security/\",\n  \"handled_at\": \"2025-10-01 22:36:18.253217+00:00\",\n  \"id\": \"PdcwFpwi62GHwW2\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

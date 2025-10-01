@@ -1,0 +1,23 @@
+{
+  "url": "https://news.ycombinator.com",
+  "unique_key": "8c132669acb050f97048adf3494881a295d7d215e3038599b33a55a34ebd3db2",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://news.ycombinator.com/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://news.ycombinator.com/",
+  "handled_at": "2025-10-01 22:18:16.362725+00:00",
+  "id": "lMnlAEFRxP8TSXk",
+  "json_": "{\n  \"url\": \"https://news.ycombinator.com\",\n  \"unique_key\": \"8c132669acb050f97048adf3494881a295d7d215e3038599b33a55a34ebd3db2\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://news.ycombinator.com/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://news.ycombinator.com/\",\n  \"handled_at\": \"2025-10-01 22:18:16.362725+00:00\",\n  \"id\": \"lMnlAEFRxP8TSXk\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

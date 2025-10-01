@@ -1,0 +1,22 @@
+{
+  "url": "https://www.reddit.com/r/gaming/",
+  "unique_key": "1594076c0b366e23cdc5ba5e10101c90daaaf3d50e27cbd66fe8036ab2297cb4",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "seed"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "sessionRotationCount": 9
+    }
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.reddit.com/r/gaming/",
+  "handled_at": "2025-10-01 22:20:35.274178+00:00",
+  "id": "4vbFsoBZvWaQFyD",
+  "json_": "{\n  \"url\": \"https://www.reddit.com/r/gaming/\",\n  \"unique_key\": \"1594076c0b366e23cdc5ba5e10101c90daaaf3d50e27cbd66fe8036ab2297cb4\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"seed\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"sessionRotationCount\": 9\n    }\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.reddit.com/r/gaming/\",\n  \"handled_at\": \"2025-10-01 22:20:35.274178+00:00\",\n  \"id\": \"4vbFsoBZvWaQFyD\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

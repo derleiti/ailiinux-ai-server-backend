@@ -1,0 +1,23 @@
+{
+  "url": "https://ourworldindata.org/life-expectancy",
+  "unique_key": "a611f40a7dc29cd0f729645f79c2b64feb32e91ba5de8bf238a004c7562165cb",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.darioamodei.com/essay/machines-of-loving-grace"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://ourworldindata.org/life-expectancy",
+  "handled_at": "2025-10-01 23:27:33.117171+00:00",
+  "id": "zG1ccnQ00qYzCFy",
+  "json_": "{\n  \"url\": \"https://ourworldindata.org/life-expectancy\",\n  \"unique_key\": \"a611f40a7dc29cd0f729645f79c2b64feb32e91ba5de8bf238a004c7562165cb\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.darioamodei.com/essay/machines-of-loving-grace\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://ourworldindata.org/life-expectancy\",\n  \"handled_at\": \"2025-10-01 23:27:33.117171+00:00\",\n  \"id\": \"zG1ccnQ00qYzCFy\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

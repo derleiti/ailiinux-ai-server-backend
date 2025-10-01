@@ -1,0 +1,22 @@
+{
+  "url": "http://claude.ai/redirect/website.v1.4fb53f0a-c1ad-4dad-b4ff-26db3cb56ced",
+  "unique_key": "d883948dd89721ab34feb8b60c9c1a797ff6884cf9a456c0e4ae5f253985e5f5",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/claude/haiku"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "kMtlR9YSfLXJEIo",
+  "json_": "{\n  \"url\": \"http://claude.ai/redirect/website.v1.4fb53f0a-c1ad-4dad-b4ff-26db3cb56ced\",\n  \"unique_key\": \"d883948dd89721ab34feb8b60c9c1a797ff6884cf9a456c0e4ae5f253985e5f5\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/claude/haiku\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"kMtlR9YSfLXJEIo\",\n  \"order_no\": \"1759358537034.758091\"\n}",
+  "order_no": "1759358537034.758091"
+}

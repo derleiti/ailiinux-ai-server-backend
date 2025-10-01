@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/news/anthropics-responsible-scaling-policy#footer",
+  "unique_key": "9a42cd1efe139340e726e933386d332a90f9958ec89653da623b453c3cf518ea",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/anthropics-responsible-scaling-policy"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "ZTJk2IZAeUd8Wre",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/anthropics-responsible-scaling-policy#footer\",\n  \"unique_key\": \"9a42cd1efe139340e726e933386d332a90f9958ec89653da623b453c3cf518ea\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/anthropics-responsible-scaling-policy\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"ZTJk2IZAeUd8Wre\",\n  \"order_no\": \"1759358506023.595095\"\n}",
+  "order_no": "1759358506023.595095"
+}

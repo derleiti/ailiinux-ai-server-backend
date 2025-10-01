@@ -1,0 +1,22 @@
+{
+  "url": "https://www.nsf.gov/focus-areas/biotechnology#content-wrap",
+  "unique_key": "eb7146eb652d8b36c67e487c92548a40411fea078fb0b0478249c5ef4e9738eb",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.nsf.gov/focus-areas/biotechnology"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 5
+    },
+    "depth": 5
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "TesjTpFz7jvMX1L",
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/focus-areas/biotechnology#content-wrap\",\n  \"unique_key\": \"eb7146eb652d8b36c67e487c92548a40411fea078fb0b0478249c5ef4e9738eb\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/focus-areas/biotechnology\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"TesjTpFz7jvMX1L\",\n  \"order_no\": \"1759358747172.154903\"\n}",
+  "order_no": "1759358747172.154903"
+}

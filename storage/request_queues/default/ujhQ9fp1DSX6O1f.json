@@ -1,0 +1,23 @@
+{
+  "url": "https://techcrunch.com/category/startups/#wp--skip-link--target",
+  "unique_key": "1890805996f21254f0054ec5498ce86e18a4620f83600db23238c1765fa15020",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://techcrunch.com/category/startups/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://techcrunch.com/category/startups/#wp--skip-link--target",
+  "handled_at": "2025-10-01 22:36:32.449089+00:00",
+  "id": "ujhQ9fp1DSX6O1f",
+  "json_": "{\n  \"url\": \"https://techcrunch.com/category/startups/#wp--skip-link--target\",\n  \"unique_key\": \"1890805996f21254f0054ec5498ce86e18a4620f83600db23238c1765fa15020\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://techcrunch.com/category/startups/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://techcrunch.com/category/startups/#wp--skip-link--target\",\n  \"handled_at\": \"2025-10-01 22:36:32.449089+00:00\",\n  \"id\": \"ujhQ9fp1DSX6O1f\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

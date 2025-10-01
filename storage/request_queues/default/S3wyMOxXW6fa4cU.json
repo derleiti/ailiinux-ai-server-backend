@@ -1,0 +1,23 @@
+{
+  "url": "https://www.phoronix.com/phoronix-premium",
+  "unique_key": "e79409b448f098ab33975a49f4b21dd8cd775344fcabdcbb85c5ba61a72ea61d",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.phoronix.com/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.phoronix.com/phoronix-premium",
+  "handled_at": "2025-10-01 22:21:35.034578+00:00",
+  "id": "S3wyMOxXW6fa4cU",
+  "json_": "{\n  \"url\": \"https://www.phoronix.com/phoronix-premium\",\n  \"unique_key\": \"e79409b448f098ab33975a49f4b21dd8cd775344fcabdcbb85c5ba61a72ea61d\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.phoronix.com/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.phoronix.com/phoronix-premium\",\n  \"handled_at\": \"2025-10-01 22:21:35.034578+00:00\",\n  \"id\": \"S3wyMOxXW6fa4cU\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

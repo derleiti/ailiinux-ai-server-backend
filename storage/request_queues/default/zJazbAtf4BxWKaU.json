@@ -1,0 +1,22 @@
+{
+  "url": "https://substack.com/@raywang2",
+  "unique_key": "a6b39a4e47abb732f348d5ac026211f00ac622d7935785b9f2a29d727d0d64fd",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.chinatalk.media/p/mapping-chinas-hbm-advancement"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "zJazbAtf4BxWKaU",
+  "json_": "{\n  \"url\": \"https://substack.com/@raywang2\",\n  \"unique_key\": \"a6b39a4e47abb732f348d5ac026211f00ac622d7935785b9f2a29d727d0d64fd\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"zJazbAtf4BxWKaU\",\n  \"order_no\": \"1759358496662.933111\"\n}",
+  "order_no": "1759358496662.933111"
+}

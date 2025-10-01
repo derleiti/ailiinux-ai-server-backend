@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/news/activating-asl3-protections",
+  "unique_key": "7512ddb574f822497a719ea59dfbe8101c0d42d83a77b4fb685e0056c8c12b7f",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/news/activating-asl3-protections",
+  "handled_at": "2025-10-01 22:41:24.893747+00:00",
+  "id": "KBwBG9j4mB8WUrk",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/activating-asl3-protections\",\n  \"unique_key\": \"7512ddb574f822497a719ea59dfbe8101c0d42d83a77b4fb685e0056c8c12b7f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/news/activating-asl3-protections\",\n  \"handled_at\": \"2025-10-01 22:41:24.893747+00:00\",\n  \"id\": \"KBwBG9j4mB8WUrk\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

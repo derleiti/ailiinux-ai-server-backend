@@ -1,0 +1,23 @@
+{
+  "url": "https://github.com/security/advanced-security#start-of-content",
+  "unique_key": "32718ac4d4ea606fdb0826d432e3bd38115376f94f11786e568b31902641a425",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://github.com/security/advanced-security"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://github.com/security/advanced-security#start-of-content",
+  "handled_at": "2025-10-01 22:23:46.243125+00:00",
+  "id": "nPmKIwHiQNSuPIJ",
+  "json_": "{\n  \"url\": \"https://github.com/security/advanced-security#start-of-content\",\n  \"unique_key\": \"32718ac4d4ea606fdb0826d432e3bd38115376f94f11786e568b31902641a425\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://github.com/security/advanced-security\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://github.com/security/advanced-security#start-of-content\",\n  \"handled_at\": \"2025-10-01 22:23:46.243125+00:00\",\n  \"id\": \"nPmKIwHiQNSuPIJ\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

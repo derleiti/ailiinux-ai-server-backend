@@ -1,0 +1,23 @@
+{
+  "url": "https://www.wired.com/category/culture/",
+  "unique_key": "bcaa011dfde8d884bf34ce9f4892227fd64ebbce873ae133a278d6886408545f",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.wired.com/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.wired.com/category/culture/",
+  "handled_at": "2025-10-01 22:30:10.493544+00:00",
+  "id": "XC1mk1bK79NxtV4",
+  "json_": "{\n  \"url\": \"https://www.wired.com/category/culture/\",\n  \"unique_key\": \"bcaa011dfde8d884bf34ce9f4892227fd64ebbce873ae133a278d6886408545f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.wired.com/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.wired.com/category/culture/\",\n  \"handled_at\": \"2025-10-01 22:30:10.493544+00:00\",\n  \"id\": \"XC1mk1bK79NxtV4\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

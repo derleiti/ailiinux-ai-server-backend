@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues",
+  "unique_key": "955bc6c93f35e54adf8329941e8fde92c7c68e141d0233d36f7a452b08732f8f",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/claude-sonnet-4-5#footer"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues",
+  "handled_at": "2025-10-01 22:42:49.262796+00:00",
+  "id": "s10QVTHIw0rRnpl",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues\",\n  \"unique_key\": \"955bc6c93f35e54adf8329941e8fde92c7c68e141d0233d36f7a452b08732f8f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/claude-sonnet-4-5#footer\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues\",\n  \"handled_at\": \"2025-10-01 22:42:49.262796+00:00\",\n  \"id\": \"s10QVTHIw0rRnpl\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

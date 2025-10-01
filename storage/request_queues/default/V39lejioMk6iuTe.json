@@ -1,0 +1,22 @@
+{
+  "url": "https://www.nsf.gov/focus-areas#content-wrap",
+  "unique_key": "c6cc0e5913e029c577ebdaea1f665459ae1a068cd5b2fd92dc8e8a74775c92a9",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.nsf.gov/focus-areas"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 5
+    },
+    "depth": 5
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "V39lejioMk6iuTe",
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/focus-areas#content-wrap\",\n  \"unique_key\": \"c6cc0e5913e029c577ebdaea1f665459ae1a068cd5b2fd92dc8e8a74775c92a9\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/focus-areas\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"V39lejioMk6iuTe\",\n  \"order_no\": \"1759358748942.104101\"\n}",
+  "order_no": "1759358748942.104101"
+}

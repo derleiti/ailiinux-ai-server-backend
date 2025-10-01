@@ -1,0 +1,23 @@
+{
+  "url": "https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html",
+  "unique_key": "23e5123e7f8f98e2686d5bba1c3da7c9c1d56b5e40701e3a065197b9ad44206b",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.darioamodei.com/post/the-urgency-of-interpretability"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html",
+  "handled_at": "2025-10-01 22:46:30.338360+00:00",
+  "id": "ADQrKifw0zv7rGY",
+  "json_": "{\n  \"url\": \"https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html\",\n  \"unique_key\": \"23e5123e7f8f98e2686d5bba1c3da7c9c1d56b5e40701e3a065197b9ad44206b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.darioamodei.com/post/the-urgency-of-interpretability\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html\",\n  \"handled_at\": \"2025-10-01 22:46:30.338360+00:00\",\n  \"id\": \"ADQrKifw0zv7rGY\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

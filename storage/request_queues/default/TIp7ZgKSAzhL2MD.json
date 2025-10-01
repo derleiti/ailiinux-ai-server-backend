@@ -1,0 +1,23 @@
+{
+  "url": "https://www.theverge.com/ai-artificial-intelligence",
+  "unique_key": "e8c6a21621346a4ee8ce64beaa150738481aaec4587a72319433ff8c216264de",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.theverge.com/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.theverge.com/ai-artificial-intelligence",
+  "handled_at": "2025-10-01 22:20:05.206988+00:00",
+  "id": "TIp7ZgKSAzhL2MD",
+  "json_": "{\n  \"url\": \"https://www.theverge.com/ai-artificial-intelligence\",\n  \"unique_key\": \"e8c6a21621346a4ee8ce64beaa150738481aaec4587a72319433ff8c216264de\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.theverge.com/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.theverge.com/ai-artificial-intelligence\",\n  \"handled_at\": \"2025-10-01 22:20:05.206988+00:00\",\n  \"id\": \"TIp7ZgKSAzhL2MD\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

@@ -1,0 +1,23 @@
+{
+  "url": "https://www.theverge.com/science#content",
+  "unique_key": "515cdf93a929f04d348000eef6ed199ec17e995364a6333d71d0a95575de59cf",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.theverge.com/science"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.theverge.com/science#content",
+  "handled_at": "2025-10-01 22:20:16.256748+00:00",
+  "id": "FDLhZOrDsiX8VnD",
+  "json_": "{\n  \"url\": \"https://www.theverge.com/science#content\",\n  \"unique_key\": \"515cdf93a929f04d348000eef6ed199ec17e995364a6333d71d0a95575de59cf\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.theverge.com/science\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.theverge.com/science#content\",\n  \"handled_at\": \"2025-10-01 22:20:16.256748+00:00\",\n  \"id\": \"FDLhZOrDsiX8VnD\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

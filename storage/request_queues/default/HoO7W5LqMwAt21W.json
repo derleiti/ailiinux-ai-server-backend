@@ -1,0 +1,23 @@
+{
+  "url": "https://www.theinformation.com/articles/anthropic-invests-startup-decodes-ai-models?rc=x8tsuw",
+  "unique_key": "45113c3ac05504f5007c9e5ec25d797bc7a69d70f111fdd2537aa468f1d02e70",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.darioamodei.com/post/the-urgency-of-interpretability"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.theinformation.com/articles/anthropic-invests-startup-decodes-ai-models",
+  "handled_at": "2025-10-01 23:20:50.523544+00:00",
+  "id": "HoO7W5LqMwAt21W",
+  "json_": "{\n  \"url\": \"https://www.theinformation.com/articles/anthropic-invests-startup-decodes-ai-models?rc=x8tsuw\",\n  \"unique_key\": \"45113c3ac05504f5007c9e5ec25d797bc7a69d70f111fdd2537aa468f1d02e70\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.darioamodei.com/post/the-urgency-of-interpretability\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.theinformation.com/articles/anthropic-invests-startup-decodes-ai-models\",\n  \"handled_at\": \"2025-10-01 23:20:50.523544+00:00\",\n  \"id\": \"HoO7W5LqMwAt21W\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

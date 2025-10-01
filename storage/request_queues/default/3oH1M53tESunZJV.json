@@ -1,0 +1,22 @@
+{
+  "url": "https://claude.ai/redirect/claudedotcom.v1.3b0cfa6f-f5d1-42ca-bd54-d18f1e3823b1",
+  "unique_key": "a068965aa3846f6d2b44dd44b6aee3538b93cd36a62922af1dd9154fedfffc68",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://claude.com/product/overview"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "3oH1M53tESunZJV",
+  "json_": "{\n  \"url\": \"https://claude.ai/redirect/claudedotcom.v1.3b0cfa6f-f5d1-42ca-bd54-d18f1e3823b1\",\n  \"unique_key\": \"a068965aa3846f6d2b44dd44b6aee3538b93cd36a62922af1dd9154fedfffc68\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://claude.com/product/overview\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"3oH1M53tESunZJV\",\n  \"order_no\": \"1759358509776.535034\"\n}",
+  "order_no": "1759358509776.535034"
+}

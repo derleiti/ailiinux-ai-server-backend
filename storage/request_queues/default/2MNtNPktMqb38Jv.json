@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/#main",
+  "unique_key": "13222676cc39748886d594719d0bff5a4cb58013431eb2d3f01e78650e9238bf",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/#main",
+  "handled_at": "2025-10-01 22:39:47.197758+00:00",
+  "id": "2MNtNPktMqb38Jv",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/#main\",\n  \"unique_key\": \"13222676cc39748886d594719d0bff5a4cb58013431eb2d3f01e78650e9238bf\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/#main\",\n  \"handled_at\": \"2025-10-01 22:39:47.197758+00:00\",\n  \"id\": \"2MNtNPktMqb38Jv\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

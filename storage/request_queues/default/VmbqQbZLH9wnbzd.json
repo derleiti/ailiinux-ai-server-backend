@@ -1,0 +1,23 @@
+{
+  "url": "https://en.wikipedia.org/wiki/Grandmother_cell",
+  "unique_key": "f78f620f9c3aefb4c8ff4a007c2b35c7512cc6c623d6072492d528faabdede5f",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.darioamodei.com/post/the-urgency-of-interpretability"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://en.wikipedia.org/wiki/Grandmother_cell",
+  "handled_at": "2025-10-01 22:46:28.065813+00:00",
+  "id": "VmbqQbZLH9wnbzd",
+  "json_": "{\n  \"url\": \"https://en.wikipedia.org/wiki/Grandmother_cell\",\n  \"unique_key\": \"f78f620f9c3aefb4c8ff4a007c2b35c7512cc6c623d6072492d528faabdede5f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.darioamodei.com/post/the-urgency-of-interpretability\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://en.wikipedia.org/wiki/Grandmother_cell\",\n  \"handled_at\": \"2025-10-01 22:46:28.065813+00:00\",\n  \"id\": \"VmbqQbZLH9wnbzd\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

@@ -1,0 +1,21 @@
+{
+  "url": "https://www.wired.com/",
+  "unique_key": "5c93cea1905f8bf888ea1321a418f890e6a16f24e30fea6720327fd10b597047",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "seed"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3
+    }
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.wired.com/",
+  "handled_at": "2025-10-01 22:29:21.565773+00:00",
+  "id": "XRbJ8DL1MuKCLSl",
+  "json_": "{\n  \"url\": \"https://www.wired.com/\",\n  \"unique_key\": \"5c93cea1905f8bf888ea1321a418f890e6a16f24e30fea6720327fd10b597047\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"seed\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3\n    }\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.wired.com/\",\n  \"handled_at\": \"2025-10-01 22:29:21.565773+00:00\",\n  \"id\": \"XRbJ8DL1MuKCLSl\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

@@ -1,0 +1,23 @@
+{
+  "url": "https://www.nsf.gov/focus-areas/workforce",
+  "unique_key": "952e35e46764f53e96f8c9d367d0a8a6c5ed62c2f3563e1fc2f58445ad616aa6",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.nsf.gov/focus-areas/artificial-intelligence/nairr#nairr-pilot-partners-and-contributors-890"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.nsf.gov/focus-areas/workforce",
+  "handled_at": "2025-10-01 22:45:49.046994+00:00",
+  "id": "F4X7jRSLq6I2Dzx",
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/focus-areas/workforce\",\n  \"unique_key\": \"952e35e46764f53e96f8c9d367d0a8a6c5ed62c2f3563e1fc2f58445ad616aa6\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/focus-areas/artificial-intelligence/nairr#nairr-pilot-partners-and-contributors-890\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.nsf.gov/focus-areas/workforce\",\n  \"handled_at\": \"2025-10-01 22:45:49.046994+00:00\",\n  \"id\": \"F4X7jRSLq6I2Dzx\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

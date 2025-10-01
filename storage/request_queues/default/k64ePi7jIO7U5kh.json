@@ -1,0 +1,23 @@
+{
+  "url": "https://rhg.com/china/what-we-do/",
+  "unique_key": "830eb2f7808fa6438fe3887a027b4251e325d0c4216b180204470a2659eb1a6e",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://rhg.com/research/back-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://rhg.com/china/what-we-do/",
+  "handled_at": "2025-10-01 23:22:26.862735+00:00",
+  "id": "k64ePi7jIO7U5kh",
+  "json_": "{\n  \"url\": \"https://rhg.com/china/what-we-do/\",\n  \"unique_key\": \"830eb2f7808fa6438fe3887a027b4251e325d0c4216b180204470a2659eb1a6e\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://rhg.com/research/back-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://rhg.com/china/what-we-do/\",\n  \"handled_at\": \"2025-10-01 23:22:26.862735+00:00\",\n  \"id\": \"k64ePi7jIO7U5kh\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

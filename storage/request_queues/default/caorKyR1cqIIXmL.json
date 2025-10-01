@@ -1,0 +1,22 @@
+{
+  "url": "https://www.nsf.gov/focus-areas/chemistry#fba-button",
+  "unique_key": "c9575d67f2159eed2bcd87793175cf81327a435fb5660260616e56de0aa3a4da",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.nsf.gov/focus-areas/chemistry"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 5
+    },
+    "depth": 5
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "caorKyR1cqIIXmL",
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/focus-areas/chemistry#fba-button\",\n  \"unique_key\": \"c9575d67f2159eed2bcd87793175cf81327a435fb5660260616e56de0aa3a4da\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/focus-areas/chemistry\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"caorKyR1cqIIXmL\",\n  \"order_no\": \"1759358759661.120892\"\n}",
+  "order_no": "1759358759661.120892"
+}

@@ -1,0 +1,22 @@
+{
+  "url": "https://www.rand.org/pubs/commentary/2025/02/deepseeks-lesson-america-needs-smarter-export-controls.html",
+  "unique_key": "85b397ba9ea1cb04d00fa414bfd19468e7850c52f261e82c3ec0376a978f2498",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.chinatalk.media/p/mapping-chinas-hbm-advancement"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "YxS8mkxGPe4I2a9",
+  "json_": "{\n  \"url\": \"https://www.rand.org/pubs/commentary/2025/02/deepseeks-lesson-america-needs-smarter-export-controls.html\",\n  \"unique_key\": \"85b397ba9ea1cb04d00fa414bfd19468e7850c52f261e82c3ec0376a978f2498\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"YxS8mkxGPe4I2a9\",\n  \"order_no\": \"1759358496679.322004\"\n}",
+  "order_no": "1759358496679.322004"
+}

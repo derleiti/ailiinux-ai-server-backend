@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/economic-index#footer",
+  "unique_key": "cb5e17dbb4d8b6de4d6de633c119d5b11408d0e608675cf4df3c5c95b6f747c4",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/economic-index"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/economic-index#footer",
+  "handled_at": "2025-10-01 22:46:17.175552+00:00",
+  "id": "49OlgkiV2BIK6lH",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/economic-index#footer\",\n  \"unique_key\": \"cb5e17dbb4d8b6de4d6de633c119d5b11408d0e608675cf4df3c5c95b6f747c4\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/economic-index\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/economic-index#footer\",\n  \"handled_at\": \"2025-10-01 22:46:17.175552+00:00\",\n  \"id\": \"49OlgkiV2BIK6lH\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

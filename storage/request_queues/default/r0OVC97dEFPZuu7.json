@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/news/claude-4",
+  "unique_key": "4ec03078d3169fe59abbc675ae91477a9e5ab856bc5e3f7811c4062f2b772937",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/claude/opus"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "r0OVC97dEFPZuu7",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/claude-4\",\n  \"unique_key\": \"4ec03078d3169fe59abbc675ae91477a9e5ab856bc5e3f7811c4062f2b772937\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/claude/opus\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"r0OVC97dEFPZuu7\",\n  \"order_no\": \"1759358508459.737062\"\n}",
+  "order_no": "1759358508459.737062"
+}

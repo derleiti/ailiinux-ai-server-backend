@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/news/visible-extended-thinking",
+  "unique_key": "8243dc3d3ead4c1cf3e3d2148c9fa639903643eb4198b09d44056a4e1a981aa5",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/activating-asl3-protections"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/news/visible-extended-thinking",
+  "handled_at": "2025-10-01 23:28:05.717380+00:00",
+  "id": "nghzwyQS8hmKzeR",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/visible-extended-thinking\",\n  \"unique_key\": \"8243dc3d3ead4c1cf3e3d2148c9fa639903643eb4198b09d44056a4e1a981aa5\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/activating-asl3-protections\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/news/visible-extended-thinking\",\n  \"handled_at\": \"2025-10-01 23:28:05.717380+00:00\",\n  \"id\": \"nghzwyQS8hmKzeR\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

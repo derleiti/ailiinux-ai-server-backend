@@ -1,0 +1,23 @@
+{
+  "url": "https://blogs.windows.com/windowsdeveloper#a11y-skip-link-content",
+  "unique_key": "d4d2b88a33c83fd2d91576f5fcdbc9cf8ea3bcaffa04f9df4ba65d0a43f2755b",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://blogs.windows.com/windowsdeveloper"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://blogs.windows.com/windowsdeveloper/#a11y-skip-link-content",
+  "handled_at": "2025-10-01 22:25:16.511918+00:00",
+  "id": "HnRacWSQ9Gq6x2K",
+  "json_": "{\n  \"url\": \"https://blogs.windows.com/windowsdeveloper#a11y-skip-link-content\",\n  \"unique_key\": \"d4d2b88a33c83fd2d91576f5fcdbc9cf8ea3bcaffa04f9df4ba65d0a43f2755b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://blogs.windows.com/windowsdeveloper\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://blogs.windows.com/windowsdeveloper/#a11y-skip-link-content\",\n  \"handled_at\": \"2025-10-01 22:25:16.511918+00:00\",\n  \"id\": \"HnRacWSQ9Gq6x2K\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

@@ -1,0 +1,23 @@
+{
+  "url": "https://www.ign.com/maps",
+  "unique_key": "ffa7b3c4da930b8c2e20674d2ae42d72771dd06d7b5dfdbf50e22e6ac4e8ab2f",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.ign.com/pc"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.ign.com/maps",
+  "handled_at": "2025-10-01 22:32:48.238525+00:00",
+  "id": "QP2Yu3tDs3z0ZqD",
+  "json_": "{\n  \"url\": \"https://www.ign.com/maps\",\n  \"unique_key\": \"ffa7b3c4da930b8c2e20674d2ae42d72771dd06d7b5dfdbf50e22e6ac4e8ab2f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.ign.com/pc\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.ign.com/maps\",\n  \"handled_at\": \"2025-10-01 22:32:48.238525+00:00\",\n  \"id\": \"QP2Yu3tDs3z0ZqD\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

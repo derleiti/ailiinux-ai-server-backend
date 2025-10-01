@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation#footer",
+  "unique_key": "cc24d5cbcb01da478d2f3270e459a68bab07f5af3a6f618e434520c5252a3a9e",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation#main-content"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation#footer",
+  "handled_at": "2025-10-01 22:43:06.811144+00:00",
+  "id": "dEqEoZU85iGWvlg",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation#footer\",\n  \"unique_key\": \"cc24d5cbcb01da478d2f3270e459a68bab07f5af3a6f618e434520c5252a3a9e\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation#main-content\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation#footer\",\n  \"handled_at\": \"2025-10-01 22:43:06.811144+00:00\",\n  \"id\": \"dEqEoZU85iGWvlg\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

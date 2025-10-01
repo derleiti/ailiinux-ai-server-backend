@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/economic-index",
+  "unique_key": "5d514a1bd15a5c8d3357730fe38d8e48feefd7db2c86cdbdbf2acfd394a37197",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/economic-index",
+  "handled_at": "2025-10-01 22:41:17.411468+00:00",
+  "id": "t2kb4SqhYVgkYHN",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/economic-index\",\n  \"unique_key\": \"5d514a1bd15a5c8d3357730fe38d8e48feefd7db2c86cdbdbf2acfd394a37197\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/economic-index\",\n  \"handled_at\": \"2025-10-01 22:41:17.411468+00:00\",\n  \"id\": \"t2kb4SqhYVgkYHN\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/news/constitutional-classifiers#main-content",
+  "unique_key": "f369a71924ba2b4610030826212b6829b1aee4e645036142d2d565e2a3b94ce7",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/constitutional-classifiers"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "aD3qO1n8W9AQsVS",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/constitutional-classifiers#main-content\",\n  \"unique_key\": \"f369a71924ba2b4610030826212b6829b1aee4e645036142d2d565e2a3b94ce7\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/constitutional-classifiers\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"aD3qO1n8W9AQsVS\",\n  \"order_no\": \"1759358567074.609041\"\n}",
+  "order_no": "1759358567074.609041"
+}

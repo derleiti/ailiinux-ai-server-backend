@@ -1,0 +1,23 @@
+{
+  "url": "https://arstechnica.com/civis/forums/-/-/th-nnm-navigate",
+  "unique_key": "2f8e392cae097c6bc2accd6a337b07fb85ae2731069cb3e7f5dfb0e4ee0b040b",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://arstechnica.com/civis/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://arstechnica.com/civis/forums/-/-/th-nnm-navigate",
+  "handled_at": "2025-10-01 22:26:56.847196+00:00",
+  "id": "a1NPIySo0AnvNCI",
+  "json_": "{\n  \"url\": \"https://arstechnica.com/civis/forums/-/-/th-nnm-navigate\",\n  \"unique_key\": \"2f8e392cae097c6bc2accd6a337b07fb85ae2731069cb3e7f5dfb0e4ee0b040b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://arstechnica.com/civis/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://arstechnica.com/civis/forums/-/-/th-nnm-navigate\",\n  \"handled_at\": \"2025-10-01 22:26:56.847196+00:00\",\n  \"id\": \"a1NPIySo0AnvNCI\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

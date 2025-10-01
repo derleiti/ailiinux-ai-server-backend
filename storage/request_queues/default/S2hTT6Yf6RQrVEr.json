@@ -1,0 +1,23 @@
+{
+  "url": "https://claude.com/customers",
+  "unique_key": "32d05bbf607fb7cc0a1ccf5e2083c930fb2f703ce7df6a4be57badaad72288b7",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation#main-content"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://claude.com/customers",
+  "handled_at": "2025-10-01 22:43:18.652569+00:00",
+  "id": "S2hTT6Yf6RQrVEr",
+  "json_": "{\n  \"url\": \"https://claude.com/customers\",\n  \"unique_key\": \"32d05bbf607fb7cc0a1ccf5e2083c930fb2f703ce7df6a4be57badaad72288b7\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation#main-content\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://claude.com/customers\",\n  \"handled_at\": \"2025-10-01 22:43:18.652569+00:00\",\n  \"id\": \"S2hTT6Yf6RQrVEr\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

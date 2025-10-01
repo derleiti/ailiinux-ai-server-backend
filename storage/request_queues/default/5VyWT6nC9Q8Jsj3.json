@@ -1,0 +1,22 @@
+{
+  "url": "https://semidata.substack.com/p/what-tsmcs-recent-cowos-capacity",
+  "unique_key": "817577b5656c31f431d007b2b4f262d8e4a31c6bc1e76e74e1a8938695a6a8b5",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.chinatalk.media/p/mapping-chinas-hbm-advancement"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "5VyWT6nC9Q8Jsj3",
+  "json_": "{\n  \"url\": \"https://semidata.substack.com/p/what-tsmcs-recent-cowos-capacity\",\n  \"unique_key\": \"817577b5656c31f431d007b2b4f262d8e4a31c6bc1e76e74e1a8938695a6a8b5\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"5VyWT6nC9Q8Jsj3\",\n  \"order_no\": \"1759358496685.060024\"\n}",
+  "order_no": "1759358496685.060024"
+}

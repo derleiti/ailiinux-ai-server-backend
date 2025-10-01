@@ -1,0 +1,23 @@
+{
+  "url": "https://www.ign.com/wikis",
+  "unique_key": "a7fd7e369cf968dfd455dbe11784922ac36b12b274a7c0376c7b95577ca99556",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.ign.com/pc"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.ign.com/wikis",
+  "handled_at": "2025-10-01 22:32:32.854683+00:00",
+  "id": "ekX0XmPMi4jcjmD",
+  "json_": "{\n  \"url\": \"https://www.ign.com/wikis\",\n  \"unique_key\": \"a7fd7e369cf968dfd455dbe11784922ac36b12b274a7c0376c7b95577ca99556\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.ign.com/pc\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.ign.com/wikis\",\n  \"handled_at\": \"2025-10-01 22:32:32.854683+00:00\",\n  \"id\": \"ekX0XmPMi4jcjmD\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

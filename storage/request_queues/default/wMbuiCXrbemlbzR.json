@@ -1,0 +1,23 @@
+{
+  "url": "https://github.com/features/actions",
+  "unique_key": "a8579c24f00201acbb3fae12b2ce30a6a3a900bbef10a92c29d23f1cfaa317aa",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://github.com/trending"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://github.com/features/actions",
+  "handled_at": "2025-10-01 22:23:27.228811+00:00",
+  "id": "wMbuiCXrbemlbzR",
+  "json_": "{\n  \"url\": \"https://github.com/features/actions\",\n  \"unique_key\": \"a8579c24f00201acbb3fae12b2ce30a6a3a900bbef10a92c29d23f1cfaa317aa\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://github.com/trending\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://github.com/features/actions\",\n  \"handled_at\": \"2025-10-01 22:23:27.228811+00:00\",\n  \"id\": \"wMbuiCXrbemlbzR\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

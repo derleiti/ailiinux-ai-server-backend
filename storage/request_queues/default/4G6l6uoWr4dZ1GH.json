@@ -1,0 +1,22 @@
+{
+  "url": "https://micron-corp-dev.adobecqms.net/about/blog/memory/dram/inside-1a-the-worlds-most-advanced-dram-process-technology",
+  "unique_key": "0dc00f55deb0dc2cfa7799c554bb473b7dcddb13af755c38097e48e933b8933e",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.chinatalk.media/p/mapping-chinas-hbm-advancement"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "4G6l6uoWr4dZ1GH",
+  "json_": "{\n  \"url\": \"https://micron-corp-dev.adobecqms.net/about/blog/memory/dram/inside-1a-the-worlds-most-advanced-dram-process-technology\",\n  \"unique_key\": \"0dc00f55deb0dc2cfa7799c554bb473b7dcddb13af755c38097e48e933b8933e\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"4G6l6uoWr4dZ1GH\",\n  \"order_no\": \"1759358496717.808962\"\n}",
+  "order_no": "1759358496717.808962"
+}

@@ -1,0 +1,23 @@
+{
+  "url": "https://www.linuxfoundation.org/about#367808f5-6199-460e-905b-c802fbf46bea",
+  "unique_key": "e7a23a904899cf5a7c22b43dcd1e06ccdde2912fe3f55e90551d130d8e40f5b3",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.linuxfoundation.org/about"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.linuxfoundation.org/about#367808f5-6199-460e-905b-c802fbf46bea",
+  "handled_at": "2025-10-01 22:38:31.043385+00:00",
+  "id": "NWVie3db2p4lPsP",
+  "json_": "{\n  \"url\": \"https://www.linuxfoundation.org/about#367808f5-6199-460e-905b-c802fbf46bea\",\n  \"unique_key\": \"e7a23a904899cf5a7c22b43dcd1e06ccdde2912fe3f55e90551d130d8e40f5b3\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.linuxfoundation.org/about\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.linuxfoundation.org/about#367808f5-6199-460e-905b-c802fbf46bea\",\n  \"handled_at\": \"2025-10-01 22:38:31.043385+00:00\",\n  \"id\": \"NWVie3db2p4lPsP\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

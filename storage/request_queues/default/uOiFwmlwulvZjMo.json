@@ -1,0 +1,23 @@
+{
+  "url": "https://anthropic.com/engineering/building-agents-with-the-claude-agent-sdk",
+  "unique_key": "a08f512fd4e204420a4cb0954561f62f07c1f5822a4cd4227ea4dda976a5e6d4",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/claude-sonnet-4-5#footer"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk",
+  "handled_at": "2025-10-01 22:42:19.830228+00:00",
+  "id": "uOiFwmlwulvZjMo",
+  "json_": "{\n  \"url\": \"https://anthropic.com/engineering/building-agents-with-the-claude-agent-sdk\",\n  \"unique_key\": \"a08f512fd4e204420a4cb0954561f62f07c1f5822a4cd4227ea4dda976a5e6d4\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/claude-sonnet-4-5#footer\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk\",\n  \"handled_at\": \"2025-10-01 22:42:19.830228+00:00\",\n  \"id\": \"uOiFwmlwulvZjMo\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

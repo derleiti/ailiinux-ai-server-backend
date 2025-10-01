@@ -14,6 +14,10 @@ from urllib.parse import urljoin, urlparse
 from urllib.robotparser import RobotFileParser
 
 from playwright.async_api import async_playwright, Playwright
+import playwright
+from crawlee.playwright_crawler import PlaywrightCrawler, PlaywrightCrawlingContext
+from crawlee._request import Request
+from crawlee.storages._request_queue import RequestQueue
 
 
 import httpx
@@ -130,6 +134,7 @@ class CrawlResult:
     source_domain: Optional[str] = None
     labels: List[str] = field(default_factory=list)
     tokens_est: Optional[int] = None
+    extracted_content_ollama: Optional[str] = None
 
     def to_dict(self, include_content: bool = True) -> dict[str, Any]:
         payload = {
@@ -161,6 +166,7 @@ class CrawlResult:
             "source_domain": self.source_domain,
             "labels": self.labels,
             "tokens_est": self.tokens_est,
+            "extracted_content_ollama": self.extracted_content_ollama,
             "size_bytes": self.size_bytes,
             "ratings": [feedback.to_dict() for feedback in self.ratings],
         }
@@ -194,6 +200,7 @@ class CrawlResult:
             source_domain=data.get("source_domain"),
             labels=data.get("labels", []),
             tokens_est=data.get("tokens_est"),
+            extracted_content_ollama=data.get("extracted_content_ollama"),
         )
         for rating in data.get("ratings", []):
             result.ratings.append(
@@ -230,7 +237,10 @@ class CrawlJob:
     user_context: Optional[str]
     requested_by: Optional[str]
     metadata: dict[str, Any]
+    ollama_assisted: bool = False
+    ollama_query: Optional[str] = None
     status: str = "queued"
+    priority: str = "low"
     created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
     updated_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
     completed_at: Optional[datetime] = None
@@ -344,13 +354,13 @@ class CrawlerManager:
         )
         self._jobs: Dict[str, CrawlJob] = {}
         self._job_queue: "asyncio.Queue[str]" = asyncio.Queue()
+        self._high_priority_job_queue: "asyncio.Queue[str]" = asyncio.Queue()
         self._robots_cache: Dict[str, Optional[RobotFileParser]] = {}
-        self._client: Optional[httpx.AsyncClient] = None
         self._worker_task: Optional[asyncio.Task] = None
+        self._auto_crawl_task: Optional[asyncio.Task] = None
         self._stop_event = asyncio.Event()
         self._lock = asyncio.Lock()
         self._random = random.Random()
-        self._playwright: Optional[Playwright] = None
 
         # Training data management
         self._train_dir = Path(getattr(settings, "crawler_train_dir", "data/crawler_spool/train"))
@@ -381,10 +391,10 @@ class CrawlerManager:
     async def start(self) -> None:
         if self._worker_task and not self._worker_task.done():
             return
-        self._client = httpx.AsyncClient(headers=DEFAULT_HEADERS, follow_redirects=True, timeout=20.0)
-        self._playwright = await async_playwright().start()
         self._stop_event.clear()
+        logger.info("Attempting to create crawler worker task.") # New INFO message
         self._worker_task = asyncio.create_task(self._run_worker(), name="crawler-worker")
+        self._auto_crawl_task = asyncio.create_task(self._run_auto_crawler(), name="auto-crawler")
         logger.info("Crawler manager started")
 
     async def flush_hourly(self) -> None:
@@ -483,12 +493,14 @@ class CrawlerManager:
         if self._worker_task:
             await self._worker_task
             self._worker_task = None
-        if self._client:
-            await self._client.aclose()
-            self._client = None
-        if self._playwright:
-            await self._playwright.stop()
-            self._playwright = None
+        if self._auto_crawl_task:
+            self._auto_crawl_task.cancel()
+            try:
+                await self._auto_crawl_task
+            except asyncio.CancelledError:
+                pass
+            self._auto_crawl_task = None
+        # Crawlee manages its own client and playwright instances
         logger.info("Crawler manager stopped")
 
     async def create_job(
@@ -504,6 +516,9 @@ class CrawlerManager:
         user_context: Optional[str] = None,
         requested_by: Optional[str] = None,
         metadata: Optional[dict[str, Any]] = None,
+        ollama_assisted: bool = False,
+        ollama_query: Optional[str] = None,
+        priority: str = "low", # New priority parameter
     ) -> CrawlJob:
         if not seeds:
             raise ValueError("At least one seed URL is required")
@@ -523,11 +538,19 @@ class CrawlerManager:
             user_context=user_context,
             requested_by=requested_by,
             metadata=metadata or {},
+            ollama_assisted=ollama_assisted,
+            ollama_query=ollama_query,
+            priority=priority, # Pass priority to CrawlJob
         )
         async with self._lock:
             self._jobs[job.id] = job
-        await self._job_queue.put(job.id)
-        logger.info("Crawler job %s queued with %d seeds", job.id, len(job.seeds))
+        if priority == "high":
+            await self._high_priority_job_queue.put(job.id)
+            logger.debug("High-priority job %s added to queue. High-priority queue size: %d", job.id, self._high_priority_job_queue.qsize())
+        else:
+            await self._job_queue.put(job.id)
+            logger.debug("Low-priority job %s added to queue. Low-priority queue size: %d", job.id, self._job_queue.qsize())
+        logger.info("Crawler job %s (priority: %s) queued with %d seeds", job.id, priority, len(job.seeds))
         return job
 
     async def list_jobs(self) -> List[CrawlJob]:
@@ -672,156 +695,302 @@ class CrawlerManager:
         return scored_results[:limit]
 
     async def _run_worker(self) -> None:
-        assert self._client is not None
+        logger.info("Crawler worker task has started.") # New INFO message
+        logger.debug("Crawler worker started.")
         while not self._stop_event.is_set():
+            job_id = None
             try:
-                job_id = await asyncio.wait_for(self._job_queue.get(), timeout=1.0)
+                # Try to get a job from the high-priority queue first
+                job_id = await asyncio.wait_for(self._high_priority_job_queue.get(), timeout=0.1) # Short timeout for high-priority
+                logger.debug("Retrieved high-priority job_id %s from queue.", job_id)
             except asyncio.TimeoutError:
-                continue
+                pass # High-priority queue is empty, try low-priority
+
+            if job_id is None:
+                try:
+                    # If high-priority queue is empty, get from low-priority queue
+                    job_id = await asyncio.wait_for(self._job_queue.get(), timeout=1.0)
+                    logger.debug("Retrieved low-priority job_id %s from queue.", job_id)
+                except asyncio.TimeoutError:
+                    continue # Both queues empty, continue loop
+
             job = await self.get_job(job_id)
             if not job:
+                logger.warning("Job %s not found in _jobs, skipping.", job_id)
                 continue
-            await self._process_job(job)
-            self._job_queue.task_done()
+            logger.debug("Processing job %s", job.id)
 
-    async def _process_job(self, job: CrawlJob) -> None:
-        assert self._client is not None
-        assert self._playwright is not None
-        job.status = "running"
-        job.updated_at = datetime.now(timezone.utc)
-        await self._persist_job(job)
-        queue: deque[Tuple[str, int, Optional[str]]] = deque()
-        for seed in job.seeds:
-            queue.append((seed, 0, None))
-        visited: Set[str] = set()
-
-        browser = await self._playwright.chromium.launch()
-        page = await browser.new_page()
-
-        while queue and job.pages_crawled < job.max_pages:
-            url, depth, parent = queue.popleft()
-            if url in visited:
-                continue
-            visited.add(url)
-            if depth > job.max_depth:
-                continue
-            if not await self._can_fetch(url):
-                continue
-            await asyncio.sleep(job.rate_limit + self._random.uniform(0.0, job.rate_limit))
-            try:
-                await page.goto(url, wait_until="domcontentloaded")
-                html_content = await page.content()
-                response_status = 200 # If goto succeeds, we can assume 200
-            except Exception as exc:  # pragma: no cover - network issues
-                logger.warning("Crawler fetch failed for %s: %s", url, exc)
-                continue
-            
-            if response_status >= 400:
-                continue
-
-            soup = BeautifulSoup(html_content, "html.parser")
-            text_content = self._extract_text(soup)
-            score, matched_keywords = self._score_content(text_content, job.keywords)
-            if score >= job.relevance_threshold:
-                result = await self._build_result(
-                    job,
-                    url=url,
-                    parent_url=parent,
-                    depth=depth,
-                    soup=soup,
-                    text_content=text_content,
-                    score=score,
-                    matched_keywords=matched_keywords,
-                )
-                await self._store.add(result)
-                job.results.append(result.id)
-                self._train_buffer.append(result) # Add to training buffer
-            job.pages_crawled += 1
+            job.status = "running"
             job.updated_at = datetime.now(timezone.utc)
             await self._persist_job(job)
 
-            if depth < job.max_depth:
-                links = self._extract_links(url, soup, job)
-                for link in links:
-                    if link not in visited:
-                        queue.append((link, depth + 1, url))
+            async def local_request_handler(context: PlaywrightCrawlingContext) -> None:
+                await self._process_request(context, job)
 
-        await browser.close()
-        job.status = "completed"
-        job.completed_at = datetime.now(timezone.utc)
-        job.updated_at = datetime.now(timezone.utc)
-        await self._persist_job(job)
-        logger.info("Crawler job %s completed with %d pages crawled", job.id, len(job.results))
+            try:
+                logger.debug("Initializing PlaywrightCrawler for job %s", job.id)
 
-    async def _build_result(
-        self,
-        job: CrawlJob,
-        *,
-        url: str,
-        parent_url: Optional[str],
-        depth: int,
-        soup: BeautifulSoup,
-        text_content: str,
-        score: float,
-        matched_keywords: List[str],
-    ) -> CrawlResult:
-        title = self._extract_title(soup)
-        meta_description = self._extract_meta_description(soup)
-        publish_date = self._extract_publish_date(soup)
-        excerpt = self._build_excerpt(text_content)
-        headline, summary = await self._generate_summary(text_content, meta_description)
-        normalized_text = self._normalize_text(soup)
-        content_hash = hashlib.sha256(normalized_text.encode("utf-8")).hexdigest()
-        source_domain = urlparse(url).netloc
-        tokens_est = len(normalized_text.split())
+                crawler = PlaywrightCrawler(
+                    request_handler=local_request_handler,
+                    max_request_retries=2,
+                    max_requests_per_crawl=job.max_pages,
+                    max_crawl_depth=job.max_depth,
+                    headless=True,
+                    request_handler_timeout=timedelta(seconds=300),
+                )
+                logger.debug("PlaywrightCrawler initialized for job %s", job.id)
+            except Exception as exc:
+                logger.error("Error initializing PlaywrightCrawler for job %s: %s", job.id, exc)
+                job.status = "failed"
+                job.error = f"Crawler initialization failed: {exc}"
+                await self._persist_job(job)
+                self._job_queue.task_done()
+                continue
 
-        result = CrawlResult(
-            id=str(uuid.uuid4()),
-            job_id=job.id,
-            url=url,
-            depth=depth,
-            parent_url=parent_url,
-            status="pending",
-            title=title,
-            summary=summary,
-            headline=headline,
-            content=text_content,
-            excerpt=excerpt,
-            meta_description=meta_description,
-            keywords_matched=matched_keywords,
-            score=score,
-            publish_date=publish_date,
-            tags=self._guess_tags(matched_keywords, job.metadata.get("tags")),
-            normalized_text=normalized_text,
-            content_hash=content_hash,
-            source_domain=source_domain,
-            tokens_est=tokens_est,
-        )
-        return result
+            # Add seeds to Crawlee's request queue
+            initial_requests = []
+            logger.debug("Preparing initial requests for job %s.", job.id)
+            for seed in job.seeds:
+                try:
+                    # Generate a unique ID for the request
+                    request_id = hashlib.sha256(seed.encode('utf-8')).hexdigest()
+                    initial_requests.append(Request(url=seed, uniqueKey=request_id, id=request_id, headers={"X-Crawl-Parent": "seed"}))
+                except Exception as exc:
+                    logger.error("Error creating Crawlee Request object for seed %s: %s", seed, exc)
+            logger.debug("Initial requests prepared for job %s: %s", job.id, [req.url for req in initial_requests])
+
+            try:
+                logger.debug("Starting PlaywrightCrawler run for job %s with %d initial requests.", job.id, len(initial_requests))
+                await asyncio.wait_for(crawler.run(initial_requests), timeout=300.0)
+                logger.debug("PlaywrightCrawler run completed for job %s.", job.id)
+                job.status = "completed"
+                job.completed_at = datetime.now(timezone.utc)
+                await self._persist_job(job)
+            except asyncio.TimeoutError:
+                logger.warning("Crawl job %s timed out after 300 seconds - marking as partial complete.", job.id)
+                job.status = "partial_complete"
+                job.error = "Crawl timed out after 300 seconds (partial results saved)."
+                job.completed_at = datetime.now(timezone.utc)
+                await self._persist_job(job)
+            except playwright._impl._errors.Error as exc:
+                logger.error("Playwright error during crawl for job %s: %s", job.id, exc, exc_info=True)
+                job.status = "failed"
+                job.error = f"Playwright error ({type(exc).__name__}): {str(exc)}"
+                job.completed_at = datetime.now(timezone.utc)
+                await self._persist_job(job)
+            except Exception as exc:
+                logger.error("Error during PlaywrightCrawler run for job %s: %s", job.id, exc, exc_info=True)
+                job.status = "failed"
+                job.error = f"Crawler run failed: {exc}"
+                job.completed_at = datetime.now(timezone.utc)
+                await self._persist_job(job)
+            
+            self._job_queue.task_done()
+
+    async def _run_auto_crawler(self) -> None:
+        while not self._stop_event.is_set():
+            await asyncio.sleep(86400) # Run every 24 hours
+            logger.info("Starting automatic crawl for AI news and tech topics.")
+            
+            keywords = ["ai", "artificial intelligence", "machine learning", "deep learning", "linux", "windows", "software", "programming", "coding"]
+            seeds = [
+                "https://www.artificialintelligence-news.com/",
+                "https://www.sciencedaily.com/news/computers_math/artificial_intelligence/",
+                "https://www.technologyreview.com/tag/artificial-intelligence/",
+                "https://venturebeat.com/category/ai/",
+                "https://www.theverge.com/tech",
+                "https://techcrunch.com/",
+                "https://www.wired.com/category/technology/",
+                "https://arstechnica.com/gadgets/",
+                "https://news.ycombinator.com/",
+                "https://dev.to/",
+                "https://www.phoronix.com/"
+            ]
+            
+            await self.create_job(
+                keywords=keywords,
+                seeds=seeds,
+                max_depth=3,
+                max_pages=100,
+                allow_external=True,
+                requested_by="auto_crawler",
+                user_context="Automatic 24/7 crawl for AI news and tech topics.",
+                ollama_assisted=True,
+                ollama_query="Extract key information about AI, Linux, Windows, software, and programming.",
+                priority="low", # Explicitly set priority to low for auto-crawler jobs
+            )
 
     async def _persist_job(self, job: CrawlJob) -> None:
         async with self._lock:
             self._jobs[job.id] = job
 
-    async def _can_fetch(self, url: str) -> bool:
-        parsed = urlparse(url)
-        base = f"{parsed.scheme}://{parsed.netloc}"
-        parser = self._robots_cache.get(base)
-        if parser is None and self._client:
-            robots_url = urljoin(base, "/robots.txt")
-            parser = RobotFileParser()
+    async def _process_request(self, context: PlaywrightCrawlingContext, job: CrawlJob) -> None:
+        logger.debug(f"Processing URL: {context.request.url}")
+
+        # Add randomized delay based on job.rate_limit with jitter
+        delay = job.rate_limit + self._random.uniform(0, job.rate_limit * 0.5)
+        await asyncio.sleep(delay)
+
+        # Robust response validation with error handling
+        try:
+            if not context.response:
+                logger.warning("No response object available for %s - skipping", context.request.url)
+                return
+
+            status = context.response.status
+            if status >= 500:
+                logger.error("Server error (%d) at %s - skipping", status, context.request.url)
+                return
+            elif status >= 400:
+                logger.warning("Client error (%d) at %s - skipping", status, context.request.url)
+                return
+        except Exception as exc:
+            logger.error("Error checking response for %s: %s", context.request.url, exc, exc_info=True)
+            return
+
+        # Content type check with error handling
+        try:
+            content_type = context.response.headers.get("content-type", "").lower()
+            if "text/html" not in content_type:
+                logger.info(f"Skipping non-HTML content at {context.request.url} (type: {content_type})")
+                return
+        except Exception as exc:
+            logger.error("Error checking content type for %s: %s", context.request.url, exc, exc_info=True)
+            return
+
+        # Set realistic browser properties to avoid detection
+        try:
+            await context.page.evaluate("""
+                () => {
+                    Object.defineProperty(navigator, 'webdriver', {
+                        get: () => undefined
+                    });
+                    Object.defineProperty(navigator, 'plugins', {
+                        get: () => [1, 2, 3, 4, 5]
+                    });
+                    Object.defineProperty(navigator, 'languages', {
+                        get: () => ['en-US', 'en']
+                    });
+                    window.chrome = {
+                        runtime: {}
+                    };
+                }
+            """)
+        except Exception as exc:
+            logger.debug(f"Could not set stealth properties: {exc}")
+
+        # Handle cookie consent with multiple selectors
+        cookie_selectors = [
+            'button:has-text("Accept All")',
+            'button:has-text("Alle akzeptieren")',
+            'button:has-text("Accept")',
+            'button:has-text("Akzeptieren")',
+            'button[id*="accept"]',
+            'button[class*="accept"]',
+            'a:has-text("Accept All")',
+            '#cookie-accept',
+            '.cookie-accept',
+        ]
+
+        for selector in cookie_selectors:
             try:
-                response = await self._client.get(robots_url, timeout=10.0)
-                if response.status_code == 200:
-                    parser.parse(response.text.splitlines())
-                else:
-                    parser = None
-            except Exception:  # pragma: no cover
-                parser = None
-            self._robots_cache[base] = parser
-        if parser:
-            return parser.can_fetch(USER_AGENT, url)
-        return True
+                await context.page.click(selector, timeout=3000)
+                logger.debug("Clicked cookie banner using selector: %s", selector)
+                break
+            except playwright._impl._errors.TimeoutError:
+                continue
+            except Exception as exc:
+                logger.debug("Error clicking selector %s: %s", selector, exc)
+                continue
+
+        # Get page content with error handling
+        try:
+            html = await context.page.content()
+            soup = BeautifulSoup(html, "html.parser")
+            text_content = self._extract_text(soup)
+            logger.debug("Successfully extracted content from %s (%d chars)", context.request.url, len(text_content))
+        except Exception as exc:
+            logger.error("Error extracting content from %s: %s", context.request.url, exc, exc_info=True)
+            return
+
+        # Score content
+        try:
+            score, matched_keywords = self._score_content(text_content, job.keywords)
+            logger.debug("Content score for %s: %.2f (matched: %s)", context.request.url, score, matched_keywords)
+        except Exception as exc:
+            logger.error("Error scoring content from %s: %s", context.request.url, exc, exc_info=True)
+            score = 0.0
+            matched_keywords = []
+
+        # Ollama analysis if enabled - with graceful degradation
+        extracted_content_ollama = None
+        relevance_score = 0.0
+        if job.ollama_assisted and job.ollama_query:
+            try:
+                ollama_analysis = await self._ollama_analyze_content(text_content, job.ollama_query)
+                relevance_score = ollama_analysis.get("relevance_score", 0.0)
+                extracted_content_ollama = ollama_analysis.get("extracted_content")
+
+                # Adjust score if Ollama provided a relevance score
+                if relevance_score > 0:
+                    score = (score + relevance_score) / 2.0
+                    logger.debug("Ollama-adjusted score for %s: %.2f", context.request.url, score)
+            except Exception as exc:
+                logger.warning("Ollama analysis failed for %s: %s - continuing with original score",
+                             context.request.url, exc)
+                # Continue with original score - graceful degradation
+
+        if score >= job.relevance_threshold:
+            # Build and store result
+            result = await self._build_result(
+                job=job,
+                url=context.request.url,
+                parent_url=context.request.headers.get("X-Crawl-Parent"),
+                depth=context.request.user_data.get("depth", 0) if context.request.user_data else 0,
+                soup=soup,
+                text_content=text_content,
+                score=score,
+                matched_keywords=matched_keywords,
+                extracted_content_ollama=extracted_content_ollama,
+            )
+            await self._store.add(result)
+            self._train_buffer.append(result)
+            job.results.append(result.id)
+            logger.info(f"Stored relevant result: {result.url} (score: {result.score})")
+
+        # Update job progress
+        job.pages_crawled += 1
+        job.updated_at = datetime.now(timezone.utc)
+        await self._persist_job(job)
+
+        # Enqueue new links with robust error handling
+        if job.pages_crawled < job.max_pages:
+            try:
+                links = await self._extract_links(context, job)
+                remaining_slots = job.max_pages - job.pages_crawled
+                links_to_enqueue = links[:min(len(links), remaining_slots)]
+
+                logger.debug("Found %d links at %s, enqueueing %d (remaining slots: %d)",
+                           len(links), context.request.url, len(links_to_enqueue), remaining_slots)
+
+                for link in links_to_enqueue:
+                    try:
+                        request_id = hashlib.sha256(link.encode('utf-8')).hexdigest()
+                        new_request = Request(
+                            url=link,
+                            uniqueKey=request_id,
+                            id=request_id,
+                            headers={"X-Crawl-Parent": context.request.url},
+                            user_data={"depth": context.request.user_data.get("depth", 0) + 1 if context.request.user_data else 1}
+                        )
+                        await context.add_requests([new_request])
+                    except Exception as e:
+                        logger.warning("Failed to enqueue link %s: %s", link, e)
+                        continue
+            except Exception as exc:
+                logger.error("Error extracting links from %s: %s", context.request.url, exc, exc_info=True)
+
+
 
     @staticmethod
     def _extract_text(soup: BeautifulSoup) -> str:
@@ -875,7 +1044,7 @@ class CrawlerManager:
 
     @staticmethod
     def _build_excerpt(text_content: str, *, max_length: int = 420) -> str:
-        clean = re.sub(r"\s+", " ", text_content).strip()
+        clean = re.sub(r"\\s+", " ", text_content).strip()
         if len(clean) <= max_length:
             return clean
         return clean[: max_length - 3].rstrip() + "..."
@@ -886,18 +1055,27 @@ class CrawlerManager:
             tags.update(str(tag).lower() for tag in additional)
         return sorted(tags)
 
-    def _extract_links(self, base_url: str, soup: BeautifulSoup, job: CrawlJob) -> List[str]:
+    async def _extract_links(self, context: PlaywrightCrawlingContext, job: CrawlJob) -> List[str]:
         links: List[str] = []
-        excluded_keywords = ["login", "register", "signin", "signup", "admin", "cart", "checkout"]
-        for anchor in soup.find_all("a", href=True):
-            href = anchor["href"].strip()
+        excluded_keywords = [
+            "login", "register", "signin", "signup", "admin", "cart", "checkout",
+            "facebook.com", "twitter.com", "linkedin.com", "instagram.com", "pinterest.com",
+            "youtube.com", "reddit.com", "addtoany.com", "sharethis.com", "mailto:", "tel:",
+            "whatsapp.com", "t.me"
+        ]
+        
+        # Use Playwright to get all anchor tags
+        anchors = await context.page.locator("a").all()
+        for anchor in anchors:
+            href = await anchor.get_attribute("href")
             if not href:
                 continue
+            href = href.strip()
             
-            if any(keyword in href for keyword in excluded_keywords):
+            if any(keyword in href.lower() for keyword in excluded_keywords):
                 continue
 
-            absolute = urljoin(base_url, href)
+            absolute = urljoin(context.request.url, href)
             parsed = urlparse(absolute)
             if parsed.scheme not in {"http", "https"}:
                 continue
@@ -913,6 +1091,63 @@ class CrawlerManager:
         matched = [keyword for keyword in keywords if keyword.lower() in text_lower]
         score = len(matched) / len(keywords)
         return score, matched
+
+    async def _ollama_analyze_content(self, text: str, query: str) -> Dict[str, Any]:
+        settings = get_settings()
+        model_name = getattr(settings, "crawler_ollama_model", None) # New setting for Ollama model
+        if not model_name or not registry or not chat_service:
+            logger.warning("Ollama model for crawler not configured or chat service unavailable.")
+            return {"relevance_score": 0.0, "extracted_content": None, "suggested_links": []}
+
+        try:
+            model = await registry.get_model(model_name)
+        except Exception as exc:
+            logger.warning("Ollama model lookup failed: %s", exc)
+            return {"relevance_score": 0.0, "extracted_content": None, "suggested_links": []}
+
+        if model and "chat" in model.capabilities:
+            try:
+                # Prompt for relevance and content extraction
+                prompt = (
+                    f"Analyze the following text for its relevance to the query: '{query}'. "
+                    "Provide a relevance score between 0.0 and 1.0. "
+                    "If the query asks for specific content, extract that content. "
+                    "Also, identify any highly relevant URLs within the text that could be further crawled. "
+                    "Return a JSON object with 'relevance_score' (float), 'extracted_content' (string, or null), and 'suggested_links' (list of strings)."
+                    f"\\n\\nText: {text[:8000]}" # Limit text to avoid exceeding context window
+                )
+                messages = [
+                    {"role": "system", "content": "You are an intelligent content analyzer."},
+                    {"role": "user", "content": prompt},
+                ]
+                chunks: List[str] = []
+                async for chunk in chat_service.stream_chat(
+                    model,
+                    model_name,
+                    messages,
+                    stream=True,
+                    temperature=0.2,
+                ):
+                    chunks.append(chunk)
+                ollama_response_text = "".join(chunks).strip()
+
+                try:
+                    ollama_response = json.loads(ollama_response_text)
+                    return {
+                        "relevance_score": ollama_response.get("relevance_score", 0.0),
+                        "extracted_content": ollama_response.get("extracted_content"),
+                        "suggested_links": ollama_response.get("suggested_links", []),
+                    }
+                except json.JSONDecodeError:
+                    logger.warning("Ollama returned malformed JSON: %s", ollama_response_text)
+                    # Fallback: try to infer relevance from text if JSON parsing fails
+                    if query.lower() in ollama_response_text.lower():
+                        return {"relevance_score": 0.5, "extracted_content": ollama_response_text, "suggested_links": []}
+                    return {"relevance_score": 0.0, "extracted_content": ollama_response_text, "suggested_links": []}
+
+            except Exception as exc:
+                logger.warning("Ollama content analysis failed: %s", exc)
+        return {"relevance_score": 0.0, "extracted_content": None, "suggested_links": []}
 
     async def _generate_summary(self, text: str, meta_description: Optional[str]) -> Tuple[Optional[str], Optional[str]]:
         settings = get_settings()
@@ -977,7 +1212,94 @@ class CrawlerManager:
 
         # Join parts and collapse multiple whitespaces
         full_text = "\n".join(text_parts)
-        return re.sub(r"\s+", " ", full_text).strip()
+        return re.sub(r"\\s+", " ", full_text).strip()
+
+    async def _build_result(
+        self,
+        *,
+        job: CrawlJob,
+        url: str,
+        parent_url: Optional[str],
+        depth: int,
+        soup: BeautifulSoup,
+        text_content: str,
+        score: float,
+        matched_keywords: List[str],
+        extracted_content_ollama: Optional[str],
+    ) -> CrawlResult:
+        """Build a CrawlResult with all necessary metadata and content."""
+        try:
+            # Extract metadata
+            title = self._extract_title(soup)
+            meta_description = self._extract_meta_description(soup)
+            publish_date = self._extract_publish_date(soup)
+            excerpt = self._build_excerpt(text_content)
+            normalized_text = self._normalize_text(soup)
+
+            # Generate summary if configured
+            headline, summary = await self._generate_summary(text_content, meta_description)
+
+            # Calculate content hash for deduplication
+            content_hash = hashlib.sha256(normalized_text.encode("utf-8")).hexdigest()
+
+            # Extract source domain
+            source_domain = urlparse(url).netloc
+
+            # Generate tags
+            tags = self._guess_tags(matched_keywords, job.metadata.get("tags"))
+
+            # Estimate token count (rough approximation: 1 token ≈ 4 chars)
+            tokens_est = len(normalized_text) // 4
+
+            # Create result object
+            result = CrawlResult(
+                id=str(uuid.uuid4()),
+                job_id=job.id,
+                url=url,
+                depth=depth,
+                parent_url=parent_url,
+                status="crawled",
+                title=title,
+                summary=summary,
+                headline=headline,
+                content=text_content,
+                excerpt=excerpt,
+                meta_description=meta_description,
+                keywords_matched=matched_keywords,
+                score=score,
+                publish_date=publish_date,
+                tags=tags,
+                normalized_text=normalized_text,
+                content_hash=content_hash,
+                source_domain=source_domain,
+                tokens_est=tokens_est,
+                extracted_content_ollama=extracted_content_ollama,
+            )
+
+            logger.debug("Built result for %s: title='%s', score=%.2f, tokens=%d",
+                        url, title, score, tokens_est)
+            return result
+
+        except Exception as exc:
+            logger.error("Error building result for %s: %s", url, exc, exc_info=True)
+            # Return minimal result on error
+            return CrawlResult(
+                id=str(uuid.uuid4()),
+                job_id=job.id,
+                url=url,
+                depth=depth,
+                parent_url=parent_url,
+                status="error",
+                title="Error Processing Page",
+                summary=None,
+                headline=None,
+                content=text_content[:1000] if text_content else "",
+                excerpt=f"Error: {str(exc)}",
+                meta_description=None,
+                keywords_matched=matched_keywords,
+                score=score,
+                publish_date=None,
+            )
 
 
 crawler_manager = CrawlerManager()

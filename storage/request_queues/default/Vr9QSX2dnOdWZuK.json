@@ -1,0 +1,22 @@
+{
+  "url": "https://www.reddit.com/r/linux/",
+  "unique_key": "d8ce9e772926cfdc5bff10409a716f6face6eb77f6e2ca132c53dcd95f02bf12",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "seed"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "sessionRotationCount": 9
+    }
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.reddit.com/r/linux/",
+  "handled_at": "2025-10-01 22:28:47.519196+00:00",
+  "id": "Vr9QSX2dnOdWZuK",
+  "json_": "{\n  \"url\": \"https://www.reddit.com/r/linux/\",\n  \"unique_key\": \"d8ce9e772926cfdc5bff10409a716f6face6eb77f6e2ca132c53dcd95f02bf12\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"seed\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"sessionRotationCount\": 9\n    }\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.reddit.com/r/linux/\",\n  \"handled_at\": \"2025-10-01 22:28:47.519196+00:00\",\n  \"id\": \"Vr9QSX2dnOdWZuK\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

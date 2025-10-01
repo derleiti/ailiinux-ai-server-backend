@@ -1,0 +1,23 @@
+{
+  "url": "https://www.ign.com/article/news",
+  "unique_key": "61f042eff90348e188de8197168f78089fcd3e53d5074909f018aed4e97fa0c9",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.ign.com/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.ign.com/article/news",
+  "handled_at": "2025-10-01 22:31:22.808628+00:00",
+  "id": "V0Ydy6lS0HUmTgn",
+  "json_": "{\n  \"url\": \"https://www.ign.com/article/news\",\n  \"unique_key\": \"61f042eff90348e188de8197168f78089fcd3e53d5074909f018aed4e97fa0c9\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.ign.com/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.ign.com/article/news\",\n  \"handled_at\": \"2025-10-01 22:31:22.808628+00:00\",\n  \"id\": \"V0Ydy6lS0HUmTgn\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

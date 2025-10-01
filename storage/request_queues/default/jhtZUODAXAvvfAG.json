@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+  "unique_key": "9e4ef9c155b6d9f3c6cd91c717bd16ef444d071538818173b0adfc355c5ba052",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/claude/haiku"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "jhtZUODAXAvvfAG",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/3-5-models-and-computer-use\",\n  \"unique_key\": \"9e4ef9c155b6d9f3c6cd91c717bd16ef444d071538818173b0adfc355c5ba052\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/claude/haiku\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"jhtZUODAXAvvfAG\",\n  \"order_no\": \"1759358537030.980110\"\n}",
+  "order_no": "1759358537030.980110"
+}

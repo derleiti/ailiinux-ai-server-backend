@@ -8,6 +8,9 @@ from pathlib import Path
 from typing import Optional, Tuple
 
 import httpx
+import google.generativeai as genai
+from PIL import Image
+import io
 
 from ..config import get_settings
 from ..services.model_registry import ModelInfo
@@ -64,13 +67,11 @@ async def analyze(
         if not settings.gemini_api_key:
             raise api_error("Gemini support is not configured", status_code=503, code="gemini_unavailable")
         if image_bytes is not None:
-            encoded = base64.b64encode(image_bytes).decode("ascii")
             _persist_temp_file(image_bytes, filename)
             return await _analyze_with_gemini_data(
                 request_model,
                 prompt,
-                content_type or "image/png",
-                encoded,
+                image_bytes,
                 api_key=settings.gemini_api_key,
             )
         assert image_url is not None
@@ -210,32 +211,13 @@ def _extract_ollama_text(content: Optional[object]) -> str:
 async def _analyze_with_gemini_data(
     model: str,
     prompt: str,
-    content_type: str,
-    encoded_data: str,
+    image_bytes: bytes,
     *,
     api_key: str,
 ) -> str:
-    target_model = model.split("/", 1)[1] if "/" in model else model
-
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{target_model}:generateContent"
-    body = {
-        "contents": [
-            {
-                "role": "user",
-                "parts": [
-                    {"text": prompt},
-                    {
-                        "inlineData": {
-                            "mimeType": content_type,
-                            "data": encoded_data,
-                        }
-                    },
-                ],
-            }
-        ]
-    }
-
-    return await _dispatch_gemini(url, body, api_key)
+    img = Image.open(io.BytesIO(image_bytes))
+    
+    return await _dispatch_gemini(model, prompt, img, api_key)
 
 
 async def _analyze_with_gemini_url(
@@ -245,51 +227,29 @@ async def _analyze_with_gemini_url(
     *,
     api_key: str,
 ) -> str:
-    content_type, image_data = await _download_image(image_url)
-    encoded = base64.b64encode(image_data).decode("ascii")
-    return await _analyze_with_gemini_data(model, prompt, content_type, encoded, api_key=api_key)
+    _, image_data = await _download_image(image_url)
+    img = Image.open(io.BytesIO(image_data))
+    return await _dispatch_gemini(model, prompt, img, api_key=api_key)
 
 
-async def _dispatch_gemini(url: str, payload: dict, api_key: str) -> str:
-    params = {"key": api_key}
-    timeout = httpx.Timeout(get_settings().request_timeout)
+async def _dispatch_gemini(model_name: str, prompt: str, image: Image, api_key: str) -> str:
+    genai.configure(api_key=api_key)
+    target_model = model_name.split("/", 1)[1] if "/" in model_name else model_name
+    model = genai.GenerativeModel(target_model)
+    
     try:
-        async with httpx.AsyncClient(timeout=timeout) as client:
-            response = await client.post(url, params=params, json=payload)
-    except httpx.RequestError as exc:
+        response = await model.generate_content_async([prompt, image])
+    except Exception as exc:
         raise api_error(
             f"Failed to reach Gemini API: {exc}",
             status_code=502,
             code="gemini_unreachable",
         ) from exc
 
-    try:
-        response.raise_for_status()
-    except httpx.HTTPStatusError as exc:
-        message, code = extract_http_error(
-            exc.response,
-            default_message="Gemini API responded with an error",
-            default_code="gemini_error",
-        )
-        raise api_error(message, status_code=exc.response.status_code, code=code) from exc
-
-    try:
-        data = response.json()
-    except ValueError as exc:
-        raise api_error(
-            "Gemini API returned malformed JSON",
-            status_code=502,
-            code="gemini_invalid_response",
-        ) from exc
-        candidates = data.get("candidates") or []
-        if not candidates:
-            raise api_error("Gemini returned no candidates", status_code=502, code="empty_response")
-        parts = candidates[0].get("content", {}).get("parts", [])
-        texts = [part.get("text", "") for part in parts if part.get("text")]
-        text = "".join(texts)
-        if not text:
-            raise api_error("Gemini response was empty", status_code=502, code="empty_response")
-        return text
+    if response.text:
+        return response.text
+    else:
+        raise api_error("Gemini response was empty", status_code=502, code="empty_response")
 
 
 async def _download_image(url: str) -> Tuple[str, bytes]:

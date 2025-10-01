@@ -32,11 +32,23 @@ class Settings(BaseSettings):
     mixtral_api_key: Optional[str] = None
     ailinux_mixtral_organisation_id: Optional[str] = None
     gemini_api_key: Optional[str] = None
+    voidai_api_key: Optional[str] = None
+    open_skywork_ai_api_key: Optional[str] = None
+    open_skywork_secret_id: Optional[str] = None
+    gpt_oss_api_key: Optional[str] = None
+    gpt_oss_base_url: Optional[AnyHttpUrl] = None
+    groq_api_key: Optional[str] = None
+    wordpress_url: Optional[AnyHttpUrl] = None
+    wordpress_username: Optional[str] = None
+    wordpress_password: Optional[str] = None
+    bbpress_forum_id: int = 1
+    wordpress_category_id: int = 0
 
     crawler_enabled: bool = True
     crawler_spool_dir: str = "data/crawler_spool"
     crawler_max_memory_bytes: int = 48 * 1024 ** 3
-    crawler_summary_model: Optional[str] = "gpt-oss:cloud"
+    crawler_summary_model: Optional[str] = "gpt-oss:cloud/120b"
+    crawler_ollama_model: Optional[str] = "gpt-oss:cloud/120b"
     crawler_flush_interval: int = 3600
     crawler_retention_days: int = 30
     crawler_train_dir: str = "data/crawler_spool/train"
@@ -50,6 +62,7 @@ class Settings(BaseSettings):
         env_file = ".env"
         env_file_encoding = "utf-8"
         case_sensitive = False
+        extra = "ignore"
 
     @validator("ollama_host", pre=True, always=True)
     def _derive_ollama_host(cls, value: str | None, values):

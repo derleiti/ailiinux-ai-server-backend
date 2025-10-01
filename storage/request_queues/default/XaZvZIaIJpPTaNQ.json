@@ -1,0 +1,22 @@
+{
+  "url": "https://claude.ai/redirect/website.v1.ab2925b0-4419-419e-b15d-14063ce72e6b",
+  "unique_key": "d8615c37823acfda603522dde55b1610dcf40123b94c19411db226e400182a09",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/company"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "XaZvZIaIJpPTaNQ",
+  "json_": "{\n  \"url\": \"https://claude.ai/redirect/website.v1.ab2925b0-4419-419e-b15d-14063ce72e6b\",\n  \"unique_key\": \"d8615c37823acfda603522dde55b1610dcf40123b94c19411db226e400182a09\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/company\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"XaZvZIaIJpPTaNQ\",\n  \"order_no\": \"1759358648922.884941\"\n}",
+  "order_no": "1759358648922.884941"
+}

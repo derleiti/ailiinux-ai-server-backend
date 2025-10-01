@@ -1,0 +1,22 @@
+{
+  "url": "https://www.cloudflare.com/retail/",
+  "unique_key": "4eaaf33c12d712e9c20dc06b9f644ffe0488bc9907f3fe930b573d6441cbae38",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.cloudflare.com?utm_source=challenge&utm_campaign=m"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 5
+    },
+    "depth": 5
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "oUkhPwxIVRAIqn5",
+  "json_": "{\n  \"url\": \"https://www.cloudflare.com/retail/\",\n  \"unique_key\": \"4eaaf33c12d712e9c20dc06b9f644ffe0488bc9907f3fe930b573d6441cbae38\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.cloudflare.com?utm_source=challenge&utm_campaign=m\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"oUkhPwxIVRAIqn5\",\n  \"order_no\": \"1759358660848.695993\"\n}",
+  "order_no": "1759358660848.695993"
+}

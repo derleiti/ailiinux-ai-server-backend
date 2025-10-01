@@ -1,0 +1,23 @@
+{
+  "url": "https://techcrunch.com/category/venture/#wp--skip-link--target",
+  "unique_key": "20e5707b76a24275f69c2f095245d26acef10a14d0ac05a095c4dc34ee503862",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://techcrunch.com/category/venture/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://techcrunch.com/category/venture/#wp--skip-link--target",
+  "handled_at": "2025-10-01 22:36:32.205098+00:00",
+  "id": "7I3KIvgHtakWpca",
+  "json_": "{\n  \"url\": \"https://techcrunch.com/category/venture/#wp--skip-link--target\",\n  \"unique_key\": \"20e5707b76a24275f69c2f095245d26acef10a14d0ac05a095c4dc34ee503862\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://techcrunch.com/category/venture/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://techcrunch.com/category/venture/#wp--skip-link--target\",\n  \"handled_at\": \"2025-10-01 22:36:32.205098+00:00\",\n  \"id\": \"7I3KIvgHtakWpca\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

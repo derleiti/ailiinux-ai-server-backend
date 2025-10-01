@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/claude-opus-4-1-system-card",
+  "unique_key": "702ace3ba014e16a69d1ef859c0e1d9988845f692a809636b277776b1126f7a7",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/claude/opus"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "WVf2rGaTGjOnSki",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/claude-opus-4-1-system-card\",\n  \"unique_key\": \"702ace3ba014e16a69d1ef859c0e1d9988845f692a809636b277776b1126f7a7\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/claude/opus\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"WVf2rGaTGjOnSki\",\n  \"order_no\": \"1759358508458.344936\"\n}",
+  "order_no": "1759358508458.344936"
+}

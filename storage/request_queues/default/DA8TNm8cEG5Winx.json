@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/research",
+  "unique_key": "f771d4f56ad4dbaab6f21e0eb85eae548068a389476f194bce96496b30f9218a",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/research",
+  "handled_at": "2025-10-01 22:39:28.680036+00:00",
+  "id": "DA8TNm8cEG5Winx",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/research\",\n  \"unique_key\": \"f771d4f56ad4dbaab6f21e0eb85eae548068a389476f194bce96496b30f9218a\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/research\",\n  \"handled_at\": \"2025-10-01 22:39:28.680036+00:00\",\n  \"id\": \"DA8TNm8cEG5Winx\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

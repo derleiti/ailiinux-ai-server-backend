@@ -1,0 +1,23 @@
+{
+  "url": "https://www.linuxfoundation.org/ja-jp/blog#search-popup",
+  "unique_key": "248c01e54099d6b9876d3d40cff037d71e81f8a8aeb6f8e35ccaddc14d593fd7",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.linuxfoundation.org/ja-jp/blog"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.linuxfoundation.org/ja-jp/blog#search-popup",
+  "handled_at": "2025-10-01 22:38:18.094938+00:00",
+  "id": "pHENeM1E8Mw9a7T",
+  "json_": "{\n  \"url\": \"https://www.linuxfoundation.org/ja-jp/blog#search-popup\",\n  \"unique_key\": \"248c01e54099d6b9876d3d40cff037d71e81f8a8aeb6f8e35ccaddc14d593fd7\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.linuxfoundation.org/ja-jp/blog\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.linuxfoundation.org/ja-jp/blog#search-popup\",\n  \"handled_at\": \"2025-10-01 22:38:18.094938+00:00\",\n  \"id\": \"pHENeM1E8Mw9a7T\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

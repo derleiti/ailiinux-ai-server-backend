@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/news/constitutional-classifiers",
+  "unique_key": "7c3cb789d06c43841efcfd5ce426e4bf4bb30b70f43507b0f64ea6215171639a",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/claude-sonnet-4-5#footer"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/news/constitutional-classifiers",
+  "handled_at": "2025-10-01 22:42:47.087957+00:00",
+  "id": "bCPUfH0pdKounxu",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/constitutional-classifiers\",\n  \"unique_key\": \"7c3cb789d06c43841efcfd5ce426e4bf4bb30b70f43507b0f64ea6215171639a\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/claude-sonnet-4-5#footer\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/news/constitutional-classifiers\",\n  \"handled_at\": \"2025-10-01 22:42:47.087957+00:00\",\n  \"id\": \"bCPUfH0pdKounxu\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/economic-futures",
+  "unique_key": "ddcd07e5bacc57c316bc8e9390934d2b8b023d351ad0c612492ea75a8a7468b3",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/economic-futures",
+  "handled_at": "2025-10-01 22:39:38.205662+00:00",
+  "id": "g4Yo11IBxxp0I0C",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/economic-futures\",\n  \"unique_key\": \"ddcd07e5bacc57c316bc8e9390934d2b8b023d351ad0c612492ea75a8a7468b3\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/economic-futures\",\n  \"handled_at\": \"2025-10-01 22:39:38.205662+00:00\",\n  \"id\": \"g4Yo11IBxxp0I0C\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

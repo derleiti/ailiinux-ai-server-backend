@@ -1,0 +1,23 @@
+{
+  "url": "https://dev.to/jesstemporal/preptember-2025-week-3-color-schemes-and-copilot-improvements-in-gitfichas-59kk",
+  "unique_key": "7beee0d89fd84330bfc73c145b4796ec5918e8a9b343f0e2ca0935089092072a",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://dev.to/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://dev.to/jesstemporal/preptember-2025-week-3-color-schemes-and-copilot-improvements-in-gitfichas-59kk",
+  "handled_at": "2025-10-01 22:34:41.192821+00:00",
+  "id": "dvTmmN8KknvZToN",
+  "json_": "{\n  \"url\": \"https://dev.to/jesstemporal/preptember-2025-week-3-color-schemes-and-copilot-improvements-in-gitfichas-59kk\",\n  \"unique_key\": \"7beee0d89fd84330bfc73c145b4796ec5918e8a9b343f0e2ca0935089092072a\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://dev.to/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://dev.to/jesstemporal/preptember-2025-week-3-color-schemes-and-copilot-improvements-in-gitfichas-59kk\",\n  \"handled_at\": \"2025-10-01 22:34:41.192821+00:00\",\n  \"id\": \"dvTmmN8KknvZToN\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

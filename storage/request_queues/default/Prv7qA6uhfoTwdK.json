@@ -1,0 +1,22 @@
+{
+  "url": "https://www.businesskorea.co.kr/news/articleView.html?idxno=239621",
+  "unique_key": "59ecde7a94e064d6620b6a2e90b43b7fb1c40fb602e86104b884b0386ffdf231",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.chinatalk.media/p/mapping-chinas-hbm-advancement"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "Prv7qA6uhfoTwdK",
+  "json_": "{\n  \"url\": \"https://www.businesskorea.co.kr/news/articleView.html?idxno=239621\",\n  \"unique_key\": \"59ecde7a94e064d6620b6a2e90b43b7fb1c40fb602e86104b884b0386ffdf231\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"Prv7qA6uhfoTwdK\",\n  \"order_no\": \"1759358496724.659920\"\n}",
+  "order_no": "1759358496724.659920"
+}

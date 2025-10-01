@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously#footer",
+  "unique_key": "9d334b83a709dd6c6dd406457faef37286a5f0f76e2f09faad9556a88487e5fb",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "WfxahkZByTzfbnu",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously#footer\",\n  \"unique_key\": \"9d334b83a709dd6c6dd406457faef37286a5f0f76e2f09faad9556a88487e5fb\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"WfxahkZByTzfbnu\",\n  \"order_no\": \"1759358507390.575886\"\n}",
+  "order_no": "1759358507390.575886"
+}

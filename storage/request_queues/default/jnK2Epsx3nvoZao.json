@@ -1,0 +1,23 @@
+{
+  "url": "https://www.theverge.com/entertainment",
+  "unique_key": "ab1380bea0c121e664ae6b016b3509a509af003b86109a96978568f1e9151f3f",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.theverge.com/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.theverge.com/entertainment",
+  "handled_at": "2025-10-01 22:19:55.230685+00:00",
+  "id": "jnK2Epsx3nvoZao",
+  "json_": "{\n  \"url\": \"https://www.theverge.com/entertainment\",\n  \"unique_key\": \"ab1380bea0c121e664ae6b016b3509a509af003b86109a96978568f1e9151f3f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.theverge.com/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.theverge.com/entertainment\",\n  \"handled_at\": \"2025-10-01 22:19:55.230685+00:00\",\n  \"id\": \"jnK2Epsx3nvoZao\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

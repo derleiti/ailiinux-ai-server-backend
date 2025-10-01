@@ -1,0 +1,23 @@
+{
+  "url": "https://arstechnica.com/ai/#main",
+  "unique_key": "4383518dc1444f60deaeb1b4d6734cf2f94fb757f0fb07c2002e141bf7d0737a",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://arstechnica.com/ai/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://arstechnica.com/ai/#main",
+  "handled_at": "2025-10-01 22:26:57.836393+00:00",
+  "id": "sHDoifiHuryUkw8",
+  "json_": "{\n  \"url\": \"https://arstechnica.com/ai/#main\",\n  \"unique_key\": \"4383518dc1444f60deaeb1b4d6734cf2f94fb757f0fb07c2002e141bf7d0737a\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://arstechnica.com/ai/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://arstechnica.com/ai/#main\",\n  \"handled_at\": \"2025-10-01 22:26:57.836393+00:00\",\n  \"id\": \"sHDoifiHuryUkw8\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

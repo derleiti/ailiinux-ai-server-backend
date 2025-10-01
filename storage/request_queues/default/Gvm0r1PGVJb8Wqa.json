@@ -1,0 +1,22 @@
+{
+  "url": "https://support.anthropic.com/en/articles/12111783-create-and-edit-files-with-claude",
+  "unique_key": "e25e0674080b1633afa8b00827493756c4445b6e44603266fef31f8deaddc10e",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/create-files"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "Gvm0r1PGVJb8Wqa",
+  "json_": "{\n  \"url\": \"https://support.anthropic.com/en/articles/12111783-create-and-edit-files-with-claude\",\n  \"unique_key\": \"e25e0674080b1633afa8b00827493756c4445b6e44603266fef31f8deaddc10e\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/create-files\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"Gvm0r1PGVJb8Wqa\",\n  \"order_no\": \"1759358558874.005079\"\n}",
+  "order_no": "1759358558874.005079"
+}

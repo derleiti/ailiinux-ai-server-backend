@@ -7,6 +7,35 @@
     return;
   }
 
+  const apiClient = new NovaAPIClient(API_BASE, CLIENT_HEADER);
+
+  // Online/Offline Status
+  let isOnline = navigator.onLine;
+
+  window.addEventListener('online', () => {
+    isOnline = true;
+    console.log('✅ Internetverbindung wiederhergestellt');
+    showNotification('Internetverbindung wiederhergestellt', 'success');
+  });
+
+  window.addEventListener('offline', () => {
+    isOnline = false;
+    console.warn('⚠️ Internetverbindung verloren');
+    showNotification('Keine Internetverbindung', 'warning');
+  });
+
+  function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `nova-notification ${type}`;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+      notification.classList.add('fade-out');
+      setTimeout(() => notification.remove(), 300);
+    }, 3000);
+  }
+
   const state = {
     models: [],
     chatModels: [],
@@ -143,15 +172,18 @@
   async function fetchModels() {
     setLoading(root, true);
     try {
-      const response = await fetch(`${API_BASE}/v1/models`, {
-        headers: {
-          'Accept': 'application/json',
-          'X-AILinux-Client': CLIENT_HEADER,
-        },
+      const response = await apiClient.get('/v1/models', {
+        timeout: 10000, // 10 Sekunden für Model-Liste
+        onRetry: (attempt, delay) => {
+          console.log(`Retrying models request (attempt ${attempt})...`);
+        }
       });
+
       if (!response.ok) {
-        throw await response.json();
+        const error = await response.json();
+        throw error;
       }
+
       const payload = await response.json();
       state.models = Array.isArray(payload.data) ? payload.data : [];
       state.chatModels = state.models.filter((model) => Array.isArray(model.capabilities) && model.capabilities.includes('chat'));
@@ -159,7 +191,13 @@
       state.imageModels = state.models.filter((model) => Array.isArray(model.capabilities) && model.capabilities.includes('image_gen'));
       populateModelSelects();
     } catch (error) {
-      reportError('Unable to load models', error);
+      if (error.message === 'No internet connection') {
+        reportError('Keine Internetverbindung', error);
+      } else if (error.message === 'Request timeout') {
+        reportError('Anfrage hat zu lange gedauert', error);
+      } else {
+        reportError('Modelle konnten nicht geladen werden', error);
+      }
     } finally {
       setLoading(root, false);
     }
@@ -312,7 +350,9 @@
     form.querySelector('.form-actions').prepend(sourcesButton);
 
     sourcesButton.addEventListener('click', async () => {
-      const lastUserMessage = state.chatHistory.findLast(msg => msg.role === 'user');
+      // Browser-compatible alternative to findLast
+      const userMessages = state.chatHistory.filter(msg => msg.role === 'user');
+      const lastUserMessage = userMessages.length > 0 ? userMessages[userMessages.length - 1] : null;
       if (!lastUserMessage) {
         alert('Please ask a question first.');
         return;
@@ -356,20 +396,12 @@
 
     const jobBubble = appendMessage(root.querySelector('#nova-chat-transcript'), 'system', 'Starting crawl job...');
     try {
-      const response = await fetch(`${API_BASE}/v1/crawler/jobs`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'X-AILinux-Client': CLIENT_HEADER,
-        },
-        body: JSON.stringify({
-          keywords: keywords,
-          seeds: seeds,
-          max_depth: depth,
-          max_pages: pages,
-          allow_external: allowExternal,
-        }),
+      const response = await apiClient.post('/v1/crawler/jobs', {
+        keywords: keywords,
+        seeds: seeds,
+        max_depth: depth,
+        max_pages: pages,
+        allow_external: allowExternal,
       });
       const data = await response.json();
       if (!response.ok) {
@@ -388,12 +420,7 @@
     while (status === 'queued' || status === 'running') {
       await new Promise(resolve => setTimeout(resolve, 5000)); // Poll every 5 seconds
       try {
-        const response = await fetch(`${API_BASE}/v1/crawler/jobs/${jobId}`, {
-          headers: {
-            'Accept': 'application/json',
-            'X-AILinux-Client': CLIENT_HEADER,
-          },
-        });
+        const response = await apiClient.get(`/v1/crawler/jobs/${jobId}`);
         const data = await response.json();
         if (!response.ok) {
           throw data;
@@ -417,19 +444,11 @@
   }
 
   async function searchCrawler(query, limit = 5, min_score = 0.35, freshness_days = 7) {
-    const response = await fetch(`${API_BASE}/v1/crawler/search`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'X-AILinux-Client': CLIENT_HEADER,
-      },
-      body: JSON.stringify({
-        query: query,
-        limit: limit,
-        min_score: min_score,
-        freshness_days: freshness_days,
-      }),
+    const response = await apiClient.post('/v1/crawler/search', {
+      query: query,
+      limit: limit,
+      min_score: min_score,
+      freshness_days: freshness_days,
     });
     const data = await response.json();
     if (!response.ok) {
@@ -439,38 +458,63 @@
   }
 
   async function streamChat(payload, bubble) {
-    const response = await fetch(`${API_BASE}/v1/chat`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'text/plain',
-        'X-AILinux-Client': CLIENT_HEADER,
-      },
-      body: JSON.stringify({
+    try {
+      // Offline-Check
+      if (!isOnline) {
+        throw new Error('Keine Internetverbindung. Bitte überprüfen Sie Ihre Netzwerkverbindung.');
+      }
+
+      const response = await apiClient.postStream('/v1/chat/completions', {
         model: payload.model,
         messages: payload.messages,
         stream: true,
         temperature: payload.temperature,
-      }),
-    });
+      }, {
+        timeout: 120000, // 2 Minuten für Chat-Streaming
+      });
 
-    if (!response.ok || !response.body) {
-      throw await safeJson(response);
-    }
-
-    const reader = response.body.getReader();
-    bubble.classList.add('streaming');
-
-    while (true) {
-      const { value, done } = await reader.read();
-      if (done) {
-        break;
+      if (!response.ok) {
+        const error = await safeJson(response);
+        throw new Error(error.error?.message || `HTTP ${response.status}: ${response.statusText}`);
       }
-      const chunk = decoder.decode(value, { stream: true });
-      bubble.textContent += chunk;
-    }
 
-    bubble.classList.remove('streaming');
+      if (!response.body) {
+        throw new Error('Keine Streaming-Antwort vom Server erhalten');
+      }
+
+      const reader = response.body.getReader();
+      bubble.classList.add('streaming');
+
+      try {
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          const chunk = decoder.decode(value, { stream: true });
+          bubble.textContent += chunk;
+        }
+      } finally {
+        // Immer aufräumen, auch bei Fehler
+        reader.releaseLock();
+        bubble.classList.remove('streaming');
+      }
+
+    } catch (error) {
+      bubble.classList.remove('streaming');
+
+      // Benutzerfreundliche Fehlermeldungen
+      let errorMsg = 'Fehler beim Chat-Streaming';
+      if (error.message === 'Request timeout') {
+        errorMsg = 'Die Anfrage hat zu lange gedauert. Bitte versuchen Sie es erneut.';
+      } else if (error.message.includes('Keine Internetverbindung')) {
+        errorMsg = error.message;
+      } else if (error.message.includes('HTTP')) {
+        errorMsg = `Server-Fehler: ${error.message}`;
+      }
+
+      bubble.textContent = `❌ ${errorMsg}`;
+      bubble.classList.add('error');
+      throw error;
+    }
   }
 
   function appendMessage(container, role, message) {
@@ -531,27 +575,18 @@
           formData.append('model', model);
           formData.append('prompt', prompt);
           formData.append('image_file', file);
-          const response = await fetch(`${API_BASE}/v1/images/analyze/upload`, {
-            method: 'POST',
+          const response = await apiClient.post('/v1/images/analyze/upload', formData, {
             headers: {
               'X-AILinux-Client': CLIENT_HEADER,
             },
-            body: formData,
+            isFormData: true,
           });
           data = await response.json();
           if (!response.ok) {
             throw data;
           }
         } else {
-          const response = await fetch(`${API_BASE}/v1/images/analyze`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-              'X-AILinux-Client': CLIENT_HEADER,
-            },
-            body: JSON.stringify({ model, image_url: imageUrl, prompt }),
-          });
+          const response = await apiClient.post('/v1/images/analyze', { model, image_url: imageUrl, prompt });
           data = await response.json();
           if (!response.ok) {
             throw data;
@@ -596,15 +631,7 @@
       result.innerHTML = '<div class="loader">Generating image...</div>';
 
       try {
-        const response = await fetch(`${API_BASE}/v1/images/generate`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'X-AILinux-Client': CLIENT_HEADER,
-          },
-          body: JSON.stringify(payload),
-        });
+        const response = await apiClient.post('/v1/images/generate', payload);
         const data = await response.json();
         if (!response.ok) {
           throw data;

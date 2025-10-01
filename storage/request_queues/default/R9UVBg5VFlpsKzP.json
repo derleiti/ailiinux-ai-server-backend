@@ -1,0 +1,23 @@
+{
+  "url": "https://www.theinformation.com/articles/huawei-ai-chip-redesign-aims-break-nvidias-china-dominance?rc=hrd2fr",
+  "unique_key": "7b15e36b52ada78b041039d2cd746a2613aad6b830bb3c65ef56ac415aa10ea8",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://rhg.com/research/back-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.theinformation.com/articles/huawei-ai-chip-redesign-aims-break-nvidias-china-dominance",
+  "handled_at": "2025-10-01 23:24:27.808297+00:00",
+  "id": "R9UVBg5VFlpsKzP",
+  "json_": "{\n  \"url\": \"https://www.theinformation.com/articles/huawei-ai-chip-redesign-aims-break-nvidias-china-dominance?rc=hrd2fr\",\n  \"unique_key\": \"7b15e36b52ada78b041039d2cd746a2613aad6b830bb3c65ef56ac415aa10ea8\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://rhg.com/research/back-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.theinformation.com/articles/huawei-ai-chip-redesign-aims-break-nvidias-china-dominance\",\n  \"handled_at\": \"2025-10-01 23:24:27.808297+00:00\",\n  \"id\": \"R9UVBg5VFlpsKzP\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

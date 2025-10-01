@@ -1,0 +1,23 @@
+{
+  "url": "https://www.nsf.gov/funding/initiatives/reu",
+  "unique_key": "df2f7b53a0ef4e1e8d40a5249cde4633750a501ef4a12cc8ac9fa3c1649f0808",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.nsf.gov/focus-areas/artificial-intelligence/nairr#nairr-pilot-partners-and-contributors-890"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.nsf.gov/funding/initiatives/reu",
+  "handled_at": "2025-10-01 22:44:59.352442+00:00",
+  "id": "0u3wzHUzast2rta",
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/funding/initiatives/reu\",\n  \"unique_key\": \"df2f7b53a0ef4e1e8d40a5249cde4633750a501ef4a12cc8ac9fa3c1649f0808\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/focus-areas/artificial-intelligence/nairr#nairr-pilot-partners-and-contributors-890\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.nsf.gov/funding/initiatives/reu\",\n  \"handled_at\": \"2025-10-01 22:44:59.352442+00:00\",\n  \"id\": \"0u3wzHUzast2rta\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

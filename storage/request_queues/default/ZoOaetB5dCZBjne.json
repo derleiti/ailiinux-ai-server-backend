@@ -1,0 +1,22 @@
+{
+  "url": "https://openai.com/index/introducing-gpt-5/#main",
+  "unique_key": "20ac4f35a03234d844a50c5bd36132d85bbeeeca8ecd67edde4d3201b6f0f7ce",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://openai.com/index/introducing-gpt-5/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "ZoOaetB5dCZBjne",
+  "json_": "{\n  \"url\": \"https://openai.com/index/introducing-gpt-5/#main\",\n  \"unique_key\": \"20ac4f35a03234d844a50c5bd36132d85bbeeeca8ecd67edde4d3201b6f0f7ce\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://openai.com/index/introducing-gpt-5/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"ZoOaetB5dCZBjne\",\n  \"order_no\": \"1759358550151.917934\"\n}",
+  "order_no": "1759358550151.917934"
+}

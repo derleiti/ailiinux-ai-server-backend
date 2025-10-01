@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/news/driving-ai-transformation-with-claude#main-content",
+  "unique_key": "fd69bdcb547da99a3e935762eee5ba800a739c8aa18df037c5c926954a91cacf",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/driving-ai-transformation-with-claude"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "tSi66cFKAKaUGX1",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/driving-ai-transformation-with-claude#main-content\",\n  \"unique_key\": \"fd69bdcb547da99a3e935762eee5ba800a739c8aa18df037c5c926954a91cacf\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/driving-ai-transformation-with-claude\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"tSi66cFKAKaUGX1\",\n  \"order_no\": \"1759358506945.833921\"\n}",
+  "order_no": "1759358506945.833921"
+}

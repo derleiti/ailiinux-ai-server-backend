@@ -1,0 +1,23 @@
+{
+  "url": "https://www.nsf.gov/focus-areas/ai",
+  "unique_key": "12ec69132b8a3f462090e1e0322ccdb638c78dad1abccc9bafcb268c4e114aae",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.nsf.gov/focus-areas/artificial-intelligence/nairr#nairr-pilot-partners-and-contributors-890"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.nsf.gov/focus-areas/ai",
+  "handled_at": "2025-10-01 22:45:46.892429+00:00",
+  "id": "ljZB6m7haty0Gct",
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/focus-areas/ai\",\n  \"unique_key\": \"12ec69132b8a3f462090e1e0322ccdb638c78dad1abccc9bafcb268c4e114aae\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/focus-areas/artificial-intelligence/nairr#nairr-pilot-partners-and-contributors-890\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.nsf.gov/focus-areas/ai\",\n  \"handled_at\": \"2025-10-01 22:45:46.892429+00:00\",\n  \"id\": \"ljZB6m7haty0Gct\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

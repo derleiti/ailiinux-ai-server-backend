@@ -1,0 +1,23 @@
+{
+  "url": "https://lwn.net/#t",
+  "unique_key": "60c82d8306f66090a4a5d9e6d9d6196a25261b133a06678e94bab2d36ad164ab",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://lwn.net/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://lwn.net/#t",
+  "handled_at": "2025-10-01 22:33:21.116473+00:00",
+  "id": "4drO2vhcmyPtORm",
+  "json_": "{\n  \"url\": \"https://lwn.net/#t\",\n  \"unique_key\": \"60c82d8306f66090a4a5d9e6d9d6196a25261b133a06678e94bab2d36ad164ab\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://lwn.net/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://lwn.net/#t\",\n  \"handled_at\": \"2025-10-01 22:33:21.116473+00:00\",\n  \"id\": \"4drO2vhcmyPtORm\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

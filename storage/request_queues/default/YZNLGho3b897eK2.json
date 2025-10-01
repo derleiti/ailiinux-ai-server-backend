@@ -1,0 +1,23 @@
+{
+  "url": "https://blogs.windows.com/#a11y-skip-link-content",
+  "unique_key": "1056a1b9dca7a870ac29cc008998891fa9921cf0abc89343be6680e4a529ce46",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://blogs.windows.com/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://blogs.windows.com/#a11y-skip-link-content",
+  "handled_at": "2025-10-01 22:24:44.680091+00:00",
+  "id": "YZNLGho3b897eK2",
+  "json_": "{\n  \"url\": \"https://blogs.windows.com/#a11y-skip-link-content\",\n  \"unique_key\": \"1056a1b9dca7a870ac29cc008998891fa9921cf0abc89343be6680e4a529ce46\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://blogs.windows.com/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://blogs.windows.com/#a11y-skip-link-content\",\n  \"handled_at\": \"2025-10-01 22:24:44.680091+00:00\",\n  \"id\": \"YZNLGho3b897eK2\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

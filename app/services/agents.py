@@ -5,6 +5,8 @@ from typing import Any, Dict, Iterable, List, Optional
 
 from ..schemas import CrawlJobRequest
 from .crawler.manager import crawler_manager
+from .wordpress import wordpress_service
+import httpx
 
 
 @dataclass(slots=True)
@@ -46,9 +48,77 @@ def _crawler_tool() -> ToolSpec:
         example=example,
     )
 
+def _wordpress_create_post_tool() -> ToolSpec:
+    return ToolSpec(
+        name="wordpress.create_post",
+        description="Create a new post in WordPress.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "title": {"type": "string", "description": "The title of the post."},
+                "content": {"type": "string", "description": "The content of the post."},
+                "status": {"type": "string", "description": "The status of the post (e.g., 'publish', 'draft').", "default": "publish"},
+                "categories": {"type": "array", "items": {"type": "integer"}, "description": "A list of category IDs to assign to the post."},
+                "featured_media": {"type": "integer", "description": "The ID of the featured media to assign to the post."},
+            },
+            "required": ["title", "content"],
+        },
+        example={
+            "title": "New AI Model Released",
+            "content": "A new AI model has been released with amazing capabilities.",
+            "status": "publish",
+            "categories": [1, 2],
+            "featured_media": 123,
+        },
+    )
+
+def _wordpress_upload_media_tool() -> ToolSpec:
+    return ToolSpec(
+        name="wordpress.upload_media",
+        description="Upload a media file to WordPress.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "filename": {"type": "string", "description": "The name of the file."},
+                "file_url": {"type": "string", "description": "The URL of the file to upload."},
+            },
+            "required": ["filename", "file_url"],
+        },
+        example={
+            "filename": "ai-image.jpg",
+            "file_url": "https://example.com/ai-image.jpg",
+        },
+    )
+
+def _wordpress_list_categories_tool() -> ToolSpec:
+    return ToolSpec(
+        name="wordpress.list_categories",
+        description="List all categories in WordPress.",
+        parameters={"type": "object", "properties": {}},
+        example={},
+    )
+
+def _wordpress_create_category_tool() -> ToolSpec:
+    return ToolSpec(
+        name="wordpress.create_category",
+        description="Create a new category in WordPress.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "name": {"type": "string", "description": "The name of the category."},
+            },
+            "required": ["name"],
+        },
+        example={"name": "AI News"},
+    )
+
 
 _TOOL_REGISTRY: Dict[str, ToolSpec] = {
     "crawler.create_job": _crawler_tool(),
+    "wordpress.create_post": _wordpress_create_post_tool(),
+    "wordpress.upload_media": _wordpress_upload_media_tool(),
+    "wordpress.list_categories": _wordpress_list_categories_tool(),
+    "wordpress.create_category": _wordpress_create_category_tool(),
 }
 
 
@@ -113,5 +183,27 @@ async def invoke_tool(
             metadata=data.get("metadata") or {},
         )
         return job.to_dict()
+    elif tool_name == "wordpress.create_post":
+        return await wordpress_service.create_post(**payload)
+    elif tool_name == "wordpress.upload_media":
+        file_url = payload.get("file_url")
+        if not file_url:
+            raise ValueError("file_url is required")
+        
+        async with httpx.AsyncClient() as client:
+            response = await client.get(file_url)
+            response.raise_for_status()
+            file_content = response.content
+            content_type = response.headers.get("content-type", "application/octet-stream")
+
+        return await wordpress_service.upload_media(
+            filename=payload["filename"],
+            file_content=file_content,
+            content_type=content_type,
+        )
+    elif tool_name == "wordpress.list_categories":
+        return await wordpress_service.list_categories()
+    elif tool_name == "wordpress.create_category":
+        return await wordpress_service.create_category(**payload)
 
     raise ValueError(f"Tool '{tool_name}' is registered but has no handler")

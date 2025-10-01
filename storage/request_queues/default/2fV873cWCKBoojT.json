@@ -1,0 +1,22 @@
+{
+  "url": "https://semianalysis.com/2024/01/03/intel-genai-for-yield-tsmc-cfet-and/#future-of-memory-scaling-%e2%80%93-cxmt-3d-dram-blatant-sanctions-violation",
+  "unique_key": "9b2fa1c337a15c24ec0fe5fead3fc26df3d5fba914886c71ac83bf38e0c6fadd",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.chinatalk.media/p/mapping-chinas-hbm-advancement"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "2fV873cWCKBoojT",
+  "json_": "{\n  \"url\": \"https://semianalysis.com/2024/01/03/intel-genai-for-yield-tsmc-cfet-and/#future-of-memory-scaling-%e2%80%93-cxmt-3d-dram-blatant-sanctions-violation\",\n  \"unique_key\": \"9b2fa1c337a15c24ec0fe5fead3fc26df3d5fba914886c71ac83bf38e0c6fadd\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"2fV873cWCKBoojT\",\n  \"order_no\": \"1759358496713.251114\"\n}",
+  "order_no": "1759358496713.251114"
+}

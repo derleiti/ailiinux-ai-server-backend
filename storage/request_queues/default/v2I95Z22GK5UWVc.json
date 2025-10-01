@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/research/mapping-mind-language-model",
+  "unique_key": "5019b9256d83a04c46e7de2fe29a5d6d70a8d627aa498a6ba7dcd908c15e2144",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.darioamodei.com/post/the-urgency-of-interpretability"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/research/mapping-mind-language-model",
+  "handled_at": "2025-10-01 22:46:37.072281+00:00",
+  "id": "v2I95Z22GK5UWVc",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/research/mapping-mind-language-model\",\n  \"unique_key\": \"5019b9256d83a04c46e7de2fe29a5d6d70a8d627aa498a6ba7dcd908c15e2144\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.darioamodei.com/post/the-urgency-of-interpretability\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/research/mapping-mind-language-model\",\n  \"handled_at\": \"2025-10-01 22:46:37.072281+00:00\",\n  \"id\": \"v2I95Z22GK5UWVc\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

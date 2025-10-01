@@ -1,0 +1,23 @@
+{
+  "url": "https://job-boards.greenhouse.io/anthropic/jobs/4020159008",
+  "unique_key": "2dcf3856095cddca217a4bdb1c2d1483d7330a355fef1a6f9e4682daf41483c8",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.darioamodei.com/post/the-urgency-of-interpretability"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://job-boards.greenhouse.io/anthropic/jobs/4020159008",
+  "handled_at": "2025-10-01 23:21:18.335728+00:00",
+  "id": "lk3MHGZj5M5b35a",
+  "json_": "{\n  \"url\": \"https://job-boards.greenhouse.io/anthropic/jobs/4020159008\",\n  \"unique_key\": \"2dcf3856095cddca217a4bdb1c2d1483d7330a355fef1a6f9e4682daf41483c8\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.darioamodei.com/post/the-urgency-of-interpretability\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://job-boards.greenhouse.io/anthropic/jobs/4020159008\",\n  \"handled_at\": \"2025-10-01 23:21:18.335728+00:00\",\n  \"id\": \"lk3MHGZj5M5b35a\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

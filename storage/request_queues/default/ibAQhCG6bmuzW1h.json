@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/discord",
+  "unique_key": "5ad41236b9335c8b00a90bcfb2c59abca1f3f04920a70dd1d23ac293acb66871",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://docs.claude.com/en/docs/about-claude/models/overview"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "ibAQhCG6bmuzW1h",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/discord\",\n  \"unique_key\": \"5ad41236b9335c8b00a90bcfb2c59abca1f3f04920a70dd1d23ac293acb66871\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://docs.claude.com/en/docs/about-claude/models/overview\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"ibAQhCG6bmuzW1h\",\n  \"order_no\": \"1759358567199.148893\"\n}",
+  "order_no": "1759358567199.148893"
+}

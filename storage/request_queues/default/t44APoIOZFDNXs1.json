@@ -1,0 +1,23 @@
+{
+  "url": "https://www.documentcloud.org/documents/25003075-sia-sb-1047-anthropic/",
+  "unique_key": "35e576ac8875e6cce5b66913b3ab14c8195ab59ed2b0c6f283f7d4038cfbd069",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.darioamodei.com/post/the-urgency-of-interpretability"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.documentcloud.org/documents/25003075-sia-sb-1047-anthropic/",
+  "handled_at": "2025-10-01 23:21:26.265884+00:00",
+  "id": "t44APoIOZFDNXs1",
+  "json_": "{\n  \"url\": \"https://www.documentcloud.org/documents/25003075-sia-sb-1047-anthropic/\",\n  \"unique_key\": \"35e576ac8875e6cce5b66913b3ab14c8195ab59ed2b0c6f283f7d4038cfbd069\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.darioamodei.com/post/the-urgency-of-interpretability\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.documentcloud.org/documents/25003075-sia-sb-1047-anthropic/\",\n  \"handled_at\": \"2025-10-01 23:21:26.265884+00:00\",\n  \"id\": \"t44APoIOZFDNXs1\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

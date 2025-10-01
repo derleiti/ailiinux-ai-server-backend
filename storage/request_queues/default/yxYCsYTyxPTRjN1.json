@@ -1,0 +1,24 @@
+{
+  "url": "https://openai.com/research/index/",
+  "unique_key": "0f6a23dfe3ba7ab161da730da5f5de51568a5c64cffcf360eed4b2ba6489a5d5",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://openai.com/news/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "sessionRotationCount": 9,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://openai.com/research/index/",
+  "handled_at": "2025-10-01 22:38:37.446979+00:00",
+  "id": "yxYCsYTyxPTRjN1",
+  "json_": "{\n  \"url\": \"https://openai.com/research/index/\",\n  \"unique_key\": \"0f6a23dfe3ba7ab161da730da5f5de51568a5c64cffcf360eed4b2ba6489a5d5\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://openai.com/news/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"sessionRotationCount\": 9,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://openai.com/research/index/\",\n  \"handled_at\": \"2025-10-01 22:38:37.446979+00:00\",\n  \"id\": \"yxYCsYTyxPTRjN1\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

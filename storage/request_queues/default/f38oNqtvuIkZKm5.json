@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/news/our-approach-to-understanding-and-addressing-ai-harms",
+  "unique_key": "76bd0a5c7994a326bd5a439181de567f99b45aa37133f9f6bab05c559d0786dc",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/activating-asl3-protections"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/news/our-approach-to-understanding-and-addressing-ai-harms",
+  "handled_at": "2025-10-01 23:28:42.967923+00:00",
+  "id": "f38oNqtvuIkZKm5",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/our-approach-to-understanding-and-addressing-ai-harms\",\n  \"unique_key\": \"76bd0a5c7994a326bd5a439181de567f99b45aa37133f9f6bab05c559d0786dc\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/activating-asl3-protections\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/news/our-approach-to-understanding-and-addressing-ai-harms\",\n  \"handled_at\": \"2025-10-01 23:28:42.967923+00:00\",\n  \"id\": \"f38oNqtvuIkZKm5\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

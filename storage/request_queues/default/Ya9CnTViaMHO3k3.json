@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/news/claude-and-slack#footer",
+  "unique_key": "cfbe75aebf8db9ec8a8441ef710f7af31b658fadf3385542aad00cfefa507f8b",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/claude-and-slack"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "Ya9CnTViaMHO3k3",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/claude-and-slack#footer\",\n  \"unique_key\": \"cfbe75aebf8db9ec8a8441ef710f7af31b658fadf3385542aad00cfefa507f8b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/claude-and-slack\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"Ya9CnTViaMHO3k3\",\n  \"order_no\": \"1759358507375.114918\"\n}",
+  "order_no": "1759358507375.114918"
+}

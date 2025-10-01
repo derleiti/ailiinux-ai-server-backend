@@ -1,0 +1,23 @@
+{
+  "url": "https://www.nih.gov/news-events/news-releases/clinical-trial-mrna-universal-influenza-vaccine-candidate-begins",
+  "unique_key": "29a73a75eb1c03e10008576829840301f1a2a4def62514eea0fef2998571988f",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.darioamodei.com/essay/machines-of-loving-grace"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.nih.gov/news-events/news-releases/clinical-trial-mrna-universal-influenza-vaccine-candidate-begins",
+  "handled_at": "2025-10-01 23:27:15.669308+00:00",
+  "id": "LCdJxX2CYQDx9a4",
+  "json_": "{\n  \"url\": \"https://www.nih.gov/news-events/news-releases/clinical-trial-mrna-universal-influenza-vaccine-candidate-begins\",\n  \"unique_key\": \"29a73a75eb1c03e10008576829840301f1a2a4def62514eea0fef2998571988f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.darioamodei.com/essay/machines-of-loving-grace\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.nih.gov/news-events/news-releases/clinical-trial-mrna-universal-influenza-vaccine-candidate-begins\",\n  \"handled_at\": \"2025-10-01 23:27:15.669308+00:00\",\n  \"id\": \"LCdJxX2CYQDx9a4\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

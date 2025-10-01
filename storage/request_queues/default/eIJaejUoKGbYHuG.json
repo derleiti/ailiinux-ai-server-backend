@@ -1,0 +1,22 @@
+{
+  "url": "https://adelement.com/privacy-policy.html#legal-basis-processing",
+  "unique_key": "8f47ace2404a09f07653329e3ea8ff2e59b25d75bf00beaa88c14174729fe174",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.nytimes.com/2025/06/05/opinion/anthropic-ceo-regulate-transparency.html"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "eIJaejUoKGbYHuG",
+  "json_": "{\n  \"url\": \"https://adelement.com/privacy-policy.html#legal-basis-processing\",\n  \"unique_key\": \"8f47ace2404a09f07653329e3ea8ff2e59b25d75bf00beaa88c14174729fe174\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nytimes.com/2025/06/05/opinion/anthropic-ceo-regulate-transparency.html\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"eIJaejUoKGbYHuG\",\n  \"order_no\": \"1759358660123.857975\"\n}",
+  "order_no": "1759358660123.857975"
+}

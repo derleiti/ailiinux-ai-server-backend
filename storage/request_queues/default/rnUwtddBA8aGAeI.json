@@ -1,0 +1,23 @@
+{
+  "url": "https://github.com/features/spark",
+  "unique_key": "6a4b4b0ef1481624b121a48fadf16e80da2026b0c2de0f7089d57cf73a2a44e4",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://github.com/trending"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://github.com/features/spark",
+  "handled_at": "2025-10-01 22:23:12.016062+00:00",
+  "id": "rnUwtddBA8aGAeI",
+  "json_": "{\n  \"url\": \"https://github.com/features/spark\",\n  \"unique_key\": \"6a4b4b0ef1481624b121a48fadf16e80da2026b0c2de0f7089d57cf73a2a44e4\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://github.com/trending\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://github.com/features/spark\",\n  \"handled_at\": \"2025-10-01 22:23:12.016062+00:00\",\n  \"id\": \"rnUwtddBA8aGAeI\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

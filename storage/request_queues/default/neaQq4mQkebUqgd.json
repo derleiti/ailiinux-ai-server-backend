@@ -1,0 +1,23 @@
+{
+  "url": "https://github.com/features/codespaces",
+  "unique_key": "dc8c950fdff4d956672a9a6d97df6eb00011ccb60d530864aeca4a32f02c8e39",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://github.com/trending"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://github.com/features/codespaces",
+  "handled_at": "2025-10-01 22:23:37.117675+00:00",
+  "id": "neaQq4mQkebUqgd",
+  "json_": "{\n  \"url\": \"https://github.com/features/codespaces\",\n  \"unique_key\": \"dc8c950fdff4d956672a9a6d97df6eb00011ccb60d530864aeca4a32f02c8e39\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://github.com/trending\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://github.com/features/codespaces\",\n  \"handled_at\": \"2025-10-01 22:23:37.117675+00:00\",\n  \"id\": \"neaQq4mQkebUqgd\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

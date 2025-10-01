@@ -1,0 +1,22 @@
+{
+  "url": "https://www.microsoft.com/trademarks",
+  "unique_key": "feaef33515c74bb789077bd07f5779c89ad7a6b7675fad927a30ffa0b67b0981",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "QSJmJBmrBDQ3dhT",
+  "json_": "{\n  \"url\": \"https://www.microsoft.com/trademarks\",\n  \"unique_key\": \"feaef33515c74bb789077bd07f5779c89ad7a6b7675fad927a30ffa0b67b0981\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"QSJmJBmrBDQ3dhT\",\n  \"order_no\": \"1759358536354.177952\"\n}",
+  "order_no": "1759358536354.177952"
+}

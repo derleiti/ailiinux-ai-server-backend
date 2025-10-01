@@ -1,0 +1,23 @@
+{
+  "url": "https://en.wikipedia.org/wiki/Technological_singularity#:~:text=The%20technological%20singularity%E2%80%94or%20simply,unforeseeable%20consequences%20for%20Human%20civilization.",
+  "unique_key": "190af4540588d5c86a825bc10d5c1d831febb9e4ecaafa6fe5280bc8548695b6",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.darioamodei.com/essay/machines-of-loving-grace"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://en.wikipedia.org/wiki/Technological_singularity#:~:text=The%20technological%20singularity%E2%80%94or%20simply,unforeseeable%20consequences%20for%20Human%20civilization.",
+  "handled_at": "2025-10-01 23:24:56.826770+00:00",
+  "id": "wazQEkS9uBYYkDp",
+  "json_": "{\n  \"url\": \"https://en.wikipedia.org/wiki/Technological_singularity#:~:text=The%20technological%20singularity%E2%80%94or%20simply,unforeseeable%20consequences%20for%20Human%20civilization.\",\n  \"unique_key\": \"190af4540588d5c86a825bc10d5c1d831febb9e4ecaafa6fe5280bc8548695b6\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.darioamodei.com/essay/machines-of-loving-grace\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://en.wikipedia.org/wiki/Technological_singularity#:~:text=The%20technological%20singularity%E2%80%94or%20simply,unforeseeable%20consequences%20for%20Human%20civilization.\",\n  \"handled_at\": \"2025-10-01 23:24:56.826770+00:00\",\n  \"id\": \"wazQEkS9uBYYkDp\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

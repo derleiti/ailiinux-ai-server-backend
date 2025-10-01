@@ -1,0 +1,22 @@
+{
+  "url": "https://docs.claude.com",
+  "unique_key": "d6f4eddfc38303bb7d3f2e340d81d8fe4bd5ecc1079d04b9861358e14a4e4576",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/company"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "xTaY79qmA4GtiNR",
+  "json_": "{\n  \"url\": \"https://docs.claude.com\",\n  \"unique_key\": \"d6f4eddfc38303bb7d3f2e340d81d8fe4bd5ecc1079d04b9861358e14a4e4576\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/company\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"xTaY79qmA4GtiNR\",\n  \"order_no\": \"1759358648915.729046\"\n}",
+  "order_no": "1759358648915.729046"
+}

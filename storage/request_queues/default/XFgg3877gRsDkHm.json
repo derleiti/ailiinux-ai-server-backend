@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/news/the-long-term-benefit-trust",
+  "unique_key": "d6c83eff09565929a6c5378ad1acb7dc4cc2583b285517855da12e835a4cf098",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/anthropics-responsible-scaling-policy"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "XFgg3877gRsDkHm",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/the-long-term-benefit-trust\",\n  \"unique_key\": \"d6c83eff09565929a6c5378ad1acb7dc4cc2583b285517855da12e835a4cf098\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/anthropics-responsible-scaling-policy\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"XFgg3877gRsDkHm\",\n  \"order_no\": \"1759358506030.415058\"\n}",
+  "order_no": "1759358506030.415058"
+}

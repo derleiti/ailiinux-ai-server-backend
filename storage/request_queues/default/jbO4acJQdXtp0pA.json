@@ -1,0 +1,23 @@
+{
+  "url": "https://bsky.app/intent/compose?text=Back+to+the+Future%3A+From+Freeze-in-Place+to+Sliding+Scale+Chip+Controls&url=https%3A%2F%2Frhg.com%2Fresearch%2Fback-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls%2F&title=Back+to+the+Future%3A+From+Freeze-in-Place+to+Sliding+Scale+Chip+Controls",
+  "unique_key": "71b752e4ca6f05f27dd8300e9bb0a6c53fee7bf40a7314173d43a33062d84f35",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://rhg.com/research/back-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://bsky.app/intent/compose?text=Back+to+the+Future%3A+From+Freeze-in-Place+to+Sliding+Scale+Chip+Controls&url=https%3A%2F%2Frhg.com%2Fresearch%2Fback-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls%2F&title=Back+to+the+Future%3A+From+Freeze-in-Place+to+Sliding+Scale+Chip+Controls",
+  "handled_at": "2025-10-01 23:24:46.574807+00:00",
+  "id": "jbO4acJQdXtp0pA",
+  "json_": "{\n  \"url\": \"https://bsky.app/intent/compose?text=Back+to+the+Future%3A+From+Freeze-in-Place+to+Sliding+Scale+Chip+Controls&url=https%3A%2F%2Frhg.com%2Fresearch%2Fback-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls%2F&title=Back+to+the+Future%3A+From+Freeze-in-Place+to+Sliding+Scale+Chip+Controls\",\n  \"unique_key\": \"71b752e4ca6f05f27dd8300e9bb0a6c53fee7bf40a7314173d43a33062d84f35\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://rhg.com/research/back-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://bsky.app/intent/compose?text=Back+to+the+Future%3A+From+Freeze-in-Place+to+Sliding+Scale+Chip+Controls&url=https%3A%2F%2Frhg.com%2Fresearch%2Fback-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls%2F&title=Back+to+the+Future%3A+From+Freeze-in-Place+to+Sliding+Scale+Chip+Controls\",\n  \"handled_at\": \"2025-10-01 23:24:46.574807+00:00\",\n  \"id\": \"jbO4acJQdXtp0pA\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

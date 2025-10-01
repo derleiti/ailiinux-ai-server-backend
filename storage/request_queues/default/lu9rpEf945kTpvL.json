@@ -1,0 +1,22 @@
+{
+  "url": "https://www.bloomberg.com/businessweek/?utm_source=bloomberg-menu&utm_medium=bcom",
+  "unique_key": "334487ea98be19f89361f4acbc71dd9827d573a4f658e4aaf611e322e9f78a1a",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.bloomberg.com/news/articles/2025-06-12/us-says-huawei-s-2025-output-is-no-more-than-200-000-ai-chips"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "lu9rpEf945kTpvL",
+  "json_": "{\n  \"url\": \"https://www.bloomberg.com/businessweek/?utm_source=bloomberg-menu&utm_medium=bcom\",\n  \"unique_key\": \"334487ea98be19f89361f4acbc71dd9827d573a4f658e4aaf611e322e9f78a1a\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.bloomberg.com/news/articles/2025-06-12/us-says-huawei-s-2025-output-is-no-more-than-200-000-ai-chips\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"lu9rpEf945kTpvL\",\n  \"order_no\": \"1759358488547.774076\"\n}",
+  "order_no": "1759358488547.774076"
+}

@@ -1,0 +1,23 @@
+{
+  "url": "https://nsf-gov-resources.nsf.gov/files/Anthropic-NAIRR-RFI-Response-2022.pdf?VersionId=zOuWKBYCI5lsNESyOvsZIJQM9ePTOTrK",
+  "unique_key": "4bf31a02ad211988905207872cf6135af2fa1a9c88e4d5ad527a625a6af03587",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 5,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 1,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": "2025-10-01 22:42:37.371617+00:00",
+  "id": "IWFzlyA2KWsfq6m",
+  "json_": "{\n  \"url\": \"https://nsf-gov-resources.nsf.gov/files/Anthropic-NAIRR-RFI-Response-2022.pdf?VersionId=zOuWKBYCI5lsNESyOvsZIJQM9ePTOTrK\",\n  \"unique_key\": \"4bf31a02ad211988905207872cf6135af2fa1a9c88e4d5ad527a625a6af03587\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 5,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 1,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": \"2025-10-01 22:42:37.371617+00:00\",\n  \"id\": \"IWFzlyA2KWsfq6m\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

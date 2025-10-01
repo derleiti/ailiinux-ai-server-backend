@@ -17,6 +17,7 @@ class CrawlJobRequest(BaseModel):
     user_context: Optional[str] = None
     requested_by: Optional[str] = None
     metadata: Dict[str, Any] = {}
+    priority: str = "low" # New priority field
 
 
 class CrawlJobResponse(CrawlJobRequest):

@@ -1,0 +1,23 @@
+{
+  "url": "https://github.com/features/issues",
+  "unique_key": "054b3ee1bc66d9916829d20becf77634660a0bec40bc2172d2692e62656a6444",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://github.com/trending"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://github.com/features/issues",
+  "handled_at": "2025-10-01 22:23:39.911847+00:00",
+  "id": "dTgdlT97UILmGTv",
+  "json_": "{\n  \"url\": \"https://github.com/features/issues\",\n  \"unique_key\": \"054b3ee1bc66d9916829d20becf77634660a0bec40bc2172d2692e62656a6444\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://github.com/trending\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://github.com/features/issues\",\n  \"handled_at\": \"2025-10-01 22:23:39.911847+00:00\",\n  \"id\": \"dTgdlT97UILmGTv\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

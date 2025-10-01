@@ -57,6 +57,7 @@ async def create_job(payload: CrawlJobRequest):
         user_context=payload.user_context,
         requested_by=payload.requested_by,
         metadata=payload.metadata or {},
+        priority=payload.priority, # Pass priority from payload
     )
     return _serialize_job(job)
 

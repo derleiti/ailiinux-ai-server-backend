@@ -1,0 +1,23 @@
+{
+  "url": "https://techcrunch.com/category/startups/",
+  "unique_key": "843debe677b4c7944298f3fa7dcd3eb8c66e99422530f00be5d412f50b3c9652",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://techcrunch.com/category/artificial-intelligence/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://techcrunch.com/category/startups/",
+  "handled_at": "2025-10-01 22:36:02.720827+00:00",
+  "id": "9iuKg3QMlJ5XRqZ",
+  "json_": "{\n  \"url\": \"https://techcrunch.com/category/startups/\",\n  \"unique_key\": \"843debe677b4c7944298f3fa7dcd3eb8c66e99422530f00be5d412f50b3c9652\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://techcrunch.com/category/artificial-intelligence/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://techcrunch.com/category/startups/\",\n  \"handled_at\": \"2025-10-01 22:36:02.720827+00:00\",\n  \"id\": \"9iuKg3QMlJ5XRqZ\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

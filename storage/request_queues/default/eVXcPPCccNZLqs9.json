@@ -1,0 +1,21 @@
+{
+  "url": "https://www.anthropic.com/news",
+  "unique_key": "f6aa679babd7a46ab86e2b4ffd82304ea8316bbfc99227de705e29fe05500181",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "seed"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3
+    }
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/news",
+  "handled_at": "2025-10-01 22:38:41.706625+00:00",
+  "id": "eVXcPPCccNZLqs9",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news\",\n  \"unique_key\": \"f6aa679babd7a46ab86e2b4ffd82304ea8316bbfc99227de705e29fe05500181\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"seed\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3\n    }\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/news\",\n  \"handled_at\": \"2025-10-01 22:38:41.706625+00:00\",\n  \"id\": \"eVXcPPCccNZLqs9\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

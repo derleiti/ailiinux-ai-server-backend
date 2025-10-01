@@ -1,0 +1,23 @@
+{
+  "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+  "unique_key": "3633040fb7158494b4a516a8c1e74bdefa76748372e3cf18eea78d71456a9068",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+  "handled_at": "2025-10-01 22:41:18.518853+00:00",
+  "id": "svQvFkvKfvSToFq",
+  "json_": "{\n  \"url\": \"https://www.darioamodei.com/essay/machines-of-loving-grace\",\n  \"unique_key\": \"3633040fb7158494b4a516a8c1e74bdefa76748372e3cf18eea78d71456a9068\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.darioamodei.com/essay/machines-of-loving-grace\",\n  \"handled_at\": \"2025-10-01 22:41:18.518853+00:00\",\n  \"id\": \"svQvFkvKfvSToFq\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

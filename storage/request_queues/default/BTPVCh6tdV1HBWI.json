@@ -1,0 +1,23 @@
+{
+  "url": "https://www.nsf.gov/funding/entrepreneurs",
+  "unique_key": "f8f8682354c50c27e91f5509ba3728c7b9a1aec575ac048f2dd617cec1c1b2d9",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.nsf.gov/focus-areas/artificial-intelligence/nairr#nairr-pilot-partners-and-contributors-890"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.nsf.gov/funding/entrepreneurs",
+  "handled_at": "2025-10-01 22:45:17.474210+00:00",
+  "id": "BTPVCh6tdV1HBWI",
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/funding/entrepreneurs\",\n  \"unique_key\": \"f8f8682354c50c27e91f5509ba3728c7b9a1aec575ac048f2dd617cec1c1b2d9\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/focus-areas/artificial-intelligence/nairr#nairr-pilot-partners-and-contributors-890\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.nsf.gov/funding/entrepreneurs\",\n  \"handled_at\": \"2025-10-01 22:45:17.474210+00:00\",\n  \"id\": \"BTPVCh6tdV1HBWI\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

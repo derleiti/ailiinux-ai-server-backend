@@ -1,0 +1,23 @@
+{
+  "url": "https://arstechnica.com/cars/",
+  "unique_key": "037210abbd91c846b28b3d3d57deca5d8ed7ba5b99c1ce156685d9a333af7ad1",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://arstechnica.com/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://arstechnica.com/cars/",
+  "handled_at": "2025-10-01 22:26:46.863675+00:00",
+  "id": "IFXrmzpQJAQmwQ3",
+  "json_": "{\n  \"url\": \"https://arstechnica.com/cars/\",\n  \"unique_key\": \"037210abbd91c846b28b3d3d57deca5d8ed7ba5b99c1ce156685d9a333af7ad1\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://arstechnica.com/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://arstechnica.com/cars/\",\n  \"handled_at\": \"2025-10-01 22:26:46.863675+00:00\",\n  \"id\": \"IFXrmzpQJAQmwQ3\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

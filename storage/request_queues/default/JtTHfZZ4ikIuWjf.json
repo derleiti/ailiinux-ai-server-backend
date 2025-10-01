@@ -1,0 +1,23 @@
+{
+  "url": "https://claude.com/platform/api",
+  "unique_key": "d35aa40ef129007eb0a4a59fef6b45cf4381135096b580a9b75018715edb058b",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://claude.com/platform/api",
+  "handled_at": "2025-10-01 22:42:28.729245+00:00",
+  "id": "JtTHfZZ4ikIuWjf",
+  "json_": "{\n  \"url\": \"https://claude.com/platform/api\",\n  \"unique_key\": \"d35aa40ef129007eb0a4a59fef6b45cf4381135096b580a9b75018715edb058b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://claude.com/platform/api\",\n  \"handled_at\": \"2025-10-01 22:42:28.729245+00:00\",\n  \"id\": \"JtTHfZZ4ikIuWjf\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

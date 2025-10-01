@@ -1,0 +1,23 @@
+{
+  "url": "https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy",
+  "unique_key": "d0ba81cc7a8fdb2b044686bdb6bd63143f6692465f3d19f60c63b9aaea4b411a",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/claude-sonnet-4-5#footer"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy",
+  "handled_at": "2025-10-01 22:42:46.683830+00:00",
+  "id": "seHw5h9oQ9Qjlc5",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy\",\n  \"unique_key\": \"d0ba81cc7a8fdb2b044686bdb6bd63143f6692465f3d19f60c63b9aaea4b411a\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/claude-sonnet-4-5#footer\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy\",\n  \"handled_at\": \"2025-10-01 22:42:46.683830+00:00\",\n  \"id\": \"seHw5h9oQ9Qjlc5\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

@@ -1,0 +1,23 @@
+{
+  "url": "https://www.linuxfoundation.org/legal/privacy-policy#3e35ff22-dccd-4c93-bad9-71953b7dd32a",
+  "unique_key": "da80e93fde694c4c3ffedb366f26abfbbacad14cc1640eac8492f8c189e5903f",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.linuxfoundation.org/legal/privacy-policy"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.linuxfoundation.org/legal/privacy-policy#3e35ff22-dccd-4c93-bad9-71953b7dd32a",
+  "handled_at": "2025-10-01 22:37:57.843364+00:00",
+  "id": "UakTxwJQspePUEF",
+  "json_": "{\n  \"url\": \"https://www.linuxfoundation.org/legal/privacy-policy#3e35ff22-dccd-4c93-bad9-71953b7dd32a\",\n  \"unique_key\": \"da80e93fde694c4c3ffedb366f26abfbbacad14cc1640eac8492f8c189e5903f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.linuxfoundation.org/legal/privacy-policy\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.linuxfoundation.org/legal/privacy-policy#3e35ff22-dccd-4c93-bad9-71953b7dd32a\",\n  \"handled_at\": \"2025-10-01 22:37:57.843364+00:00\",\n  \"id\": \"UakTxwJQspePUEF\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

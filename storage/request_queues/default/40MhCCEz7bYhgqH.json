@@ -1,0 +1,23 @@
+{
+  "url": "https://anthropic.com/news/enabling-claude-code-to-work-more-autonomously",
+  "unique_key": "784d169ee866f084a2f245e9915536c1d39df608386b1249414eb4680f58a65e",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/claude-sonnet-4-5#footer"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously",
+  "handled_at": "2025-10-01 22:42:28.880962+00:00",
+  "id": "40MhCCEz7bYhgqH",
+  "json_": "{\n  \"url\": \"https://anthropic.com/news/enabling-claude-code-to-work-more-autonomously\",\n  \"unique_key\": \"784d169ee866f084a2f245e9915536c1d39df608386b1249414eb4680f58a65e\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/claude-sonnet-4-5#footer\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously\",\n  \"handled_at\": \"2025-10-01 22:42:28.880962+00:00\",\n  \"id\": \"40MhCCEz7bYhgqH\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

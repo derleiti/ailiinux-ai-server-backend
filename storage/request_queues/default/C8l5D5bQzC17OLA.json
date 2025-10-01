@@ -1,0 +1,24 @@
+{
+  "url": "https://claude.ai/redirect/website.v1.4fb53f0a-c1ad-4dad-b4ff-26db3cb56ced/imagine",
+  "unique_key": "cf21baf42cb292823babf77bc0f5eb97ebe3b2768b2cfe10e74e05dc3ceecd14",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/claude-sonnet-4-5#footer"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "sessionRotationCount": 1,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://claude.ai/redirect/website.v1.4fb53f0a-c1ad-4dad-b4ff-26db3cb56ced/imagine",
+  "handled_at": null,
+  "id": "C8l5D5bQzC17OLA",
+  "json_": "{\n  \"url\": \"https://claude.ai/redirect/website.v1.4fb53f0a-c1ad-4dad-b4ff-26db3cb56ced/imagine\",\n  \"unique_key\": \"cf21baf42cb292823babf77bc0f5eb97ebe3b2768b2cfe10e74e05dc3ceecd14\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/claude-sonnet-4-5#footer\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"sessionRotationCount\": 1,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://claude.ai/redirect/website.v1.4fb53f0a-c1ad-4dad-b4ff-26db3cb56ced/imagine\",\n  \"handled_at\": null,\n  \"id\": \"C8l5D5bQzC17OLA\",\n  \"order_no\": \"1759358539933.852911\"\n}",
+  "order_no": "1759358539933.852911"
+}

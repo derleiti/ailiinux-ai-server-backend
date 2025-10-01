@@ -1,0 +1,24 @@
+{
+  "url": "https://scholar.google.com/citations?user=6-e-ZBEAAAAJ",
+  "unique_key": "1511389bff3c2da91142146009c95addfd425e4dbbb43e00504ac32f6e07b183",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.darioamodei.com/essay/machines-of-loving-grace"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "sessionRotationCount": 1,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://scholar.google.com/citations?user=6-e-ZBEAAAAJ",
+  "handled_at": null,
+  "id": "AQ6c1VefpUa3wIy",
+  "json_": "{\n  \"url\": \"https://scholar.google.com/citations?user=6-e-ZBEAAAAJ\",\n  \"unique_key\": \"1511389bff3c2da91142146009c95addfd425e4dbbb43e00504ac32f6e07b183\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.darioamodei.com/essay/machines-of-loving-grace\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"sessionRotationCount\": 1,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://scholar.google.com/citations?user=6-e-ZBEAAAAJ\",\n  \"handled_at\": null,\n  \"id\": \"AQ6c1VefpUa3wIy\",\n  \"order_no\": \"1759361068210.371017\"\n}",
+  "order_no": "1759361068210.371017"
+}

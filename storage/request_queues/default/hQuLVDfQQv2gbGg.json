@@ -1,0 +1,23 @@
+{
+  "url": "https://www.nsf.gov/focus-areas/quantum",
+  "unique_key": "dc571e8fe60c70bcf28660d77fd6e5bb3616f01d056afdee7452e19537131f4a",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.nsf.gov/focus-areas/artificial-intelligence/nairr#nairr-pilot-partners-and-contributors-890"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.nsf.gov/focus-areas/quantum",
+  "handled_at": "2025-10-01 22:45:48.942396+00:00",
+  "id": "hQuLVDfQQv2gbGg",
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/focus-areas/quantum\",\n  \"unique_key\": \"dc571e8fe60c70bcf28660d77fd6e5bb3616f01d056afdee7452e19537131f4a\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/focus-areas/artificial-intelligence/nairr#nairr-pilot-partners-and-contributors-890\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.nsf.gov/focus-areas/quantum\",\n  \"handled_at\": \"2025-10-01 22:45:48.942396+00:00\",\n  \"id\": \"hQuLVDfQQv2gbGg\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

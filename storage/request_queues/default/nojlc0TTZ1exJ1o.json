@@ -1,0 +1,23 @@
+{
+  "url": "https://arstechnica.com/information-technology/#main",
+  "unique_key": "9ed1a245688e159e85bc895da992d5580060d5455864a080f58967ca8e1ff039",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://arstechnica.com/information-technology/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 2
+    },
+    "depth": 2
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://arstechnica.com/information-technology/#main",
+  "handled_at": "2025-10-01 22:27:05.851536+00:00",
+  "id": "nojlc0TTZ1exJ1o",
+  "json_": "{\n  \"url\": \"https://arstechnica.com/information-technology/#main\",\n  \"unique_key\": \"9ed1a245688e159e85bc895da992d5580060d5455864a080f58967ca8e1ff039\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://arstechnica.com/information-technology/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 2\n    },\n    \"depth\": 2\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://arstechnica.com/information-technology/#main\",\n  \"handled_at\": \"2025-10-01 22:27:05.851536+00:00\",\n  \"id\": \"nojlc0TTZ1exJ1o\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

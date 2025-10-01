@@ -1,0 +1,23 @@
+{
+  "url": "https://www.pcgamer.com/games/",
+  "unique_key": "6a67b00d8c81f04e53d0a5873f60d91ea69e30a4b8c3f1c1fb200eb23f07d5cf",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.pcgamer.com/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.pcgamer.com/games/",
+  "handled_at": "2025-10-01 22:28:16.624199+00:00",
+  "id": "Wlh9yUKgKLjsPIt",
+  "json_": "{\n  \"url\": \"https://www.pcgamer.com/games/\",\n  \"unique_key\": \"6a67b00d8c81f04e53d0a5873f60d91ea69e30a4b8c3f1c1fb200eb23f07d5cf\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.pcgamer.com/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.pcgamer.com/games/\",\n  \"handled_at\": \"2025-10-01 22:28:16.624199+00:00\",\n  \"id\": \"Wlh9yUKgKLjsPIt\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

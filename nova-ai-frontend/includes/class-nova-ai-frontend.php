@@ -17,7 +17,7 @@ class Frontend
     private const OPTION_CRAWLER_FORUM = 'nova_ai_crawler_forum';
     private const OPTION_CRAWLER_AUTHOR = 'nova_ai_crawler_author';
     private const OPTION_CHAT_CRAWLER_TOOLS_ENABLED = 'nova_ai_chat_crawler_tools_enabled';
-    private const DEFAULT_API_BASE = 'http://0.0.0.0:9100';
+    private const DEFAULT_API_BASE = 'https://api.ailinux.me:9000';
 
     private static bool $shortcodeRendered = false;
     private static ?string $shortcodeUrl = null;
@@ -25,7 +25,8 @@ class Frontend
     public static function init(): void
     {
         add_action('admin_init', [self::class, 'register_settings']);
-        add_action('admin_menu', [self::class, 'register_settings_page']);
+        // Removed: add_action('admin_menu', [self::class, 'register_settings_page']);
+        // Settings page is now integrated into AdminDashboard menu
         add_action('init', [self::class, 'register_shortcode']);
         add_action('init', [self::class, 'maybe_schedule_crawler']);
         add_action('wp_enqueue_scripts', [self::class, 'enqueue_assets']);
@@ -78,7 +79,7 @@ class Frontend
         register_setting(self::OPTION_GROUP, self::OPTION_CHAT_CRAWLER_TOOLS_ENABLED, [
             'type' => 'boolean',
             'sanitize_callback' => [self::class, 'sanitize_bool'],
-            'default' => 0,
+            'default' => 1,
         ]);
 
         add_settings_section(

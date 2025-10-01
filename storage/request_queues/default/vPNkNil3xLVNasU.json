@@ -1,0 +1,22 @@
+{
+  "url": "https://www.anthropic.com/news/claude-for-chrome#footer",
+  "unique_key": "090e41f2f5db48c7782d90725371c12f70ac29fbfd0d5ab5643acdf9ef491740",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/claude-for-chrome"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "vPNkNil3xLVNasU",
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/claude-for-chrome#footer\",\n  \"unique_key\": \"090e41f2f5db48c7782d90725371c12f70ac29fbfd0d5ab5643acdf9ef491740\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/claude-for-chrome\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"vPNkNil3xLVNasU\",\n  \"order_no\": \"1759358566137.476921\"\n}",
+  "order_no": "1759358566137.476921"
+}

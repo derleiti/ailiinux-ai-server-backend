@@ -1,0 +1,22 @@
+{
+  "url": "https://claude.ai/redirect/website.v1.8effe7e3-4dc3-4d21-904a-d531e52e8409/new?q=Create%20a%203-month%20editorial%20calendar%20template%20for%20a%20weekly%20newsletter",
+  "unique_key": "7e4cfec8ec90b0e3e7104f4ec295b284040d9ada0bc21332a11b2d965a827c07",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/claude/sonnet"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "CpRDCEUNaWphETe",
+  "json_": "{\n  \"url\": \"https://claude.ai/redirect/website.v1.8effe7e3-4dc3-4d21-904a-d531e52e8409/new?q=Create%20a%203-month%20editorial%20calendar%20template%20for%20a%20weekly%20newsletter\",\n  \"unique_key\": \"7e4cfec8ec90b0e3e7104f4ec295b284040d9ada0bc21332a11b2d965a827c07\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/claude/sonnet\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"CpRDCEUNaWphETe\",\n  \"order_no\": \"1759358509660.198927\"\n}",
+  "order_no": "1759358509660.198927"
+}

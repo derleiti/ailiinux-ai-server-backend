@@ -1,0 +1,22 @@
+{
+  "url": "http://claude.com/pricing#api",
+  "unique_key": "5de14fbd7ded4ad72b50fd8beda0300fed2da5a4399578ceb27122d8c7dbadf3",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://claude.com/product/overview"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "crawlDepth": 4
+    },
+    "depth": 4
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": null,
+  "handled_at": null,
+  "id": "B0dzYmHGxeFQJN0",
+  "json_": "{\n  \"url\": \"http://claude.com/pricing#api\",\n  \"unique_key\": \"5de14fbd7ded4ad72b50fd8beda0300fed2da5a4399578ceb27122d8c7dbadf3\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://claude.com/product/overview\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"B0dzYmHGxeFQJN0\",\n  \"order_no\": \"1759358509783.359051\"\n}",
+  "order_no": "1759358509783.359051"
+}

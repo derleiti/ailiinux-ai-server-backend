@@ -1,0 +1,23 @@
+{
+  "url": "https://www.chinatalk.media/p/mapping-chinas-hbm-advancement",
+  "unique_key": "e8dc7e99a36cfa67e0bdadaec3ba6c63f8491f567493788f3cab6ae0b9cf09fb",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 3
+    },
+    "depth": 3
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.chinatalk.media/p/mapping-chinas-hbm-advancement",
+  "handled_at": "2025-10-01 22:41:36.743100+00:00",
+  "id": "SZqSppwFekwlFxs",
+  "json_": "{\n  \"url\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\",\n  \"unique_key\": \"e8dc7e99a36cfa67e0bdadaec3ba6c63f8491f567493788f3cab6ae0b9cf09fb\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan#main-content\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 3\n    },\n    \"depth\": 3\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\",\n  \"handled_at\": \"2025-10-01 22:41:36.743100+00:00\",\n  \"id\": \"SZqSppwFekwlFxs\",\n  \"order_no\": null\n}",
+  "order_no": null
+}

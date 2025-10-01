@@ -1,0 +1,23 @@
+{
+  "url": "https://www.phoronix.com/contact",
+  "unique_key": "c588e074a52d61b20e022fdf159cfa42b9273062073d03a52886e20710e09f35",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "https://www.phoronix.com/"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3,
+      "crawlDepth": 1
+    },
+    "depth": 1
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://www.phoronix.com/contact",
+  "handled_at": "2025-10-01 22:21:36.922561+00:00",
+  "id": "3da9kaJfWoNIMJG",
+  "json_": "{\n  \"url\": \"https://www.phoronix.com/contact\",\n  \"unique_key\": \"c588e074a52d61b20e022fdf159cfa42b9273062073d03a52886e20710e09f35\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.phoronix.com/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 1\n    },\n    \"depth\": 1\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.phoronix.com/contact\",\n  \"handled_at\": \"2025-10-01 22:21:36.922561+00:00\",\n  \"id\": \"3da9kaJfWoNIMJG\",\n  \"order_no\": null\n}",
+  "order_no": null
+}
