@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.nsf.gov/funding/getting-started#fba-button",
+  "handled_at": "2025-10-02 00:37:27.496772+00:00",
   "id": "Y99bLv9LsXEgNIv",
-  "json_": "{\n  \"url\": \"https://www.nsf.gov/funding/getting-started#fba-button\",\n  \"unique_key\": \"575675f4d1577824a0b3f929dd2eb5b6598cd447956403bdb5424bae685b3c79\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/funding/getting-started\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"Y99bLv9LsXEgNIv\",\n  \"order_no\": \"1759358699854.006052\"\n}",
-  "order_no": "1759358699854.006052"
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/funding/getting-started#fba-button\",\n  \"unique_key\": \"575675f4d1577824a0b3f929dd2eb5b6598cd447956403bdb5424bae685b3c79\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/funding/getting-started\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.nsf.gov/funding/getting-started#fba-button\",\n  \"handled_at\": \"2025-10-02 00:37:27.496772+00:00\",\n  \"id\": \"Y99bLv9LsXEgNIv\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

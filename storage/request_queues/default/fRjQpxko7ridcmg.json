@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.nsf.gov/policies/pappg#content-wrap",
+  "handled_at": "2025-10-02 00:39:05.505366+00:00",
   "id": "fRjQpxko7ridcmg",
-  "json_": "{\n  \"url\": \"https://www.nsf.gov/policies/pappg#content-wrap\",\n  \"unique_key\": \"2ec655e0374df871ece1bd5504a1444c69c7363eedd8d1850a483f253d2133e9\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/policies/pappg\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"fRjQpxko7ridcmg\",\n  \"order_no\": \"1759358719921.042919\"\n}",
-  "order_no": "1759358719921.042919"
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/policies/pappg#content-wrap\",\n  \"unique_key\": \"2ec655e0374df871ece1bd5504a1444c69c7363eedd8d1850a483f253d2133e9\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/policies/pappg\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.nsf.gov/policies/pappg#content-wrap\",\n  \"handled_at\": \"2025-10-02 00:39:05.505366+00:00\",\n  \"id\": \"fRjQpxko7ridcmg\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 5,
       "crawlDepth": 4
     },
     "depth": 4
   },
-  "retry_count": 0,
+  "retry_count": 1,
   "no_retry": false,
   "loaded_url": null,
-  "handled_at": null,
+  "handled_at": "2025-10-02 01:26:37.575209+00:00",
   "id": "F1xgS7BdH2e3J7j",
-  "json_": "{\n  \"url\": \"http://anthropic.com/rsp\",\n  \"unique_key\": \"7cc0acd3df5e8f3211743c9fde4e96bfe449500a8eb16ff71985a6a850f42292\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"F1xgS7BdH2e3J7j\",\n  \"order_no\": \"1759358566682.666063\"\n}",
-  "order_no": "1759358566682.666063"
+  "json_": "{\n  \"url\": \"http://anthropic.com/rsp\",\n  \"unique_key\": \"7cc0acd3df5e8f3211743c9fde4e96bfe449500a8eb16ff71985a6a850f42292\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 5,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 1,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": \"2025-10-02 01:26:37.575209+00:00\",\n  \"id\": \"F1xgS7BdH2e3J7j\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

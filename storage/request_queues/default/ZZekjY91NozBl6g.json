@@ -9,7 +9,7 @@
   "user_data": {
     "__crawlee": {
       "state": 3,
-      "sessionRotationCount": 1,
+      "sessionRotationCount": 9,
       "crawlDepth": 4
     },
     "depth": 4
@@ -17,8 +17,8 @@
   "retry_count": 0,
   "no_retry": false,
   "loaded_url": "https://www.barrons.com/articles/nvidia-china-antitrust-tech-war-f8a4f70c",
-  "handled_at": null,
+  "handled_at": "2025-10-02 01:27:20.450457+00:00",
   "id": "ZZekjY91NozBl6g",
-  "json_": "{\n  \"url\": \"https://www.barrons.com/articles/nvidia-china-antitrust-tech-war-f8a4f70c\",\n  \"unique_key\": \"6a461f7d10d72a360b3e2894e5d7d264aab06dd64f73921e6e57e736df5461af\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://rhg.com/research/back-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"sessionRotationCount\": 1,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.barrons.com/articles/nvidia-china-antitrust-tech-war-f8a4f70c\",\n  \"handled_at\": null,\n  \"id\": \"ZZekjY91NozBl6g\",\n  \"order_no\": \"1759361047467.240095\"\n}",
-  "order_no": "1759361047467.240095"
+  "json_": "{\n  \"url\": \"https://www.barrons.com/articles/nvidia-china-antitrust-tech-war-f8a4f70c\",\n  \"unique_key\": \"6a461f7d10d72a360b3e2894e5d7d264aab06dd64f73921e6e57e736df5461af\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://rhg.com/research/back-to-the-future-from-freeze-in-place-to-sliding-scale-chip-controls/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"sessionRotationCount\": 9,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.barrons.com/articles/nvidia-china-antitrust-tech-war-f8a4f70c\",\n  \"handled_at\": \"2025-10-02 01:27:20.450457+00:00\",\n  \"id\": \"ZZekjY91NozBl6g\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

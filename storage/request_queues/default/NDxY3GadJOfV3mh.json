@@ -8,15 +8,17 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
+      "sessionRotationCount": 9,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://claude.ai/redirect/website.v1.be9497fd-91e3-42d9-bef0-32980435f8c0/chrome",
+  "handled_at": "2025-10-02 01:27:21.005828+00:00",
   "id": "NDxY3GadJOfV3mh",
-  "json_": "{\n  \"url\": \"http://claude.ai/redirect/website.v1.be9497fd-91e3-42d9-bef0-32980435f8c0/chrome\",\n  \"unique_key\": \"16abb8e5d7d1af4341ba19fcd04525f592f7603f8373df8ef388eae570a66ebb\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/claude-for-chrome\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"NDxY3GadJOfV3mh\",\n  \"order_no\": \"1759358566146.449089\"\n}",
-  "order_no": "1759358566146.449089"
+  "json_": "{\n  \"url\": \"http://claude.ai/redirect/website.v1.be9497fd-91e3-42d9-bef0-32980435f8c0/chrome\",\n  \"unique_key\": \"16abb8e5d7d1af4341ba19fcd04525f592f7603f8373df8ef388eae570a66ebb\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/claude-for-chrome\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"sessionRotationCount\": 9,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://claude.ai/redirect/website.v1.be9497fd-91e3-42d9-bef0-32980435f8c0/chrome\",\n  \"handled_at\": \"2025-10-02 01:27:21.005828+00:00\",\n  \"id\": \"NDxY3GadJOfV3mh\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

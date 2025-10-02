@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.grants.gov/applicants",
+  "handled_at": "2025-10-02 01:22:06.361727+00:00",
   "id": "cGotYZ4TK1Vm3gp",
-  "json_": "{\n  \"url\": \"https://www.grants.gov/applicants\",\n  \"unique_key\": \"726652a19dd04139280dbe8196e03829265a0be5f9936960bee0500207085414\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.grants.gov\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"cGotYZ4TK1Vm3gp\",\n  \"order_no\": \"1759358729847.702026\"\n}",
-  "order_no": "1759358729847.702026"
+  "json_": "{\n  \"url\": \"https://www.grants.gov/applicants\",\n  \"unique_key\": \"726652a19dd04139280dbe8196e03829265a0be5f9936960bee0500207085414\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.grants.gov\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.grants.gov/applicants\",\n  \"handled_at\": \"2025-10-02 01:22:06.361727+00:00\",\n  \"id\": \"cGotYZ4TK1Vm3gp\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

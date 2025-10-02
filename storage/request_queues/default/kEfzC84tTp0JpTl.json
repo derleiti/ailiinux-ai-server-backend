@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://external.nsf.gov/oauth2/ausf8daz7hYiWiEk44h7/v1/authorize?response_type=code&client_id=rppr.prod.oauth&scope=openid%20profile%20email&state=yRqNX8HNUmJ2-fWuQivHfusSM70DkgfbP73ZTl7gstg%3D&redirect_uri=https://www.research.gov/rppr-web/login/oauth2/code/nsf&nonce=lx5cTeyChMltIvwauoCfCgGpdAxJiSYnx0ZXU36aLZk",
+  "handled_at": "2025-10-02 01:20:05.605755+00:00",
   "id": "kEfzC84tTp0JpTl",
-  "json_": "{\n  \"url\": \"https://www.research.gov/rppr-web/\",\n  \"unique_key\": \"3ba7947aa867034ed3271aa3f65c06d22ba26d89e557d1480595525bc8ee8709\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.research.gov/research-web/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"kEfzC84tTp0JpTl\",\n  \"order_no\": \"1759358729539.318085\"\n}",
-  "order_no": "1759358729539.318085"
+  "json_": "{\n  \"url\": \"https://www.research.gov/rppr-web/\",\n  \"unique_key\": \"3ba7947aa867034ed3271aa3f65c06d22ba26d89e557d1480595525bc8ee8709\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.research.gov/research-web/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://external.nsf.gov/oauth2/ausf8daz7hYiWiEk44h7/v1/authorize?response_type=code&client_id=rppr.prod.oauth&scope=openid%20profile%20email&state=yRqNX8HNUmJ2-fWuQivHfusSM70DkgfbP73ZTl7gstg%3D&redirect_uri=https://www.research.gov/rppr-web/login/oauth2/code/nsf&nonce=lx5cTeyChMltIvwauoCfCgGpdAxJiSYnx0ZXU36aLZk\",\n  \"handled_at\": \"2025-10-02 01:20:05.605755+00:00\",\n  \"id\": \"kEfzC84tTp0JpTl\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

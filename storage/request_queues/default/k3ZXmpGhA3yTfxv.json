@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.anthropic.com/engineering/contextual-retrieval",
+  "handled_at": "2025-10-02 00:19:08.993969+00:00",
   "id": "k3ZXmpGhA3yTfxv",
-  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/contextual-retrieval\",\n  \"unique_key\": \"e1c689c17d931261cf75ffa5e1049639e10f3be88fedbb388531b20d98b2ff22\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/driving-ai-transformation-with-claude\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"k3ZXmpGhA3yTfxv\",\n  \"order_no\": \"1759358506952.910900\"\n}",
-  "order_no": "1759358506952.910900"
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/contextual-retrieval\",\n  \"unique_key\": \"e1c689c17d931261cf75ffa5e1049639e10f3be88fedbb388531b20d98b2ff22\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/driving-ai-transformation-with-claude\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/engineering/contextual-retrieval\",\n  \"handled_at\": \"2025-10-02 00:19:08.993969+00:00\",\n  \"id\": \"k3ZXmpGhA3yTfxv\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

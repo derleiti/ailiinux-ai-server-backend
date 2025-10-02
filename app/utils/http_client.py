@@ -1,143 +1,94 @@
-from __future__ import annotations
-
+import httpx
 import asyncio
 import logging
-from typing import Any, Dict, Optional
+import time
+import uuid
+from typing import Dict, Any, Optional
 
-import httpx
-from tenacity import (
-    retry,
-    stop_after_attempt,
-    wait_exponential,
-    retry_if_exception_type,
-    before_sleep_log,
-)
+logger = logging.getLogger(__name__)
 
-logger = logging.getLogger("ailinux.http_client")
+class CircuitBreakerOpen(Exception):
+    """Custom exception for when the circuit breaker is open."""
+    pass
 
+class HttpClient:
+    def __init__(self, base_url: str, api_key: Optional[str] = None, timeout_ms: int = 30000):
+        self.base_url = base_url
+        self.api_key = api_key
+        self.timeout = timeout_ms / 1000.0 # Convert ms to seconds
+        self.client = httpx.AsyncClient(base_url=base_url, timeout=self.timeout)
 
-class RobustHTTPClient:
-    """HTTP Client mit Retry-Logic und besserer Fehlerbehandlung."""
+        # Circuit Breaker state
+        self._failure_count = 0
+        self._last_failure_time = 0.0
+        self._circuit_open = False
+        self._reset_timeout = 60 # seconds to wait before trying to close circuit
 
-    def __init__(
-        self,
-        timeout: float = 120.0,
-        max_retries: int = 3,
-        retry_on_status: tuple[int, ...] = (408, 429, 500, 502, 503, 504),
-    ):
-        self.timeout = httpx.Timeout(timeout)
-        self.max_retries = max_retries
-        self.retry_on_status = retry_on_status
+    async def _check_circuit(self):
+        if not self._circuit_open:
+            return
 
-    @retry(
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception_type((httpx.TimeoutException, httpx.NetworkError)),
-        before_sleep=before_sleep_log(logger, logging.WARNING),
-        reraise=True,
-    )
-    async def get(
-        self,
-        url: str,
-        *,
-        headers: Optional[Dict[str, str]] = None,
-        params: Optional[Dict[str, Any]] = None,
-    ) -> httpx.Response:
-        """GET-Request mit automatischer Retry-Logic."""
-        async with httpx.AsyncClient(timeout=self.timeout) as client:
+        # Circuit is open, check if it's time to try to close it (half-open state)
+        if time.time() - self._last_failure_time > self._reset_timeout:
+            logger.warning(f"Circuit breaker for {self.base_url} is half-open. Attempting to close.")
+            self._circuit_open = False # Try to close
+        else:
+            raise CircuitBreakerOpen(f"Circuit breaker for {self.base_url} is open.")
+
+    async def _record_success(self):
+        self._failure_count = 0
+        self._circuit_open = False
+
+    async def _record_failure(self):
+        self._failure_count += 1
+        self._last_failure_time = time.time()
+        if self._failure_count >= 3: # Threshold for opening circuit
+            logger.error(f"Circuit breaker for {self.base_url} opened due to {self._failure_count} failures.")
+            self._circuit_open = True
+
+    async def post(self, path: str, json: Dict[str, Any], headers: Optional[Dict[str, str]] = None,
+                   correlation_id: Optional[str] = None, idempotency_key: Optional[str] = None,
+                   retries: int = 3, backoff_factor: float = 0.5) -> Dict[str, Any]:
+        await self._check_circuit()
+
+        full_headers = {
+            "Content-Type": "application/json",
+            "X-Correlation-ID": correlation_id or str(uuid.uuid4()),
+            **({"Authorization": f"Bearer {self.api_key}"} if self.api_key else {}),
+            **({"Idempotency-Key": idempotency_key} if idempotency_key else {}),
+            **(headers or {})
+        }
+
+        for attempt in range(retries):
             try:
-                response = await client.get(url, headers=headers, params=params)
-
-                # Retry bei bestimmten Status-Codes
-                if response.status_code in self.retry_on_status:
-                    logger.warning(
-                        "Retryable status %d for %s, retrying...",
-                        response.status_code,
-                        url,
-                    )
-                    raise httpx.HTTPStatusError(
-                        f"Retryable status: {response.status_code}",
-                        request=response.request,
-                        response=response,
-                    )
-
-                response.raise_for_status()
-                return response
-
-            except httpx.TimeoutException as exc:
-                logger.error("Timeout for %s: %s", url, exc)
+                response = await self.client.post(path, json=json, headers=full_headers)
+                response.raise_for_status() # Raises HTTPStatusError for 4xx/5xx responses
+                await self._record_success()
+                return response.json()
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code in [429, 500, 502, 503, 504] and attempt < retries - 1:
+                    sleep_time = backoff_factor * (2 ** attempt)
+                    logger.warning(f"Attempt {attempt + 1}/{retries} failed for {self.base_url}{path} with status {e.response.status_code}. Retrying in {sleep_time:.2f}s.")
+                    await asyncio.sleep(sleep_time)
+                    await self._record_failure()
+                else:
+                    await self._record_failure()
+                    logger.error(f"Request to {self.base_url}{path} failed after {attempt + 1} attempts: {e}")
+                    raise
+            except httpx.RequestError as e:
+                if attempt < retries - 1:
+                    sleep_time = backoff_factor * (2 ** attempt)
+                    logger.warning(f"Attempt {attempt + 1}/{retries} failed for {self.base_url}{path} with network error: {e}. Retrying in {sleep_time:.2f}s.")
+                    await asyncio.sleep(sleep_time)
+                    await self._record_failure()
+                else:
+                    await self._record_failure()
+                    logger.error(f"Request to {self.base_url}{path} failed after {attempt + 1} attempts: {e}")
+                    raise
+            except CircuitBreakerOpen:
+                raise # Re-raise if circuit is already open
+            except Exception as e:
+                await self._record_failure()
+                logger.error(f"An unexpected error occurred during request to {self.base_url}{path}: {e}")
                 raise
-            except httpx.NetworkError as exc:
-                logger.error("Network error for %s: %s", url, exc)
-                raise
-            except httpx.HTTPStatusError as exc:
-                logger.error(
-                    "HTTP error %d for %s: %s",
-                    exc.response.status_code,
-                    url,
-                    exc,
-                )
-                raise
-            except Exception as exc:
-                logger.error("Unexpected error for %s: %s", url, exc, exc_info=True)
-                raise
-
-    @retry(
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception_type((httpx.TimeoutException, httpx.NetworkError)),
-        before_sleep=before_sleep_log(logger, logging.WARNING),
-        reraise=True,
-    )
-    async def post(
-        self,
-        url: str,
-        *,
-        headers: Optional[Dict[str, str]] = None,
-        json: Optional[Dict[str, Any]] = None,
-        data: Optional[Any] = None,
-    ) -> httpx.Response:
-        """POST-Request mit automatischer Retry-Logic."""
-        async with httpx.AsyncClient(timeout=self.timeout) as client:
-            try:
-                response = await client.post(
-                    url, headers=headers, json=json, data=data
-                )
-
-                # Retry bei bestimmten Status-Codes
-                if response.status_code in self.retry_on_status:
-                    logger.warning(
-                        "Retryable status %d for %s, retrying...",
-                        response.status_code,
-                        url,
-                    )
-                    raise httpx.HTTPStatusError(
-                        f"Retryable status: {response.status_code}",
-                        request=response.request,
-                        response=response,
-                    )
-
-                response.raise_for_status()
-                return response
-
-            except httpx.TimeoutException as exc:
-                logger.error("Timeout for %s: %s", url, exc)
-                raise
-            except httpx.NetworkError as exc:
-                logger.error("Network error for %s: %s", url, exc)
-                raise
-            except httpx.HTTPStatusError as exc:
-                logger.error(
-                    "HTTP error %d for %s: %s",
-                    exc.response.status_code,
-                    url,
-                    exc,
-                )
-                raise
-            except Exception as exc:
-                logger.error("Unexpected error for %s: %s", url, exc, exc_info=True)
-                raise
-
-
-# Globale Instanz für einfache Verwendung
-robust_client = RobustHTTPClient()
+        raise Exception("Max retries exceeded.") # Should not be reached

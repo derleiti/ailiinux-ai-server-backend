@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.research.gov/research-web/content/reviewingForNSF",
+  "handled_at": "2025-10-02 01:19:55.774778+00:00",
   "id": "VnVWgloWzd8YX6h",
-  "json_": "{\n  \"url\": \"https://www.research.gov/research-web/content/reviewingForNSF\",\n  \"unique_key\": \"c140cf25cb62cda092667c800b399f8bd05962ddabef6ffd0179c78ded96f4e0\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.research.gov/research-web/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"VnVWgloWzd8YX6h\",\n  \"order_no\": \"1759358729523.663044\"\n}",
-  "order_no": "1759358729523.663044"
+  "json_": "{\n  \"url\": \"https://www.research.gov/research-web/content/reviewingForNSF\",\n  \"unique_key\": \"c140cf25cb62cda092667c800b399f8bd05962ddabef6ffd0179c78ded96f4e0\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.research.gov/research-web/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.research.gov/research-web/content/reviewingForNSF\",\n  \"handled_at\": \"2025-10-02 01:19:55.774778+00:00\",\n  \"id\": \"VnVWgloWzd8YX6h\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

@@ -16,8 +16,8 @@
   "retry_count": 1,
   "no_retry": false,
   "loaded_url": null,
-  "handled_at": null,
+  "handled_at": "2025-10-02 01:26:25.500293+00:00",
   "id": "YTjaCQgsh4Dxums",
-  "json_": "{\n  \"url\": \"https://www-cdn.anthropic.com/872c653b2d0501d6ab44cf87f43e1dc4853e4d37.pdf\",\n  \"unique_key\": \"7ccf80f6837a972adfa706b519a638465f2ccd318a40f084374621e6dbb679f6\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/activating-asl3-protections\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 5,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 1,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"YTjaCQgsh4Dxums\",\n  \"order_no\": \"1759361283233.161926\"\n}",
-  "order_no": "1759361283233.161926"
+  "json_": "{\n  \"url\": \"https://www-cdn.anthropic.com/872c653b2d0501d6ab44cf87f43e1dc4853e4d37.pdf\",\n  \"unique_key\": \"7ccf80f6837a972adfa706b519a638465f2ccd318a40f084374621e6dbb679f6\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/activating-asl3-protections\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 5,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 1,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": \"2025-10-02 01:26:25.500293+00:00\",\n  \"id\": \"YTjaCQgsh4Dxums\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

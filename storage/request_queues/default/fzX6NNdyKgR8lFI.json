@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.reuters.com/technology/artificial-intelligence/samsungs-8-layer-hbm3e-chips-clear-nvidias-tests-use-sources-say-2024-08-06/",
+  "handled_at": "2025-10-01 23:53:19.234129+00:00",
   "id": "fzX6NNdyKgR8lFI",
-  "json_": "{\n  \"url\": \"https://www.reuters.com/technology/artificial-intelligence/samsungs-8-layer-hbm3e-chips-clear-nvidias-tests-use-sources-say-2024-08-06/\",\n  \"unique_key\": \"169dd9112c5eef5257343a164283792f32ec5975a6a848a47725c1608869d89b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"fzX6NNdyKgR8lFI\",\n  \"order_no\": \"1759358496719.688892\"\n}",
-  "order_no": "1759358496719.688892"
+  "json_": "{\n  \"url\": \"https://www.reuters.com/technology/artificial-intelligence/samsungs-8-layer-hbm3e-chips-clear-nvidias-tests-use-sources-say-2024-08-06/\",\n  \"unique_key\": \"169dd9112c5eef5257343a164283792f32ec5975a6a848a47725c1608869d89b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.reuters.com/technology/artificial-intelligence/samsungs-8-layer-hbm3e-chips-clear-nvidias-tests-use-sources-say-2024-08-06/\",\n  \"handled_at\": \"2025-10-01 23:53:19.234129+00:00\",\n  \"id\": \"fzX6NNdyKgR8lFI\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

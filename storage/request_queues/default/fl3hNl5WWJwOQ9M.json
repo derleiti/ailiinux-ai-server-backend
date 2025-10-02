@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://policy.samsungrs.com/consent/eu/nsc/privacy_policy_en.html",
+  "handled_at": "2025-10-02 00:30:15.675541+00:00",
   "id": "fl3hNl5WWJwOQ9M",
-  "json_": "{\n  \"url\": \"https://policy.samsungrs.com/consent/eu/nsc/privacy_policy_en.html\",\n  \"unique_key\": \"eaf466e03506879d9d5d0d015afdb608a2d59faad57cb13326c9dcc7dc98446c\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nytimes.com/2025/06/05/opinion/anthropic-ceo-regulate-transparency.html\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"fl3hNl5WWJwOQ9M\",\n  \"order_no\": \"1759358660127.032995\"\n}",
-  "order_no": "1759358660127.032995"
+  "json_": "{\n  \"url\": \"https://policy.samsungrs.com/consent/eu/nsc/privacy_policy_en.html\",\n  \"unique_key\": \"eaf466e03506879d9d5d0d015afdb608a2d59faad57cb13326c9dcc7dc98446c\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nytimes.com/2025/06/05/opinion/anthropic-ceo-regulate-transparency.html\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://policy.samsungrs.com/consent/eu/nsc/privacy_policy_en.html\",\n  \"handled_at\": \"2025-10-02 00:30:15.675541+00:00\",\n  \"id\": \"fl3hNl5WWJwOQ9M\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

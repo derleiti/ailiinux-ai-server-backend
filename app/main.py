@@ -20,12 +20,36 @@ from .routes import agents, chat, crawler, models, sd, vision, posts
 from .config import get_settings
 from .services.crawler import crawler_manager
 from .services.auto_publisher import auto_publisher
-from .services.auto_crawler import auto_crawler
+
+from fastapi_limiter import FastAPILimiter
+from fastapi_limiter.depends import RateLimiter
+import redis.asyncio as redis
+
+@app.on_event("startup")
+async def startup():
+    # ...
+    # NEU: Rate Limiter Initialisierung
+    settings = get_settings() # Ensure settings are available
+    redis_connection = redis.from_url(settings.REDIS_URL, encoding="utf-8", decode_responses=True)
+    await FastAPILimiter.init(redis_connection)
+    # ...
+
 
 
 def create_app() -> FastAPI:
     settings = get_settings()
-    app = FastAPI(title="AILinux AI Service", version="1.0.0")
+from app.routes import chat, crawler, models, posts, sd, vision, health, admin, mcp, orchestration
+
+app = FastAPI(
+    title="AILinux AI Server Backend",
+    description="AI-powered services for AILinux",
+    version="0.1.0",
+)
+
+app.include_router(health.router)
+app.include_router(admin.router)
+app.include_router(mcp.router)
+app.include_router(orchestration.router)
 
     import logging
     main_logger = logging.getLogger("ailinux.main") # Define a logger for main.py
@@ -35,13 +59,19 @@ def create_app() -> FastAPI:
     crawler_logger.setLevel(logging.DEBUG)
     main_logger.info(f"Crawler logger level set to: {crawler_logger.level} (DEBUG={logging.DEBUG})") # Use main_logger
 
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=settings.allowed_origins,
-        allow_methods=["GET", "POST", "OPTIONS"],
-        allow_headers=["Content-Type", "Authorization", "X-AILinux-Client"],
-        allow_credentials=False,
-    )
+from fastapi.middleware.cors import CORSMiddleware
+from app.config import settings # Sicherstellen, dass settings importiert ist
+
+from app.utils.logging_middleware import LoggingMiddleware # NEU
+
+app.add_middleware(LoggingMiddleware) # NEU
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.CORS_ALLOWED_ORIGINS.split(","), # NEU: Aus Settings lesen
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
     @app.exception_handler(HTTPException)
     async def handle_http_exception(_: Request, exc: HTTPException):

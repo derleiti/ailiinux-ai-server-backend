@@ -8,15 +8,17 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
+      "sessionRotationCount": 1,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://openai.com/index/introducing-o3-and-o4-mini/",
+  "handled_at": "2025-10-02 01:27:05.574674+00:00",
   "id": "ocJLFiQiDEPwjRw",
-  "json_": "{\n  \"url\": \"https://openai.com/index/introducing-o3-and-o4-mini/\",\n  \"unique_key\": \"bf92f3d905c3de0dec5e54442bcc5eae4394a3cee9c470def74768dfd5f56681\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://openai.com/index/introducing-gpt-5/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"ocJLFiQiDEPwjRw\",\n  \"order_no\": \"1759358550158.782959\"\n}",
-  "order_no": "1759358550158.782959"
+  "json_": "{\n  \"url\": \"https://openai.com/index/introducing-o3-and-o4-mini/\",\n  \"unique_key\": \"bf92f3d905c3de0dec5e54442bcc5eae4394a3cee9c470def74768dfd5f56681\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://openai.com/index/introducing-gpt-5/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"sessionRotationCount\": 1,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://openai.com/index/introducing-o3-and-o4-mini/\",\n  \"handled_at\": \"2025-10-02 01:27:05.574674+00:00\",\n  \"id\": \"ocJLFiQiDEPwjRw\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

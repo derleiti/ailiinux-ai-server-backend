@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://console.anthropic.com/",
+  "handled_at": "2025-10-02 00:21:08.253904+00:00",
   "id": "mYaLxua6NkPUbTl",
-  "json_": "{\n  \"url\": \"https://console.anthropic.com/\",\n  \"unique_key\": \"e25414371becb373480b02f8196d2f51bec9549d226a984b836a58a43938085c\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/claude/opus\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"mYaLxua6NkPUbTl\",\n  \"order_no\": \"1759358508457.216024\"\n}",
-  "order_no": "1759358508457.216024"
+  "json_": "{\n  \"url\": \"https://console.anthropic.com/\",\n  \"unique_key\": \"e25414371becb373480b02f8196d2f51bec9549d226a984b836a58a43938085c\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/claude/opus\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://console.anthropic.com/\",\n  \"handled_at\": \"2025-10-02 00:21:08.253904+00:00\",\n  \"id\": \"mYaLxua6NkPUbTl\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://claude.ai/new?q=What+should+I+look+for+when+reviewing+a+Pull+Request+for+a+Python+web+app%3F",
+  "handled_at": "2025-10-02 00:22:19.156861+00:00",
   "id": "Q3pofjU6egjQjAB",
-  "json_": "{\n  \"url\": \"https://claude.ai/redirect/website.v1.8effe7e3-4dc3-4d21-904a-d531e52e8409/new?q=What%20should%20I%20look%20for%20when%20reviewing%20a%20Pull%20Request%20for%20a%20Python%20web%20app%3F\",\n  \"unique_key\": \"199d72873c64bb106167e10801f2efb9d8af9e91d00a0f71d90209422ffa090b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/claude/sonnet\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"Q3pofjU6egjQjAB\",\n  \"order_no\": \"1759358509658.402920\"\n}",
-  "order_no": "1759358509658.402920"
+  "json_": "{\n  \"url\": \"https://claude.ai/redirect/website.v1.8effe7e3-4dc3-4d21-904a-d531e52e8409/new?q=What%20should%20I%20look%20for%20when%20reviewing%20a%20Pull%20Request%20for%20a%20Python%20web%20app%3F\",\n  \"unique_key\": \"199d72873c64bb106167e10801f2efb9d8af9e91d00a0f71d90209422ffa090b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/claude/sonnet\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://claude.ai/new?q=What+should+I+look+for+when+reviewing+a+Pull+Request+for+a+Python+web+app%3F\",\n  \"handled_at\": \"2025-10-02 00:22:19.156861+00:00\",\n  \"id\": \"Q3pofjU6egjQjAB\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://code.visualstudio.com/download",
+  "handled_at": "2025-10-02 00:22:49.151904+00:00",
   "id": "imqLHFZdsDp6HdK",
-  "json_": "{\n  \"url\": \"https://go.microsoft.com/fwlink?linkid=846418&pub=anthropic&ext=claude-code&utm_source=vsmp&utm_campaign=mpdetails\",\n  \"unique_key\": \"af3c1be8ecbb405cf9e7192ca1f8596d287efe8bea06b538f7caa6f3ac4ac1a8\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"imqLHFZdsDp6HdK\",\n  \"order_no\": \"1759358536345.555067\"\n}",
-  "order_no": "1759358536345.555067"
+  "json_": "{\n  \"url\": \"https://go.microsoft.com/fwlink?linkid=846418&pub=anthropic&ext=claude-code&utm_source=vsmp&utm_campaign=mpdetails\",\n  \"unique_key\": \"af3c1be8ecbb405cf9e7192ca1f8596d287efe8bea06b538f7caa6f3ac4ac1a8\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://code.visualstudio.com/download\",\n  \"handled_at\": \"2025-10-02 00:22:49.151904+00:00\",\n  \"id\": \"imqLHFZdsDp6HdK\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

@@ -43,8 +43,20 @@ async def _chat_generator(payload: ChatRequest) -> AsyncGenerator[str, None]:
                 yield chunk
 
 
-@router.post("/chat")
-async def chat_endpoint(payload: ChatRequest):
+from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.responses import StreamingResponse
+from app.schemas.chat import ChatCompletionRequest, ChatCompletionResponse
+from app.services.chat import ChatService
+from app.config import settings
+from fastapi_limiter.depends import RateLimiter # NEU
+
+router = APIRouter()
+
+@router.post("/chat/completions", response_model=ChatCompletionResponse, dependencies=[Depends(RateLimiter(times=5, seconds=10))]) # NEU
+async def chat_completions(
+    request: ChatCompletionRequest,
+    chat_service: ChatService = Depends(ChatService),
+):
     """Handle chat completions with optional streaming."""
     if not payload.messages:
         raise api_error("At least one message is required", status_code=422, code="missing_messages")

@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.theinformation.com/articles/nvidia-faces-dilemma-chinese-firms-rush-order-16-billion-new-ai-chips",
+  "handled_at": "2025-10-01 23:52:07.824429+00:00",
   "id": "L9kgOLnkzQrgdfz",
-  "json_": "{\n  \"url\": \"https://www.theinformation.com/articles/nvidia-faces-dilemma-chinese-firms-rush-order-16-billion-new-ai-chips\",\n  \"unique_key\": \"ce4c79e66f6cdce8cbd945ce09d542b60f07fb02309e1b79488d09a9f951109f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"L9kgOLnkzQrgdfz\",\n  \"order_no\": \"1759358496681.833029\"\n}",
-  "order_no": "1759358496681.833029"
+  "json_": "{\n  \"url\": \"https://www.theinformation.com/articles/nvidia-faces-dilemma-chinese-firms-rush-order-16-billion-new-ai-chips\",\n  \"unique_key\": \"ce4c79e66f6cdce8cbd945ce09d542b60f07fb02309e1b79488d09a9f951109f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.theinformation.com/articles/nvidia-faces-dilemma-chinese-firms-rush-order-16-billion-new-ai-chips\",\n  \"handled_at\": \"2025-10-01 23:52:07.824429+00:00\",\n  \"id\": \"L9kgOLnkzQrgdfz\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

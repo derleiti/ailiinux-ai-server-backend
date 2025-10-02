@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.digitimes.com/news/a20240801PD211/hbm-cxmt-memory-development-samsung.html",
+  "handled_at": "2025-10-01 23:52:39.264306+00:00",
   "id": "0Ch17j0nbS7rNR7",
-  "json_": "{\n  \"url\": \"https://www.digitimes.com/news/a20240801PD211/hbm-cxmt-memory-development-samsung.html\",\n  \"unique_key\": \"7cbc5b2b76aacfc8c57a5887292f2b62aed8081eb4e18a4f238bcc4b9d14a0b5\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"0Ch17j0nbS7rNR7\",\n  \"order_no\": \"1759358496696.125984\"\n}",
-  "order_no": "1759358496696.125984"
+  "json_": "{\n  \"url\": \"https://www.digitimes.com/news/a20240801PD211/hbm-cxmt-memory-development-samsung.html\",\n  \"unique_key\": \"7cbc5b2b76aacfc8c57a5887292f2b62aed8081eb4e18a4f238bcc4b9d14a0b5\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.digitimes.com/news/a20240801PD211/hbm-cxmt-memory-development-samsung.html\",\n  \"handled_at\": \"2025-10-01 23:52:39.264306+00:00\",\n  \"id\": \"0Ch17j0nbS7rNR7\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

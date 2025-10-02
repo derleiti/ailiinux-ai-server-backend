@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.anthropic.com/news/constitutional-classifiers#footer",
+  "handled_at": "2025-10-02 00:27:18.462857+00:00",
   "id": "hJnyqSJwZ6q6MPB",
-  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/constitutional-classifiers#footer\",\n  \"unique_key\": \"fa1ccca33db8e69fb0932b8803d636b5eb4fa1879138063fab4c7ccea9b336b1\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/constitutional-classifiers\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"hJnyqSJwZ6q6MPB\",\n  \"order_no\": \"1759358567079.035997\"\n}",
-  "order_no": "1759358567079.035997"
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/constitutional-classifiers#footer\",\n  \"unique_key\": \"fa1ccca33db8e69fb0932b8803d636b5eb4fa1879138063fab4c7ccea9b336b1\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/constitutional-classifiers\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/news/constitutional-classifiers#footer\",\n  \"handled_at\": \"2025-10-02 00:27:18.462857+00:00\",\n  \"id\": \"hJnyqSJwZ6q6MPB\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

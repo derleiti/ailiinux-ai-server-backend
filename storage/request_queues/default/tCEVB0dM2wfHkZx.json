@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://chatgpt.com/?openaicom-did=9ecb0b68-7840-4180-89e9-ae0a6619ee9d&openaicom_referred=true",
+  "handled_at": "2025-10-02 00:25:20.168724+00:00",
   "id": "tCEVB0dM2wfHkZx",
-  "json_": "{\n  \"url\": \"https://chatgpt.com/?openaicom-did=9ecb0b68-7840-4180-89e9-ae0a6619ee9d&openaicom_referred=true\",\n  \"unique_key\": \"f5184eca12af61be67ea70853e114578ce53fcd5dbc2444ae6a69fa2244fcc7f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://openai.com/index/introducing-gpt-5/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"tCEVB0dM2wfHkZx\",\n  \"order_no\": \"1759358550153.913975\"\n}",
-  "order_no": "1759358550153.913975"
+  "json_": "{\n  \"url\": \"https://chatgpt.com/?openaicom-did=9ecb0b68-7840-4180-89e9-ae0a6619ee9d&openaicom_referred=true\",\n  \"unique_key\": \"f5184eca12af61be67ea70853e114578ce53fcd5dbc2444ae6a69fa2244fcc7f\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://openai.com/index/introducing-gpt-5/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://chatgpt.com/?openaicom-did=9ecb0b68-7840-4180-89e9-ae0a6619ee9d&openaicom_referred=true\",\n  \"handled_at\": \"2025-10-02 00:25:20.168724+00:00\",\n  \"id\": \"tCEVB0dM2wfHkZx\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

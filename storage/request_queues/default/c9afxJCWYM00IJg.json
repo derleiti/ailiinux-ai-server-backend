@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.reuters.com/technology/sicarrier-says-its-tools-can-help-china-make-advanced-chips-2025-03-27/",
+  "handled_at": "2025-10-01 23:53:09.386957+00:00",
   "id": "c9afxJCWYM00IJg",
-  "json_": "{\n  \"url\": \"https://www.reuters.com/technology/sicarrier-says-its-tools-can-help-china-make-advanced-chips-2025-03-27/\",\n  \"unique_key\": \"b39f8ab24c9be5a3494084c76c8befe1243d8d9753aee7dc58cb461f0912e4fb\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"c9afxJCWYM00IJg\",\n  \"order_no\": \"1759358496708.596945\"\n}",
-  "order_no": "1759358496708.596945"
+  "json_": "{\n  \"url\": \"https://www.reuters.com/technology/sicarrier-says-its-tools-can-help-china-make-advanced-chips-2025-03-27/\",\n  \"unique_key\": \"b39f8ab24c9be5a3494084c76c8befe1243d8d9753aee7dc58cb461f0912e4fb\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.reuters.com/technology/sicarrier-says-its-tools-can-help-china-make-advanced-chips-2025-03-27/\",\n  \"handled_at\": \"2025-10-01 23:53:09.386957+00:00\",\n  \"id\": \"c9afxJCWYM00IJg\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

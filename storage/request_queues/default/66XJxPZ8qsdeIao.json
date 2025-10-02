@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.cloudflare.com/performance/ensure-application-availability/",
+  "handled_at": "2025-10-02 00:34:07.255196+00:00",
   "id": "66XJxPZ8qsdeIao",
-  "json_": "{\n  \"url\": \"https://www.cloudflare.com/performance/ensure-application-availability/\",\n  \"unique_key\": \"a282e30d893b3876b98ff80d22ae1d90f9e2758255223c17631c73baa1ac0532\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.cloudflare.com?utm_source=challenge&utm_campaign=m\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"66XJxPZ8qsdeIao\",\n  \"order_no\": \"1759358660834.777117\"\n}",
-  "order_no": "1759358660834.777117"
+  "json_": "{\n  \"url\": \"https://www.cloudflare.com/performance/ensure-application-availability/\",\n  \"unique_key\": \"a282e30d893b3876b98ff80d22ae1d90f9e2758255223c17631c73baa1ac0532\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.cloudflare.com?utm_source=challenge&utm_campaign=m\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.cloudflare.com/performance/ensure-application-availability/\",\n  \"handled_at\": \"2025-10-02 00:34:07.255196+00:00\",\n  \"id\": \"66XJxPZ8qsdeIao\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.cloudflare.com/application-services/products/cdn/",
+  "handled_at": "2025-10-02 00:34:08.883197+00:00",
   "id": "OSzkztrvDAJW4Ws",
-  "json_": "{\n  \"url\": \"https://www.cloudflare.com/application-services/products/cdn/\",\n  \"unique_key\": \"d8d88908626e64f0aea11153d83d66ad9a129309fc1b88a803f06ca788d4bcce\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.cloudflare.com?utm_source=challenge&utm_campaign=m\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"OSzkztrvDAJW4Ws\",\n  \"order_no\": \"1759358660833.965063\"\n}",
-  "order_no": "1759358660833.965063"
+  "json_": "{\n  \"url\": \"https://www.cloudflare.com/application-services/products/cdn/\",\n  \"unique_key\": \"d8d88908626e64f0aea11153d83d66ad9a129309fc1b88a803f06ca788d4bcce\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.cloudflare.com?utm_source=challenge&utm_campaign=m\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.cloudflare.com/application-services/products/cdn/\",\n  \"handled_at\": \"2025-10-02 00:34:08.883197+00:00\",\n  \"id\": \"OSzkztrvDAJW4Ws\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

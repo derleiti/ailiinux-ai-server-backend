@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously#main-content",
+  "handled_at": "2025-10-02 00:20:21.019889+00:00",
   "id": "qkjMxCueyxHU2t4",
-  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously#main-content\",\n  \"unique_key\": \"c1907ab219a0bbafe4aad90f7151d05dbf400ed676723cfa7da6532ea19f99ac\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"qkjMxCueyxHU2t4\",\n  \"order_no\": \"1759358507387.588978\"\n}",
-  "order_no": "1759358507387.588978"
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously#main-content\",\n  \"unique_key\": \"c1907ab219a0bbafe4aad90f7151d05dbf400ed676723cfa7da6532ea19f99ac\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously#main-content\",\n  \"handled_at\": \"2025-10-02 00:20:21.019889+00:00\",\n  \"id\": \"qkjMxCueyxHU2t4\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.nsf.gov/funding/graduate-students#content-wrap",
+  "handled_at": "2025-10-02 00:37:36.592417+00:00",
   "id": "akBfFXWtZtsBXwU",
-  "json_": "{\n  \"url\": \"https://www.nsf.gov/funding/graduate-students#content-wrap\",\n  \"unique_key\": \"3517d0a8885b0aaa02718cbd400aa09aa1725d25c1544b60765308087173371b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/funding/graduate-students\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"akBfFXWtZtsBXwU\",\n  \"order_no\": \"1759358708213.310003\"\n}",
-  "order_no": "1759358708213.310003"
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/funding/graduate-students#content-wrap\",\n  \"unique_key\": \"3517d0a8885b0aaa02718cbd400aa09aa1725d25c1544b60765308087173371b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/funding/graduate-students\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.nsf.gov/funding/graduate-students#content-wrap\",\n  \"handled_at\": \"2025-10-02 00:37:36.592417+00:00\",\n  \"id\": \"akBfFXWtZtsBXwU\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

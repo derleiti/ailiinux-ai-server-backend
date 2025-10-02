@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://adkernel.com/privacy-policy/",
+  "handled_at": "2025-10-02 00:30:26.436716+00:00",
   "id": "uewmgYYQpyUz5lB",
-  "json_": "{\n  \"url\": \"https://adkernel.com/privacy-policy/\",\n  \"unique_key\": \"4174bee65b09df910e3d4e4d4325fabf8b333695a6b7267a19c1d3d7a0e7a6c3\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nytimes.com/2025/06/05/opinion/anthropic-ceo-regulate-transparency.html\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"uewmgYYQpyUz5lB\",\n  \"order_no\": \"1759358660131.870031\"\n}",
-  "order_no": "1759358660131.870031"
+  "json_": "{\n  \"url\": \"https://adkernel.com/privacy-policy/\",\n  \"unique_key\": \"4174bee65b09df910e3d4e4d4325fabf8b333695a6b7267a19c1d3d7a0e7a6c3\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nytimes.com/2025/06/05/opinion/anthropic-ceo-regulate-transparency.html\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://adkernel.com/privacy-policy/\",\n  \"handled_at\": \"2025-10-02 00:30:26.436716+00:00\",\n  \"id\": \"uewmgYYQpyUz5lB\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

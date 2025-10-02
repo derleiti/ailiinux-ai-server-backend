@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://external.nsf.gov/app/nsfext_nsfparsamlv2_1/exkgfcelfg39v6StV4h7/sso/saml?NameIDFormat=urn:oasis:names:tc:SAML:2.0:nameid-format:transient&metaAlias=/research/idp&spEntityID=https://nsfpar.research.gov/sso/sp&binding=urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST",
+  "handled_at": "2025-10-02 01:20:18.990784+00:00",
   "id": "GvCKgf22fWbwSvF",
-  "json_": "{\n  \"url\": \"https://external.nsf.gov/app/nsfext_nsfparsamlv2_1/exkgfcelfg39v6StV4h7/sso/saml?NameIDFormat=urn:oasis:names:tc:SAML:2.0:nameid-format:transient&metaAlias=/research/idp&spEntityID=https://nsfpar.research.gov/sso/sp&binding=urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\",\n  \"unique_key\": \"1aa63919dd8bdff651cccab18050b8f8ff3a91ec7d8b99bfb271c9658a410efc\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.research.gov/research-web/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"GvCKgf22fWbwSvF\",\n  \"order_no\": \"1759358729564.362049\"\n}",
-  "order_no": "1759358729564.362049"
+  "json_": "{\n  \"url\": \"https://external.nsf.gov/app/nsfext_nsfparsamlv2_1/exkgfcelfg39v6StV4h7/sso/saml?NameIDFormat=urn:oasis:names:tc:SAML:2.0:nameid-format:transient&metaAlias=/research/idp&spEntityID=https://nsfpar.research.gov/sso/sp&binding=urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\",\n  \"unique_key\": \"1aa63919dd8bdff651cccab18050b8f8ff3a91ec7d8b99bfb271c9658a410efc\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.research.gov/research-web/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://external.nsf.gov/app/nsfext_nsfparsamlv2_1/exkgfcelfg39v6StV4h7/sso/saml?NameIDFormat=urn:oasis:names:tc:SAML:2.0:nameid-format:transient&metaAlias=/research/idp&spEntityID=https://nsfpar.research.gov/sso/sp&binding=urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\",\n  \"handled_at\": \"2025-10-02 01:20:18.990784+00:00\",\n  \"id\": \"GvCKgf22fWbwSvF\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

@@ -16,8 +16,8 @@
   "retry_count": 1,
   "no_retry": false,
   "loaded_url": null,
-  "handled_at": null,
+  "handled_at": "2025-10-02 01:26:26.015939+00:00",
   "id": "2fNpakNl2SCB1ss",
-  "json_": "{\n  \"url\": \"http://anthropic.com/asl3-deployment-safeguards\",\n  \"unique_key\": \"7b29b3c96381669639f09b80de3cd7d860d2f22939f721aedfad801090c158f9\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/activating-asl3-protections\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 5,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 1,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"2fNpakNl2SCB1ss\",\n  \"order_no\": \"1759361313310.283899\"\n}",
-  "order_no": "1759361313310.283899"
+  "json_": "{\n  \"url\": \"http://anthropic.com/asl3-deployment-safeguards\",\n  \"unique_key\": \"7b29b3c96381669639f09b80de3cd7d860d2f22939f721aedfad801090c158f9\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/news/activating-asl3-protections\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 5,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 1,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": \"2025-10-02 01:26:26.015939+00:00\",\n  \"id\": \"2fNpakNl2SCB1ss\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

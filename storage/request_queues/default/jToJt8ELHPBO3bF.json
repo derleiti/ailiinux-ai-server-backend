@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.chinatalk.media/",
+  "handled_at": "2025-10-01 23:51:17.469485+00:00",
   "id": "jToJt8ELHPBO3bF",
-  "json_": "{\n  \"url\": \"https://www.chinatalk.media/\",\n  \"unique_key\": \"09bab9c1d674a3055f2db122370273ad37e9a42541b4118cb06b3af9b1d500fe\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"jToJt8ELHPBO3bF\",\n  \"order_no\": \"1759358496655.489922\"\n}",
-  "order_no": "1759358496655.489922"
+  "json_": "{\n  \"url\": \"https://www.chinatalk.media/\",\n  \"unique_key\": \"09bab9c1d674a3055f2db122370273ad37e9a42541b4118cb06b3af9b1d500fe\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.chinatalk.media/p/mapping-chinas-hbm-advancement\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.chinatalk.media/\",\n  \"handled_at\": \"2025-10-01 23:51:17.469485+00:00\",\n  \"id\": \"jToJt8ELHPBO3bF\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.bloomberg.com/company/press-contacts/?utm_medium=bcom&utm_source=bloomberg-menu",
+  "handled_at": "2025-10-01 23:51:08.168327+00:00",
   "id": "5eAIYwoGZMgnwBV",
-  "json_": "{\n  \"url\": \"https://www.bloomberg.com/company/news-bureaus/?utm_source=bloomberg-menu&utm_medium=bcom\",\n  \"unique_key\": \"cd934a0bf81065daaaa0d43f10fd058d6d3d87230b7b5394d48863789ff3193c\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.bloomberg.com/news/articles/2025-06-12/us-says-huawei-s-2025-output-is-no-more-than-200-000-ai-chips\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"5eAIYwoGZMgnwBV\",\n  \"order_no\": \"1759358488551.465988\"\n}",
-  "order_no": "1759358488551.465988"
+  "json_": "{\n  \"url\": \"https://www.bloomberg.com/company/news-bureaus/?utm_source=bloomberg-menu&utm_medium=bcom\",\n  \"unique_key\": \"cd934a0bf81065daaaa0d43f10fd058d6d3d87230b7b5394d48863789ff3193c\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.bloomberg.com/news/articles/2025-06-12/us-says-huawei-s-2025-output-is-no-more-than-200-000-ai-chips\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.bloomberg.com/company/press-contacts/?utm_medium=bcom&utm_source=bloomberg-menu\",\n  \"handled_at\": \"2025-10-01 23:51:08.168327+00:00\",\n  \"id\": \"5eAIYwoGZMgnwBV\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

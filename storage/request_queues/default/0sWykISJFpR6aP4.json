@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://external.nsf.gov/oauth2/ausf8daz7hYiWiEk44h7/v1/authorize?response_type=code&client_id=awddocuments_web.prod.oauth&scope=openid%20profile&state=GbbahON1qw_CifhObW0OslNuk-6UV9Vq2nOhnbXLAcI%3D&redirect_uri=https://www.research.gov/award-documents-web/login/oauth2/code/nsf&nonce=PAWIuN3BBsrs7XjZ_gkITwSm5ZlXVLdrkUQ_CTL1Vig",
+  "handled_at": "2025-10-02 01:20:22.773230+00:00",
   "id": "0sWykISJFpR6aP4",
-  "json_": "{\n  \"url\": \"https://www.research.gov/award-documents-web/\",\n  \"unique_key\": \"47be5eb9bb66605a02ff138db23d16acd6671a8dd2a2478e7019f80051f5fa9e\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.research.gov/research-web/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"0sWykISJFpR6aP4\",\n  \"order_no\": \"1759358729574.378967\"\n}",
-  "order_no": "1759358729574.378967"
+  "json_": "{\n  \"url\": \"https://www.research.gov/award-documents-web/\",\n  \"unique_key\": \"47be5eb9bb66605a02ff138db23d16acd6671a8dd2a2478e7019f80051f5fa9e\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.research.gov/research-web/\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://external.nsf.gov/oauth2/ausf8daz7hYiWiEk44h7/v1/authorize?response_type=code&client_id=awddocuments_web.prod.oauth&scope=openid%20profile&state=GbbahON1qw_CifhObW0OslNuk-6UV9Vq2nOhnbXLAcI%3D&redirect_uri=https://www.research.gov/award-documents-web/login/oauth2/code/nsf&nonce=PAWIuN3BBsrs7XjZ_gkITwSm5ZlXVLdrkUQ_CTL1Vig\",\n  \"handled_at\": \"2025-10-02 01:20:22.773230+00:00\",\n  \"id\": \"0sWykISJFpR6aP4\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.nsf.gov/focus-areas/astronomy-space#fba-button",
+  "handled_at": "2025-10-02 01:25:31.848603+00:00",
   "id": "i7EHEHwIdu835gm",
-  "json_": "{\n  \"url\": \"https://www.nsf.gov/focus-areas/astronomy-space#fba-button\",\n  \"unique_key\": \"fbff7b8d6fd04d05b3ac0992636c3721dfbc4ae9f0959d1f0d7c6e72b8cab24b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/focus-areas/astronomy-space\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"i7EHEHwIdu835gm\",\n  \"order_no\": \"1759358758629.667044\"\n}",
-  "order_no": "1759358758629.667044"
+  "json_": "{\n  \"url\": \"https://www.nsf.gov/focus-areas/astronomy-space#fba-button\",\n  \"unique_key\": \"fbff7b8d6fd04d05b3ac0992636c3721dfbc4ae9f0959d1f0d7c6e72b8cab24b\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.nsf.gov/focus-areas/astronomy-space\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.nsf.gov/focus-areas/astronomy-space#fba-button\",\n  \"handled_at\": \"2025-10-02 01:25:31.848603+00:00\",\n  \"id\": \"i7EHEHwIdu835gm\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

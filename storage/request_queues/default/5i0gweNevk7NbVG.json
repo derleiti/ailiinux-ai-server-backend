@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 4
     },
     "depth": 4
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents#footer",
+  "handled_at": "2025-10-02 00:28:32.249978+00:00",
   "id": "5i0gweNevk7NbVG",
-  "json_": "{\n  \"url\": \"https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents#footer\",\n  \"unique_key\": \"3f5ad3bd2b6f105ba369266d550be91e60d911c70ec3a99c532209f13ad4b15a\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"5i0gweNevk7NbVG\",\n  \"order_no\": \"1759358569312.203884\"\n}",
-  "order_no": "1759358569312.203884"
+  "json_": "{\n  \"url\": \"https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents#footer\",\n  \"unique_key\": \"3f5ad3bd2b6f105ba369266d550be91e60d911c70ec3a99c532209f13ad4b15a\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents#footer\",\n  \"handled_at\": \"2025-10-02 00:28:32.249978+00:00\",\n  \"id\": \"5i0gweNevk7NbVG\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

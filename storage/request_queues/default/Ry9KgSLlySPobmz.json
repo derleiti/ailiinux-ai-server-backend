@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 3,
       "crawlDepth": 5
     },
     "depth": 5
   },
   "retry_count": 0,
   "no_retry": false,
-  "loaded_url": null,
-  "handled_at": null,
+  "loaded_url": "https://www.grants.gov/learn-grants/grant-careers",
+  "handled_at": "2025-10-02 01:21:55.282720+00:00",
   "id": "Ry9KgSLlySPobmz",
-  "json_": "{\n  \"url\": \"https://www.grants.gov/learn-grants/grant-careers\",\n  \"unique_key\": \"41054ec34079fb26fbb6c5e826a96ecf526ca9808c68c15f5f34b6c961c9ff33\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.grants.gov\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"Ry9KgSLlySPobmz\",\n  \"order_no\": \"1759358729843.197107\"\n}",
-  "order_no": "1759358729843.197107"
+  "json_": "{\n  \"url\": \"https://www.grants.gov/learn-grants/grant-careers\",\n  \"unique_key\": \"41054ec34079fb26fbb6c5e826a96ecf526ca9808c68c15f5f34b6c961c9ff33\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://www.grants.gov\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3,\n      \"crawlDepth\": 5\n    },\n    \"depth\": 5\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://www.grants.gov/learn-grants/grant-careers\",\n  \"handled_at\": \"2025-10-02 01:21:55.282720+00:00\",\n  \"id\": \"Ry9KgSLlySPobmz\",\n  \"order_no\": null\n}",
+  "order_no": null
 }

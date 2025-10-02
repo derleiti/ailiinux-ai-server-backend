@@ -8,15 +8,16 @@
   "payload": null,
   "user_data": {
     "__crawlee": {
+      "state": 5,
       "crawlDepth": 4
     },
     "depth": 4
   },
-  "retry_count": 0,
+  "retry_count": 1,
   "no_retry": false,
   "loaded_url": null,
-  "handled_at": null,
+  "handled_at": "2025-10-02 01:26:32.019913+00:00",
   "id": "yxhHoi3OOXNdYmh",
-  "json_": "{\n  \"url\": \"https://aka.ms/vsmarketplace-ToU\",\n  \"unique_key\": \"30e9e9f8e37cfca8396d8afe7c1b24b185447d647e37023b81e5ef6e711f3355\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": null,\n  \"id\": \"yxhHoi3OOXNdYmh\",\n  \"order_no\": \"1759358536353.261948\"\n}",
-  "order_no": "1759358536353.261948"
+  "json_": "{\n  \"url\": \"https://aka.ms/vsmarketplace-ToU\",\n  \"unique_key\": \"30e9e9f8e37cfca8396d8afe7c1b24b185447d647e37023b81e5ef6e711f3355\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 5,\n      \"crawlDepth\": 4\n    },\n    \"depth\": 4\n  },\n  \"retry_count\": 1,\n  \"no_retry\": false,\n  \"loaded_url\": null,\n  \"handled_at\": \"2025-10-02 01:26:32.019913+00:00\",\n  \"id\": \"yxhHoi3OOXNdYmh\",\n  \"order_no\": null\n}",
+  "order_no": null
 }
