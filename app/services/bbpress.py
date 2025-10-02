@@ -22,23 +22,30 @@ class BBPressService:
     """
 
     def __init__(self) -> None:
-        s = get_settings()
-        self.wordpress_url = s.wordpress_url
-        self.username = s.wordpress_username
-        self.password = s.wordpress_password
-        if not self.wordpress_url or not self.username or not self.password:
+        self._client: Optional[httpx.AsyncClient] = None
+        self._wordpress_url: Optional[httpx.URL] = None
+        self._username: Optional[str] = None
+        self._password: Optional[str] = None
+
+    def _ensure_client(self) -> None:
+        if self._client:
+            return
+
+        settings = get_settings()
+        if not settings.wordpress_url or not settings.wordpress_username or not settings.wordpress_password:
             raise api_error("BBPress (WordPress) credentials/url are not configured", status_code=503, code="bbpress_unavailable")
+
+        self._wordpress_url = settings.wordpress_url
+        self._username = settings.wordpress_username
+        self._password = settings.wordpress_password
+        self._client = httpx.AsyncClient(base_url=str(self._wordpress_url), timeout=settings.request_timeout)
 
     def _get_auth_headers(self) -> Dict[str, str]:
         """Erstellt Basic Auth Headers."""
-        if not self.username or not self.password:
-            raise api_error(
-                "WordPress credentials are not configured",
-                status_code=503,
-                code="wordpress_unavailable",
-            )
+        if not self._username or not self._password:
+            raise RuntimeError("BBPress client not initialized. Call _ensure_client first.")
 
-        credentials = f"{self.username}:{self.password}"
+        credentials = f"{self._username}:{self._password}"
         token = base64.b64encode(credentials.encode()).decode()
         return {"Authorization": f"Basic {token}"}
 
@@ -62,18 +69,15 @@ class BBPressService:
         Returns:
             dict: Erstelltes Topic mit ID
         """
-        if not self.wordpress_url:
-            raise api_error(
-                "WordPress URL is not configured",
-                status_code=503,
-                code="wordpress_unavailable",
-            )
+        self._ensure_client()
+        if not self._wordpress_url or not self._client:
+            raise RuntimeError("BBPress client not initialized.")
 
         # bbPress REST API Endpoint
         # Hinweis: bbPress hat keine offizielle REST API
         # Wir nutzen die bbPress Plugin REST API (falls installiert)
         # oder erstellen Topics als Custom Post Type
-        base = str(self.wordpress_url).rstrip("/") + "/"
+        base = str(self._wordpress_url).rstrip("/") + "/"
         url = urljoin(base, "wp-json/wp/v2/topic")
         headers = self._get_auth_headers()
         headers["Content-Type"] = "application/json"
@@ -91,28 +95,27 @@ class BBPressService:
         if tags:
             data["topic-tag"] = tags
 
-        async with httpx.AsyncClient(timeout=30.0) as client:
-            try:
-                response = await client.post(url, headers=headers, json=data)
-                response.raise_for_status()
-                result = response.json()
-                logger.info("Created bbPress topic: %s (ID: %s)", title, result.get("id"))
-                return result
+        try:
+            response = await self._client.post(url, headers=headers, json=data)
+            response.raise_for_status()
+            result = response.json()
+            logger.info("Created bbPress topic: %s (ID: %s)", title, result.get("id"))
+            return result
 
-            except httpx.HTTPStatusError as exc:
-                logger.error(
-                    "bbPress topic creation failed (HTTP %d): %s",
-                    exc.response.status_code,
-                    exc.response.text,
-                )
-                raise api_error(
-                    f"Failed to create bbPress topic: {exc.response.status_code}",
-                    status_code=exc.response.status_code,
-                    code="bbpress_create_failed",
-                )
-            except Exception as exc:
-                logger.error("Error creating bbPress topic: %s", exc, exc_info=True)
-                raise
+        except httpx.HTTPStatusError as exc:
+            logger.error(
+                "bbPress topic creation failed (HTTP %d): %s",
+                exc.response.status_code,
+                exc.response.text,
+            )
+            raise api_error(
+                f"Failed to create bbPress topic: {exc.response.status_code}",
+                status_code=exc.response.status_code,
+                code="bbpress_create_failed",
+            )
+        except Exception as exc:
+            logger.error("Error creating bbPress topic: %s", exc, exc_info=True)
+            raise
 
     async def create_reply(
         self,
@@ -129,15 +132,12 @@ class BBPressService:
         Returns:
             dict: Erstellte Reply mit ID
         """
-        if not self.wordpress_url:
-            raise api_error(
-                "WordPress URL is not configured",
-                status_code=503,
-                code="wordpress_unavailable",
-            )
+        self._ensure_client()
+        if not self._wordpress_url or not self._client:
+            raise RuntimeError("BBPress client not initialized.")
 
         # bbPress Reply als Custom Post Type
-        base = str(self.wordpress_url).rstrip("/") + "/"
+        base = str(self._wordpress_url).rstrip("/") + "/"
         url = urljoin(base, "wp-json/wp/v2/reply")
         headers = self._get_auth_headers()
         headers["Content-Type"] = "application/json"
@@ -150,28 +150,27 @@ class BBPressService:
             },
         }
 
-        async with httpx.AsyncClient(timeout=30.0) as client:
-            try:
-                response = await client.post(url, headers=headers, json=data)
-                response.raise_for_status()
-                result = response.json()
-                logger.info("Created bbPress reply on topic %d (ID: %s)", topic_id, result.get("id"))
-                return result
+        try:
+            response = await self._client.post(url, headers=headers, json=data)
+            response.raise_for_status()
+            result = response.json()
+            logger.info("Created bbPress reply on topic %d (ID: %s)", topic_id, result.get("id"))
+            return result
 
-            except httpx.HTTPStatusError as exc:
-                logger.error(
-                    "bbPress reply creation failed (HTTP %d): %s",
-                    exc.response.status_code,
-                    exc.response.text,
-                )
-                raise api_error(
-                    f"Failed to create bbPress reply: {exc.response.status_code}",
-                    status_code=exc.response.status_code,
-                    code="bbpress_reply_failed",
-                )
-            except Exception as exc:
-                logger.error("Error creating bbPress reply: %s", exc, exc_info=True)
-                raise
+        except httpx.HTTPStatusError as exc:
+            logger.error(
+                "bbPress reply creation failed (HTTP %d): %s",
+                exc.response.status_code,
+                exc.response.text,
+            )
+            raise api_error(
+                f"Failed to create bbPress reply: {exc.response.status_code}",
+                status_code=exc.response.status_code,
+                code="bbpress_reply_failed",
+            )
+        except Exception as exc:
+            logger.error("Error creating bbPress reply: %s", exc, exc_info=True)
+            raise
 
     async def get_forums(self) -> List[Dict]:
         """
@@ -180,34 +179,30 @@ class BBPressService:
         Returns:
             list: Liste von Foren mit ID und Name
         """
-        if not self.wordpress_url:
-            raise api_error(
-                "WordPress URL is not configured",
-                status_code=503,
-                code="wordpress_unavailable",
-            )
+        self._ensure_client()
+        if not self._wordpress_url or not self._client:
+            raise RuntimeError("BBPress client not initialized.")
 
-        base = str(self.wordpress_url).rstrip("/") + "/"
+        base = str(self._wordpress_url).rstrip("/") + "/"
         url = urljoin(base, "wp-json/wp/v2/forum?per_page=100")
         headers = self._get_auth_headers()
 
-        async with httpx.AsyncClient(timeout=30.0) as client:
-            try:
-                response = await client.get(url, headers=headers)
-                response.raise_for_status()
-                return response.json()
+        try:
+            response = await self._client.get(url, headers=headers)
+            response.raise_for_status()
+            return response.json()
 
-            except httpx.HTTPStatusError as exc:
-                logger.warning(
-                    "bbPress forums list failed (HTTP %d): %s",
-                    exc.response.status_code,
-                    exc.response.text,
-                )
-                # Fallback: Return empty list
-                return []
-            except Exception as exc:
-                logger.error("Error getting bbPress forums: %s", exc, exc_info=True)
-                return []
+        except httpx.HTTPStatusError as exc:
+            logger.warning(
+                "bbPress forums list failed (HTTP %d): %s",
+                exc.response.status_code,
+                exc.response.text,
+            )
+            # Fallback: Return empty list
+            return []
+        except Exception as exc:
+            logger.error("Error getting bbPress forums: %s", exc, exc_info=True)
+            return []
 
 
 # Globale Instanz

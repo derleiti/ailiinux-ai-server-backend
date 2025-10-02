@@ -36,8 +36,40 @@ async def analyze(
     if image_bytes is None and not image_url:
         raise api_error("Either image_url or image data is required", status_code=422, code="missing_image")
 
-    if image_bytes is not None and len(image_bytes) > MAX_IMAGE_BYTES:
-        raise api_error("Image exceeds 10MB limit", status_code=413, code="image_too_large")
+    # Validate size
+    if image_bytes is not None:
+        if len(image_bytes) > MAX_IMAGE_BYTES:
+            raise api_error(
+                f"Image exceeds maximum allowed size ({MAX_IMAGE_BYTES} bytes).",
+                status_code=413,
+                code="image_too_large",
+            )
+
+    # Validate content type if provided
+    ALLOWED_CONTENT_TYPES = {"image/png", "image/jpeg", "image/jpg", "image/webp", "image/gif"}
+    if content_type:
+        if content_type.lower() not in ALLOWED_CONTENT_TYPES:
+            raise api_error(
+                f"Unsupported image content type: {content_type}.",
+                status_code=415,
+                code="unsupported_image_type",
+            )
+
+    # If only URL provided, we should download and validate size before proceeding for providers
+    if image_bytes is None and image_url:
+        # try lightweight HEAD first
+        try:
+            async with httpx.AsyncClient(timeout=httpx.Timeout(get_settings().request_timeout)) as client:
+                head = await client.head(image_url, follow_redirects=True)
+                ct = head.headers.get("content-type")
+                cl = head.headers.get("content-length")
+                if ct and ct.lower() not in ALLOWED_CONTENT_TYPES:
+                    raise api_error("Remote image has unsupported content-type.", status_code=415, code="unsupported_remote_image_type")
+                if cl and int(cl) > MAX_IMAGE_BYTES:
+                    raise api_error("Remote image exceeds maximum allowed size.", status_code=413, code="remote_image_too_large")
+        except Exception:
+            # fallback: we'll download and validate below in _download_image if needed
+            pass
 
     if image_bytes is not None and content_type is None:
         content_type = "image/png"
@@ -142,13 +174,17 @@ async def _analyze_with_ollama_data(
         ],
         "stream": False,
     }
-    return await _dispatch_ollama(url, body)
-
-
-async def _dispatch_ollama(url: httpx.URL, payload: dict) -> str:
-    settings = get_settings()
     try:
-        async with httpx.AsyncClient(timeout=httpx.Timeout(settings.request_timeout)) as client:
+        return await _dispatch_ollama(url, body, timeout_ms=settings.ollama_timeout_ms)
+    except Exception as exc:
+        raise api_error("Ollama vision call failed", status_code=502, code="ollama_vision_failed") from exc
+
+
+async def _dispatch_ollama(url: httpx.URL, payload: dict, timeout_ms: Optional[int] = None) -> str:
+    settings = get_settings()
+    timeout = httpx.Timeout(timeout_ms / 1000 if timeout_ms else settings.request_timeout)
+    try:
+        async with httpx.AsyncClient(timeout=timeout) as client:
             response = await client.post(url, json=payload)
     except httpx.RequestError as exc:
         raise api_error(

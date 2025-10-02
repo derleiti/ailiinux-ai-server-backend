@@ -202,17 +202,18 @@ async def stream_chat(
             keywords = ["information"] # Default keyword if none provided
 
         try:
-            job = await crawler_manager.create_job(
-                keywords=keywords,
-                seeds=urls,
-                max_depth=5,
-                max_pages=50,
-                allow_external=True,
-                requested_by="chat_tool",
-                user_context=user_query,
-                ollama_assisted=True, # Enable Ollama assistance
-                ollama_query=user_query, # Pass user query for Ollama analysis
-            )
+                job = await crawler_manager.create_job(
+                    keywords=keywords,
+                    seeds=urls,
+                    max_depth=5,
+                    max_pages=50,
+                    allow_external=True,
+                    requested_by="chat_tool",
+                    user_context=user_query,
+                    ollama_assisted=True,
+                    ollama_query=user_query,
+                    priority="high",  # <<< ensure AI-requested crawls are high priority
+                )
             yield f"Crawl job {job.id} gestartet. Status: {job.status}. Bitte warten Sie, während ich die Ergebnisse sammle.\n\n"
 
             # Poll job status until completed or failed

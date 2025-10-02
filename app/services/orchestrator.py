@@ -70,7 +70,7 @@ class OrchestratorService:
                 correlation_id=correlation_id,
                 idempotency_key=idempotency_key # Weitergabe des Idempotency-Keys
             )
-            logger.info(f"Created draft post with ID: {post_data.get("post_id")}", extra={"correlation_id": correlation_id})
+            logger.info(f"Created draft post with ID: {post_data.get('post_id')}", extra={"correlation_id": correlation_id})
 
             return {
                 "correlation_id": correlation_id,

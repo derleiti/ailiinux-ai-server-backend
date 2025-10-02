@@ -130,7 +130,7 @@ class AutoPublisher:
     async def _create_wordpress_post(self, result) -> None:
         """Erstellt WordPress Post aus Crawler-Ergebnis."""
         # Generiere Artikel mit GPT-OSS
-        model_id = self._settings.crawler_summary_model or "gpt-oss:cloud/120b"
+        model_id = getattr(self._settings, "crawler_summary_model", None) or "gpt-oss:cloud/120b"
         model = await registry.get_model(model_id)
 
         if not model:
