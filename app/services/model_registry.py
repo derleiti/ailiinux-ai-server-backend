@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import asyncio
-import json
 import logging
+import json
 import re
 from dataclasses import dataclass, field
 from typing import Dict, Iterable, List, Optional
@@ -10,7 +10,7 @@ from typing import Dict, Iterable, List, Optional
 import httpx
 
 from ..config import get_settings
-from ..utils.http_client import robust_client
+from ..utils.http_client import HttpClient # Import the HttpClient class
 
 logger = logging.getLogger("ailinux.model_registry")
 
@@ -69,15 +69,16 @@ class ModelRegistry:
 
     async def _discover_ollama(self) -> List[ModelInfo]:
         settings = self._settings
-        ollama_url = httpx.URL(str(settings.ollama_base)).join("/api/tags") # Re-insert url definition
         try:
-            response = await robust_client.get(str(ollama_url))
+            # Instantiate HttpClient for Ollama
+            ollama_client = HttpClient(base_url=str(settings.ollama_base), timeout_ms=settings.OLLAMA_TIMEOUT_MS)
+            response = await ollama_client.client.get("/api/tags") # Use the httpx.AsyncClient directly
             response.raise_for_status()
         except httpx.RequestError as exc:
-            logger.warning("Failed to connect to Ollama at %s: %s", ollama_url, exc) # Use ollama_url
+            logger.warning("Failed to connect to Ollama at %s: %s", settings.ollama_base, exc)
             return []
         except httpx.HTTPStatusError as exc:
-            logger.warning("Ollama returned HTTP error %s for %s: %s", exc.response.status_code, ollama_url, exc)
+            logger.warning("Ollama returned HTTP error %s for %s: %s", exc.response.status_code, settings.ollama_base, exc)
 
         payload = response.json()
         items = payload.get("models") or payload.get("data") or []

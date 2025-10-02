@@ -4,27 +4,19 @@ import base64
 from typing import Dict, List, Optional
 
 import httpx
-
-from ..config import get_settings
-from ..utils.errors import api_error
-from ..utils.http_client import robust_client
+from app.config import get_settings
+from app.utils.errors import api_error
 
 class WordPressService:
     def __init__(self) -> None:
-        settings = get_settings()
-        self.wordpress_url = settings.wordpress_url
-        self.username = settings.wordpress_username
-        self.password = settings.wordpress_password
+        s = get_settings()
+        self.wordpress_url = s.wordpress_url
+        self.username = s.wordpress_username
+        self.password = s.wordpress_password
+        if not self.wordpress_url or not self.username or not self.password:
+            raise api_error("WordPress credentials/url are not configured", status_code=503, code="wordpress_unavailable")
 
-    def _get_auth_headers(self) -> Dict[str, str]:
-        if not self.username or not self.password:
-            raise api_error("WordPress credentials are not configured", status_code=503, code="wordpress_unavailable")
-        
-        credentials = f"{self.username}:{self.password}"
-        token = base64.b64encode(credentials.encode()).decode()
-        return {"Authorization": f"Basic {token}"}
-
-    async def create_post(self, title: str, content: str, status: str = "publish", categories: Optional[List[int]] = None, featured_media: Optional[int] = None) -> Dict:
+    async def create_post(self, title: str, content: str, status: str = "publish") -> dict:
         if not self.wordpress_url:
             raise api_error("WordPress URL is not configured", status_code=503, code="wordpress_unavailable")
 

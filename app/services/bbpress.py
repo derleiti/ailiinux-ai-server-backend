@@ -21,10 +21,12 @@ class BBPressService:
     """
 
     def __init__(self) -> None:
-        settings = get_settings()
-        self.wordpress_url = settings.wordpress_url
-        self.username = settings.wordpress_username
-        self.password = settings.wordpress_password
+        s = get_settings()
+        self.wordpress_url = s.wordpress_url
+        self.username = s.wordpress_username
+        self.password = s.wordpress_password
+        if not self.wordpress_url or not self.username or not self.password:
+            raise api_error("BBPress (WordPress) credentials/url are not configured", status_code=503, code="bbpress_unavailable")
 
     def _get_auth_headers(self) -> Dict[str, str]:
         """Erstellt Basic Auth Headers."""

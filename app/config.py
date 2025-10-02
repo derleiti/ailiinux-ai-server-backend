@@ -1,51 +1,73 @@
+from __future__ import annotations
+from functools import lru_cache
+from typing import Optional, List
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from typing import Optional
+from pydantic import AnyHttpUrl
+
+DEFAULT_ALLOWED_ORIGINS = ["http://localhost:5173", "http://localhost:3000", "https://ailinux.me"]
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore") # 'extra="ignore"' erlaubt unbekannte Variablen im .env
+    # App
+    host: str = "0.0.0.0"
+    port: int = 9100
+    debug: bool = True
+    app_env: str = "development"
 
-    APP_ENV: str = "development"
-    DEBUG: bool = True
-    CORS_ALLOWED_ORIGINS: str = "http://localhost:3000,http://localhost:8080"
+    # CORS & Rate Limiting
+    CORS_ALLOWED_ORIGINS: str = ",".join(DEFAULT_ALLOWED_ORIGINS)
     REDIS_URL: str = "redis://localhost:6379/0"
+    max_concurrent_requests: int = 8
+    request_timeout: int = 120
+    request_queue_timeout: int = 15
 
-    # LLM Provider
-    LLM_DEFAULT: str = "gpt-oss:120b-cloud"
+    # Feature toggles
+    crawler_enabled: bool = True
+
+    # Providers – IDs/Endpoints/Keys
+    LLM_DEFAULT: str = "gpt-oss:cloud/120b"
     LLM_HEAVY: str = "deepseek-670b-cloud"
 
-    OPENROUTER_API_BASE: Optional[str] = None
-    OPENROUTER_API_KEY: Optional[str] = None
-    OPENROUTER_MODEL_ID: Optional[str] = None
-    OPENROUTER_TIMEOUT_MS: int = 20000
+    GPT_OSS_API_BASE: Optional[str] = None
+    GPT_OSS_API_KEY: Optional[str] = None
+    GPT_OSS_MODEL_ID: Optional[str] = "gpt-oss:cloud/120b"
+    GPT_OSS_TIMEOUT_MS: int = 30000
 
     DEEPSEEK_API_BASE: Optional[str] = None
     DEEPSEEK_API_KEY: Optional[str] = None
-    DEEPSEEK_MODEL_ID: Optional[str] = None
+    DEEPSEEK_MODEL_ID: Optional[str] = "deepseek-670b-cloud"
     DEEPSEEK_TIMEOUT_MS: int = 60000
 
-    ZJ_API_BASE: Optional[str] = None
+    OPENROUTER_API_BASE: Optional[str] = "https://openrouter.ai/api/v1"
+    OPENROUTER_API_KEY: Optional[str] = None
+    OPENROUTER_MODEL_ID: Optional[str] = "xai/grok-4o-mini"
+    OPENROUTER_TIMEOUT_MS: int = 20000
+
+    ZJ_API_BASE: Optional[str] = "https://api.zukijourney.com/v1"
     ZJ_API_KEY: Optional[str] = None
     ZJ_MODEL_ID: Optional[str] = None
     ZJ_TIMEOUT_MS: int = 30000
 
-    OLLAMA_API_BASE: Optional[str] = None
-    OLLAMA_MODEL: Optional[str] = None
-    OLLAMA_TIMEOUT_MS: int = 120000
+    # Vision/Image/Ollama
+    gemini_api_key: Optional[str] = None
+    ollama_base: AnyHttpUrl = "http://127.0.0.1:11434"
+    stable_diffusion_url: AnyHttpUrl = "http://127.0.0.1:7860"
 
-    GPT_OSS_API_BASE: Optional[str] = None
-    GPT_OSS_API_KEY: Optional[str] = None
-    GPT_OSS_MODEL_ID: Optional[str] = None
-    GPT_OSS_TIMEOUT_MS: int = 30000
+    # WordPress / bbPress
+    wordpress_url: Optional[AnyHttpUrl] = None
+    wordpress_username: Optional[str] = None
+    wordpress_password: Optional[str] = None
+    wordpress_category_id: int = 0
+    bbpress_forum_id: int = 0
 
-    # WordPress MCP
-    WP_MCP_ENDPOINT: Optional[str] = None
-    WP_MCP_TOKEN: Optional[str] = None
-    WP_MCP_TIMEOUT_MS: int = 15000
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="ignore"
+    )
 
-    CRAWLER_MCP_ENDPOINT: str = "http://localhost:7777/mcp"
-    WORDPRESS_MCP_ENDPOINT: str = "https://ailinux.me/wp-json/mcp/v1" # Schon oben definiert
-    OLLAMA_MCP_ENDPOINT: str = "http://127.0.0.1:11434/api" # Ollama API ist direkt, kein MCP-Adapter nötig
-    OPENROUTER_BRIDGE_ENDPOINT: str = "https://openrouter.ai/api/v1" # OpenRouter API ist direkt
-    ZJ_ADAPTER_ENDPOINT: str = "https://api.zukijourney.com/v1" # ZukiJourney API ist direkt
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()
 
-settings = Settings()
+# Optional: For backward compatibility or convenience, expose a global settings object
+# Modules should primarily use get_settings() inside functions/methods.
+settings = get_settings()

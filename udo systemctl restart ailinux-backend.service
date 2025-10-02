@@ -1,0 +1,1413 @@
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     return runner.run(main)
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     return self._loop.run_until_complete(task)
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     await self._serve(sockets)
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     config.load()
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     module = importlib.import_module(module_str)
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     from .main import create_app
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     from ..services import agents as agents_service
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     from ..services.model_registry import ModelInfo
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]:     from ..utils.http_client import robust_client
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base uvicorn[378046]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:26:50 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.756s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 126.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 61466.[0m
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]: Traceback (most recent call last):
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     sys.exit(main())
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:              ^^^^^^
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     return self.main(*args, **kwargs)
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     rv = self.invoke(ctx)
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     return callback(*args, **kwargs)
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     run(
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     server.run()
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     return runner.run(main)
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     return self._loop.run_until_complete(task)
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     await self._serve(sockets)
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     config.load()
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     module = importlib.import_module(module_str)
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     from .main import create_app
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     from ..services import agents as agents_service
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     from ..services.model_registry import ModelInfo
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]:     from ..utils.http_client import robust_client
+Oct 02 04:26:53 Ubuntu-2404-noble-amd64-base uvicorn[378094]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:26:54 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:26:54 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:26:54 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.721s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 127.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 61602.[0m
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]: Traceback (most recent call last):
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     sys.exit(main())
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:              ^^^^^^
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     return self.main(*args, **kwargs)
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     rv = self.invoke(ctx)
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     return callback(*args, **kwargs)
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     run(
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     server.run()
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     return runner.run(main)
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     return self._loop.run_until_complete(task)
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     await self._serve(sockets)
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     config.load()
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     module = importlib.import_module(module_str)
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     from .main import create_app
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     from ..services import agents as agents_service
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     from ..services.model_registry import ModelInfo
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]:     from ..utils.http_client import robust_client
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base uvicorn[378120]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:26:57 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.753s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:00 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 128.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:27:00 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 61738.[0m
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]: Traceback (most recent call last):
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     sys.exit(main())
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:              ^^^^^^
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     return self.main(*args, **kwargs)
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     rv = self.invoke(ctx)
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     return callback(*args, **kwargs)
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     run(
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     server.run()
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     return runner.run(main)
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     return self._loop.run_until_complete(task)
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     await self._serve(sockets)
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     config.load()
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     module = importlib.import_module(module_str)
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     from .main import create_app
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     from ..services import agents as agents_service
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     from ..services.model_registry import ModelInfo
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]:     from ..utils.http_client import robust_client
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base uvicorn[378169]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:27:01 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.776s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:04 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 129.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:27:04 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 61874.[0m
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]: Traceback (most recent call last):
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     sys.exit(main())
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:              ^^^^^^
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     return self.main(*args, **kwargs)
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     rv = self.invoke(ctx)
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     return callback(*args, **kwargs)
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     run(
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     server.run()
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     return runner.run(main)
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     return self._loop.run_until_complete(task)
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     await self._serve(sockets)
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     config.load()
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     module = importlib.import_module(module_str)
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     from .main import create_app
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     from ..services import agents as agents_service
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     from ..services.model_registry import ModelInfo
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]:     from ..utils.http_client import robust_client
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base uvicorn[378233]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:27:05 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.777s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 130.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 62010.[0m
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]: Traceback (most recent call last):
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     sys.exit(main())
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:              ^^^^^^
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     return self.main(*args, **kwargs)
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     rv = self.invoke(ctx)
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     return callback(*args, **kwargs)
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     run(
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     server.run()
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     return runner.run(main)
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     return self._loop.run_until_complete(task)
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     await self._serve(sockets)
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     config.load()
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     module = importlib.import_module(module_str)
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     from .main import create_app
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     from ..services import agents as agents_service
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     from ..services.model_registry import ModelInfo
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]:     from ..utils.http_client import robust_client
+Oct 02 04:27:08 Ubuntu-2404-noble-amd64-base uvicorn[378281]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:27:09 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:27:09 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:27:09 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.764s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 131.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 62146.[0m
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]: Traceback (most recent call last):
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     sys.exit(main())
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:              ^^^^^^
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     return self.main(*args, **kwargs)
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     rv = self.invoke(ctx)
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     return callback(*args, **kwargs)
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     run(
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     server.run()
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     return runner.run(main)
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     return self._loop.run_until_complete(task)
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     await self._serve(sockets)
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     config.load()
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     module = importlib.import_module(module_str)
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     from .main import create_app
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     from ..services import agents as agents_service
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     from ..services.model_registry import ModelInfo
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]:     from ..utils.http_client import robust_client
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base uvicorn[378314]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:27:12 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.763s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base systemd[1]: Stopped ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A stop job for unit ailinux-backend.service has finished[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA stop job for unit ailinux-backend.service has finished.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 62282 and the job result is done.[0m
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.763s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 62282.[0m
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]: Traceback (most recent call last):
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     sys.exit(main())
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:              ^^^^^^
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     return self.main(*args, **kwargs)
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     rv = self.invoke(ctx)
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     return callback(*args, **kwargs)
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     run(
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     server.run()
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     return runner.run(main)
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     return self._loop.run_until_complete(task)
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     await self._serve(sockets)
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     config.load()
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     module = importlib.import_module(module_str)
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     from .main import create_app
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     from ..services import agents as agents_service
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     from ..services.model_registry import ModelInfo
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]:     from ..utils.http_client import robust_client
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base uvicorn[378383]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:27:15 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.779s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 132.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 62418.[0m
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]: Traceback (most recent call last):
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     sys.exit(main())
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:              ^^^^^^
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     return self.main(*args, **kwargs)
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     rv = self.invoke(ctx)
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     return callback(*args, **kwargs)
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     run(
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     server.run()
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     return runner.run(main)
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     return self._loop.run_until_complete(task)
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     await self._serve(sockets)
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     config.load()
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     module = importlib.import_module(module_str)
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     from .main import create_app
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     from ..services import agents as agents_service
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     from ..services.model_registry import ModelInfo
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]:     from ..utils.http_client import robust_client
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base uvicorn[378427]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:27:19 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.737s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:22 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 133.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:27:22 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 62554.[0m
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]: Traceback (most recent call last):
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     sys.exit(main())
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:              ^^^^^^
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     return self.main(*args, **kwargs)
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     rv = self.invoke(ctx)
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     return callback(*args, **kwargs)
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     run(
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     server.run()
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     return runner.run(main)
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     return self._loop.run_until_complete(task)
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     await self._serve(sockets)
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     config.load()
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     module = importlib.import_module(module_str)
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     from .main import create_app
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     from ..services import agents as agents_service
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     from ..services.model_registry import ModelInfo
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]:     from ..utils.http_client import robust_client
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base uvicorn[378479]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:27:23 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.762s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:26 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 134.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:27:26 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 62826.[0m
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]: Traceback (most recent call last):
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     sys.exit(main())
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:              ^^^^^^
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     return self.main(*args, **kwargs)
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     rv = self.invoke(ctx)
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     return callback(*args, **kwargs)
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     run(
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     server.run()
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     return runner.run(main)
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     return self._loop.run_until_complete(task)
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     await self._serve(sockets)
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     config.load()
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     module = importlib.import_module(module_str)
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     from .main import create_app
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     from ..services import agents as agents_service
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     from ..services.model_registry import ModelInfo
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]:     from ..utils.http_client import robust_client
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base uvicorn[378542]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:27:27 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.700s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 135.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 62962.[0m
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]: Traceback (most recent call last):
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     sys.exit(main())
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:              ^^^^^^
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     return self.main(*args, **kwargs)
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     rv = self.invoke(ctx)
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     return callback(*args, **kwargs)
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     run(
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     server.run()
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     return runner.run(main)
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     return self._loop.run_until_complete(task)
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     await self._serve(sockets)
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     config.load()
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     module = importlib.import_module(module_str)
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     from .main import create_app
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     from ..services import agents as agents_service
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     from ..services.model_registry import ModelInfo
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]:     from ..utils.http_client import robust_client
+Oct 02 04:27:30 Ubuntu-2404-noble-amd64-base uvicorn[378610]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:27:31 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:27:31 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:27:31 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.699s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 136.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 63098.[0m
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]: Traceback (most recent call last):
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     sys.exit(main())
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:              ^^^^^^
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     return self.main(*args, **kwargs)
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     rv = self.invoke(ctx)
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     return callback(*args, **kwargs)
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     run(
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     server.run()
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     return runner.run(main)
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     return self._loop.run_until_complete(task)
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     await self._serve(sockets)
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     config.load()
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     module = importlib.import_module(module_str)
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     from .main import create_app
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     from ..services import agents as agents_service
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     from ..services.model_registry import ModelInfo
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]:     from ..utils.http_client import robust_client
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base uvicorn[378673]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:27:34 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.746s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m
+Oct 02 04:27:37 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Scheduled restart job, restart counter is at 137.
+[0;38;5;245m░░ [0m[0;32mSubject: Automatic restarting of a unit has been scheduled[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAutomatic restarting of the unit ailinux-backend.service has been scheduled, as the result for[0m
+[0;38;5;245m░░[0m [0;32mthe configured Restart= setting for the unit.[0m
+Oct 02 04:27:37 Ubuntu-2404-noble-amd64-base systemd[1]: Started ailinux-backend.service - AILinux AI Backend (FastAPI).
+[0;38;5;245m░░ [0m[0;32mSubject: A start job for unit ailinux-backend.service has finished successfully[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mA start job for unit ailinux-backend.service has finished successfully.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe job identifier is 63234.[0m
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]: Traceback (most recent call last):
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/bin/uvicorn", line 8, in <module>
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     sys.exit(main())
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:              ^^^^^^
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1462, in __call__
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     return self.main(*args, **kwargs)
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1383, in main
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     rv = self.invoke(ctx)
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:          ^^^^^^^^^^^^^^^^
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 1246, in invoke
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     return ctx.invoke(self.callback, **ctx.params)
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/click/core.py", line 814, in invoke
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     return callback(*args, **kwargs)
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     run(
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     server.run()
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     return runner.run(main)
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:            ^^^^^^^^^^^^^^^^
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     return self._loop.run_until_complete(task)
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     await self._serve(sockets)
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     config.load()
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 438, in load
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     self.loaded_app = import_from_string(self.app)
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     module = importlib.import_module(module_str)
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     return _bootstrap._gcd_import(name[level:], package, level)
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/app/__init__.py", line 1, in <module>
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     from .main import create_app
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/app/main.py", line 13, in <module>
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     from app.routes import health, admin, mcp, orchestration
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/app/routes/__init__.py", line 1, in <module>
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     from . import agents, chat, crawler, models, sd, vision
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/app/routes/agents.py", line 8, in <module>
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     from ..services import agents as agents_service
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/app/services/__init__.py", line 3, in <module>
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     from . import agents, chat, model_registry, sd, vision
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/app/services/chat.py", line 13, in <module>
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     from ..services.model_registry import ModelInfo
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:   File "/root/ailinux-ai-server-backend/app/services/model_registry.py", line 13, in <module>
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]:     from ..utils.http_client import robust_client
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base uvicorn[378723]: ImportError: cannot import name 'robust_client' from 'app.utils.http_client' (/root/ailinux-ai-server-backend/app/utils/http_client.py)
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;39m[0;1;31m[0;1;39mailinux-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit process exited[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mAn ExecStart= process belonging to unit ailinux-backend.service has exited.[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe process' exit code is 'exited' and its exit status is 1.[0m
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mailinux-backend.service: Failed with result 'exit-code'.[0m
+[0;38;5;245m░░ [0m[0;32mSubject: Unit failed[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service has entered the 'failed' state with result 'exit-code'.[0m
+Oct 02 04:27:38 Ubuntu-2404-noble-amd64-base systemd[1]: ailinux-backend.service: Consumed 2.700s CPU time.
+[0;38;5;245m░░ [0m[0;32mSubject: Resources consumed by unit runtime[0m
+[0;38;5;245m░░[0m [0;32mDefined-By: systemd[0m
+[0;38;5;245m░░[0m [0;32mSupport: http://www.ubuntu.com/support[0m
+[0;38;5;245m░░[0m [0;32m[0m
+[0;38;5;245m░░[0m [0;32mThe unit ailinux-backend.service completed and consumed the indicated resources.[0m

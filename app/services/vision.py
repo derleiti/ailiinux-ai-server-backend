@@ -253,32 +253,24 @@ async def _dispatch_gemini(model_name: str, prompt: str, image: Image, api_key: 
 
 
 async def _download_image(url: str) -> Tuple[str, bytes]:
-    settings = get_settings()
-    timeout = httpx.Timeout(settings.request_timeout)
     try:
         async with httpx.AsyncClient(timeout=timeout) as client:
             response = await client.get(url)
+            response.raise_for_status()
+            
+            content_length = response.headers.get("Content-Length")
+            if content_length and int(content_length) > MAX_IMAGE_BYTES:
+                raise api_error("Image exceeds 12MB limit", status_code=413, code="image_too_large")
+            
+            data = response.content
+            if len(data) > MAX_IMAGE_BYTES:
+                raise api_error("Image exceeds 12MB limit", status_code=413, code="image_too_large")
+            
+            content_type = response.headers.get("Content-Type") or "image/png"
+            return content_type, data
     except httpx.RequestError as exc:
         raise api_error(
             f"Failed to download image: {exc}",
             status_code=502,
             code="image_download_failed",
         ) from exc
-
-    try:
-        response.raise_for_status()
-    except httpx.HTTPStatusError as exc:
-        message, code = extract_http_error(
-            exc.response,
-            default_message="Image download failed",
-            default_code="image_download_failed",
-        )
-        raise api_error(message, status_code=exc.response.status_code, code=code) from exc
-        content_length = response.headers.get("Content-Length")
-        if content_length and int(content_length) > MAX_IMAGE_BYTES:
-            raise api_error("Image exceeds 10MB limit", status_code=413, code="image_too_large")
-        data = response.content
-        if len(data) > MAX_IMAGE_BYTES:
-            raise api_error("Image exceeds 10MB limit", status_code=413, code="image_too_large")
-        content_type = response.headers.get("Content-Type") or "image/png"
-        return content_type, data

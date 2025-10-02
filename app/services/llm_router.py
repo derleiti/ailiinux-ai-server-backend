@@ -1,6 +1,6 @@
 import logging
 from typing import Dict, Any, Optional
-from app.config import settings
+from app.config import get_settings
 # from app.services.model_registry import ModelRegistry # Annahme: ModelRegistry existiert
 
 logger = logging.getLogger(__name__)
@@ -8,47 +8,49 @@ logger = logging.getLogger(__name__)
 # Dummy ModelRegistry für das Beispiel
 class ModelRegistry:
     def get_model_info(self, provider_id: str) -> Optional[Dict[str, Any]]:
-        if provider_id == settings.LLM_DEFAULT:
-            return {"model_id": settings.GPT_OSS_MODEL_ID, "api_base": settings.GPT_OSS_API_BASE, "api_key": settings.GPT_OSS_API_KEY}
-        elif provider_id == settings.LLM_HEAVY:
-            return {"model_id": settings.DEEPSEEK_MODEL_ID, "api_base": settings.DEEPSEEK_API_BASE, "api_key": settings.DEEPSEEK_API_KEY}
-        elif provider_id == settings.OPENROUTER_MODEL_ID:
-            return {"model_id": settings.OPENROUTER_MODEL_ID, "api_base": settings.OPENROUTER_API_BASE, "api_key": settings.OPENROUTER_API_KEY}
+        s = get_settings()
+        if provider_id == s.LLM_DEFAULT:
+            return {"model_id": s.GPT_OSS_MODEL_ID, "api_base": s.GPT_OSS_API_BASE, "api_key": s.GPT_OSS_API_KEY}
+        elif provider_id == s.LLM_HEAVY:
+            return {"model_id": s.DEEPSEEK_MODEL_ID, "api_base": s.DEEPSEEK_API_BASE, "api_key": s.DEEPSEEK_API_KEY}
+        elif provider_id == s.OPENROUTER_MODEL_ID:
+            return {"model_id": s.OPENROUTER_MODEL_ID, "api_base": s.OPENROUTER_API_BASE, "api_key": s.OPENROUTER_API_KEY}
         return None
 
 class LLMRouter:
     def __init__(self, model_registry: ModelRegistry):
         self.model_registry = model_registry
+        s = get_settings() # Get settings inside __init__
         self.policy_rules = [
             {
                 "when": lambda task, messages: task in ['arch', 'longform', 'security_review'] or self._is_long_text(messages),
-                "use": settings.LLM_HEAVY,
+                "use": s.LLM_HEAVY,
                 "max_tokens": 3500,
-                "timeout_ms": settings.DEEPSEEK_TIMEOUT_MS,
-                "provider_base": settings.DEEPSEEK_API_BASE,
-                "api_key": settings.DEEPSEEK_API_KEY,
-                "model_id": settings.DEEPSEEK_MODEL_ID,
-                "fallback": settings.LLM_DEFAULT # Fallback to default if heavy fails
+                "timeout_ms": s.DEEPSEEK_TIMEOUT_MS,
+                "provider_base": s.DEEPSEEK_API_BASE,
+                "api_key": s.DEEPSEEK_API_KEY,
+                "model_id": s.DEEPSEEK_MODEL_ID,
+                "fallback": s.LLM_DEFAULT # Fallback to default if heavy fails
             },
             {
                 "when": lambda task, messages: task in ['chat', 'small_fix', 'summarize'],
-                "use": settings.LLM_DEFAULT,
+                "use": s.LLM_DEFAULT,
                 "max_tokens": 1200,
-                "timeout_ms": settings.GPT_OSS_TIMEOUT_MS,
-                "provider_base": settings.GPT_OSS_API_BASE,
-                "api_key": settings.GPT_OSS_API_KEY,
-                "model_id": settings.GPT_OSS_MODEL_ID,
-                "fallback": settings.OPENROUTER_MODEL_ID # Fallback to OpenRouter if default fails
+                "timeout_ms": s.GPT_OSS_TIMEOUT_MS,
+                "provider_base": s.GPT_OSS_API_BASE,
+                "api_key": s.GPT_OSS_API_KEY,
+                "model_id": s.GPT_OSS_MODEL_ID,
+                "fallback": s.OPENROUTER_MODEL_ID # Fallback to OpenRouter if default fails
             },
             {
                 "when": lambda task, messages: "latency_critical" in task, # Annahme: task kann auch Tags enthalten
-                "use": settings.OPENROUTER_MODEL_ID,
+                "use": s.OPENROUTER_MODEL_ID,
                 "max_tokens": 900,
-                "timeout_ms": settings.OPENROUTER_TIMEOUT_MS,
-                "provider_base": settings.OPENROUTER_API_BASE,
-                "api_key": settings.OPENROUTER_API_KEY,
-                "model_id": settings.OPENROUTER_MODEL_ID,
-                "fallback": settings.LLM_DEFAULT
+                "timeout_ms": s.OPENROUTER_TIMEOUT_MS,
+                "provider_base": s.OPENROUTER_API_BASE,
+                "api_key": s.OPENROUTER_API_KEY,
+                "model_id": s.OPENROUTER_MODEL_ID,
+                "fallback": s.LLM_DEFAULT
             }
             # Weitere Regeln hier hinzufügen, z.B. für ZukiJourney oder Ollama
         ]
@@ -60,6 +62,7 @@ class LLMRouter:
 
     async def route_llm_request(self, task: str, messages: list[Dict[str, Any]], user_options: Dict[str, Any]) -> Dict[str, Any]:
         chosen_rule = None
+        s = get_settings()
         for rule in self.policy_rules:
             if rule["when"](task, messages):
                 chosen_rule = rule
@@ -69,12 +72,12 @@ class LLMRouter:
             # Fallback to default if no specific rule matches
             logger.warning(f"No specific LLM routing rule matched for task '{task}'. Falling back to default.")
             chosen_rule = {
-                "use": settings.LLM_DEFAULT,
+                "use": s.LLM_DEFAULT,
                 "max_tokens": 1200,
-                "timeout_ms": settings.GPT_OSS_TIMEOUT_MS,
-                "provider_base": settings.GPT_OSS_API_BASE,
-                "api_key": settings.GPT_OSS_API_KEY,
-                "model_id": settings.GPT_OSS_MODEL_ID,
+                "timeout_ms": s.GPT_OSS_TIMEOUT_MS,
+                "provider_base": s.GPT_OSS_API_BASE,
+                "api_key": s.GPT_OSS_API_KEY,
+                "model_id": s.GPT_OSS_MODEL_ID,
                 "fallback": None
             }
 
@@ -92,10 +95,10 @@ class LLMRouter:
 
         if not model_info:
             logger.error(f"Model info not found for provider_id: {provider_id}. Falling back to default.")
-            provider_id = settings.LLM_DEFAULT
+            provider_id = s.LLM_DEFAULT
             model_info = self.model_registry.get_model_info(provider_id)
             if not model_info:
-                raise ValueError(f"Default LLM '{settings.LLM_DEFAULT}' not found in registry.")
+                raise ValueError(f"Default LLM '{s.LLM_DEFAULT}' not found in registry.")
 
         return {
             "provider_id": provider_id,
