@@ -408,6 +408,7 @@ class CrawlerManager:
         self._host_backoff: Dict[str, float] = {}
         self._loop: Optional[asyncio.AbstractEventLoop] = None
         self._max_concurrent_requests = int(getattr(settings, "user_crawler_max_concurrent", 4))
+        self._last_heartbeat: datetime = datetime.now(timezone.utc)
 
         # Training data management
         self._train_dir = Path(getattr(settings, "crawler_train_dir", "data/crawler_spool/train"))
@@ -453,6 +454,7 @@ class CrawlerManager:
 
         self._stop_event.clear()
         self._loop = asyncio.get_running_loop()
+        self._last_heartbeat = datetime.now(timezone.utc)
         logger.info(
             "Starting crawler manager '%s' with %d workers (max_concurrent=%d)",
             self._instance_name,
@@ -611,6 +613,7 @@ class CrawlerManager:
                 pass
             self._auto_crawl_task = None
         await self._shared_state.flush()
+        self._last_heartbeat = datetime.now(timezone.utc)
         # Crawlee manages its own client and playwright instances
         logger.info("Crawler manager stopped")
 
@@ -715,6 +718,7 @@ class CrawlerManager:
             await self._mark_url_seen(seed)
 
         await self.start()
+        self._last_heartbeat = datetime.now(timezone.utc)
 
         return job
 
@@ -731,7 +735,12 @@ class CrawlerManager:
                 "total": self._high_priority_job_queue.qsize() + self._job_queue.qsize(),
             },
             "categories": categories,
+            "last_heartbeat": self._last_heartbeat.isoformat(),
         }
+
+    @property
+    def last_heartbeat(self) -> datetime:
+        return self._last_heartbeat
 
     def _categorize_job(self, *, priority: str, requested_by: Optional[str]) -> str:
         requested_by = (requested_by or "").lower()
@@ -949,6 +958,7 @@ class CrawlerManager:
     async def _run_worker(self, worker_id: int) -> None:
         logger.info("Crawler worker %s has started.", worker_id)
         while not self._stop_event.is_set():
+            self._last_heartbeat = datetime.now(timezone.utc)
             job_id = None
             source_queue: Optional[asyncio.Queue[str]] = None
             try:
@@ -1087,6 +1097,8 @@ class CrawlerManager:
         logger.debug("Processing URL %s for job %s", url, job.id)
         host = urlparse(url).netloc or "unknown"
         status = 0
+
+        self._last_heartbeat = datetime.now(timezone.utc)
 
         host_lock = await self._get_host_lock(host)
         async with host_lock:

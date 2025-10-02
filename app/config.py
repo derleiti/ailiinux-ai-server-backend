@@ -60,6 +60,17 @@ class Settings(BaseSettings):
     wordpress_category_id: int = Field(default=1, validation_alias="WORDPRESS_CATEGORY_ID")
     bbpress_forum_id: int = Field(default=1, validation_alias="BBPRESS_FORUM_ID")
 
+    # Mail / Notification (optional)
+    mail_from_name: Optional[str] = Field(default=None, validation_alias="MAIL_FROM_NAME")
+    mail_from_addr: Optional[str] = Field(default=None, validation_alias="MAIL_FROM_ADDR")
+    mail_smtp_host: Optional[str] = Field(default=None, validation_alias="MAIL_SMTP_HOST")
+    mail_smtp_port: Optional[int] = Field(default=None, validation_alias="MAIL_SMTP_PORT")
+    mail_smtp_user: Optional[str] = Field(default=None, validation_alias="MAIL_SMTP_USER")
+    mail_smtp_pass: Optional[str] = Field(default=None, validation_alias="MAIL_SMTP_PASS")
+    mail_smtp_starttls: Optional[bool] = Field(default=None, validation_alias="MAIL_SMTP_STARTTLS")
+    mail_recipient_allowlist: Optional[str] = Field(default=None, validation_alias="MAIL_RECIPIENT_ALLOWLIST")
+    mail_rate_per_min: Optional[int] = Field(default=None, validation_alias="MAIL_RATE_PER_MIN")
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

@@ -30,6 +30,7 @@ class AutoPublisher:
         self._interval = 3600  # 1 Stunde
         self._min_score = 0.6  # Minimum Relevanz-Score
         self._max_posts_per_hour = 3  # Max Posts pro Stunde
+        self._last_run: Optional[datetime] = None
 
     async def start(self) -> None:
         """Startet den Auto-Publisher Background-Task."""
@@ -40,6 +41,7 @@ class AutoPublisher:
         logger.info("Starting auto-publisher (interval: %d seconds)", self._interval)
         self._stop_event.clear()
         self._task = asyncio.create_task(self._run())
+        self._last_run = datetime.now(timezone.utc)
 
     async def stop(self) -> None:
         """Stoppt den Auto-Publisher."""
@@ -66,6 +68,7 @@ class AutoPublisher:
     async def _process_hourly(self) -> None:
         """Verarbeitet Crawler-Ergebnisse der letzten Stunde."""
         logger.info("Auto-publisher: Processing hourly crawl results...")
+        self._last_run = datetime.now(timezone.utc)
 
         try:
             # Hole die besten ungeposteten Ergebnisse der letzten Stunde

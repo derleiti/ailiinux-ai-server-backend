@@ -49,31 +49,79 @@ class CrawlerConfigUpdateResponse(BaseModel):
     updated: Dict[str, Any]
 
 
+async def _count_posts_today() -> int:
+    today = datetime.now(timezone.utc).date()
+    async with crawler_manager._store._lock:
+        count = 0
+        for result in crawler_manager._store._records.values():
+            if result.posted_at and result.posted_at.astimezone(timezone.utc).date() == today:
+                count += 1
+        return count
+
+
 @router.get("/status", response_model=CrawlerStatusResponse)
 async def get_crawler_status():
     """
-    Get comprehensive status of all crawler instances.
-
-    Returns detailed information about:
-    - User Crawler (fast, for /crawl prompts)
-    - Auto Crawler (24/7 background)
-    - Auto Publisher (WordPress/bbPress)
-    - Main Crawler Manager (shared)
+    Return consolidated status information for crawler subsystems.
     """
-    # User Crawler Status
+    settings = get_settings()
+
     user_status = await user_crawler.get_status()
-
-    # Auto Crawler Status
     auto_status = await auto_crawler.get_status()
-
     manager_metrics = await crawler_manager.metrics()
     manager_jobs = await crawler_manager.list_jobs()
     active_workers = sum(1 for task in crawler_manager._worker_tasks if not task.done())
+    queue_depth_total = manager_metrics["queue_depth"].get("total", 0)
 
-    # Auto Publisher Status
+    user_summary = {
+        "running": bool(user_status.get("running")),
+        "workers": user_status.get("workers", {}).get("configured")
+        or user_status.get("workers", {}).get("count")
+        or 0,
+        "active_jobs": user_status.get("jobs", {}).get("running", 0),
+        "queue_depth": user_status.get("queues", {}).get("total", 0),
+        "last_heartbeat": user_status.get("last_heartbeat"),
+    }
+    user_status["summary"] = user_summary
+
+    auto_running = any(
+        isinstance(info, dict) and info.get("running") for info in auto_status.values()
+    )
+    auto_last_crawl_ts = max(
+        (
+            info.get("last_crawl")
+            for info in auto_status.values()
+            if isinstance(info, dict) and info.get("last_crawl")
+        ),
+        default=None,
+    )
+    auto_last_heartbeat = (
+        datetime.fromtimestamp(auto_last_crawl_ts, tz=timezone.utc).isoformat()
+        if auto_last_crawl_ts
+        else manager_metrics.get("last_heartbeat")
+    )
+    auto_active_jobs = len(
+        [job for job in manager_jobs if job.priority != "high" and job.status == "running"]
+    )
+    auto_summary = {
+        "running": auto_running,
+        "workers": max(0, settings.auto_crawler_workers),
+        "active_jobs": auto_active_jobs,
+        "queue_depth": queue_depth_total,
+        "last_heartbeat": auto_last_heartbeat,
+    }
+    auto_status["summary"] = auto_summary
+
     publisher_running = auto_publisher._task is not None and not auto_publisher._task.done()
+    publisher_last_run = getattr(auto_publisher, "_last_run", None)
+    publisher_summary = {
+        "running": publisher_running,
+        "workers": 1 if publisher_running else 0,
+        "active_jobs": 1 if publisher_running else 0,
+        "queue_depth": 0,
+        "last_heartbeat": publisher_last_run.isoformat() if publisher_last_run else None,
+    }
 
-    # Main Manager Stats
     manager_stats = {
         "total_jobs": len(manager_jobs),
         "queue_depth": manager_metrics["queue_depth"],
@@ -81,6 +129,14 @@ async def get_crawler_status():
         "memory_usage_bytes": crawler_manager._store._memory_usage,
         "training_shards": len(crawler_manager._train_index.get("shards", [])),
         "categories": manager_metrics["categories"],
+        "last_heartbeat": manager_metrics.get("last_heartbeat"),
+    }
+    manager_stats["summary"] = {
+        "running": active_workers > 0,
+        "workers": active_workers,
+        "active_jobs": len([job for job in manager_jobs if job.status == "running"]),
+        "queue_depth": queue_depth_total,
+        "last_heartbeat": manager_metrics.get("last_heartbeat"),
     }
 
     return {
@@ -91,6 +147,7 @@ async def get_crawler_status():
             "interval_seconds": auto_publisher._interval,
             "min_score": auto_publisher._min_score,
             "max_posts_per_hour": auto_publisher._max_posts_per_hour,
+            "summary": publisher_summary,
         },
         "main_manager": manager_stats,
     }
@@ -282,6 +339,7 @@ async def get_crawler_metrics():
     completed_jobs = [j for j in manager_jobs if j.status == "completed"]
     failed_jobs = [j for j in manager_jobs if j.status == "failed"]
     running_jobs = [j for j in manager_jobs if j.status == "running"]
+    posts_today = await _count_posts_today()
 
     return {
         "overview": {
@@ -290,6 +348,7 @@ async def get_crawler_metrics():
             "completed_jobs": len(completed_jobs),
             "failed_jobs": len(failed_jobs),
             "running_jobs": len(running_jobs),
+            "posts_today": posts_today,
         },
         "user_crawler": {
             "workers": user_status.get("workers", {}),
@@ -315,6 +374,7 @@ async def get_crawler_metrics():
             "shards": len(crawler_manager._train_index.get("shards", [])),
             "buffer_size": len(crawler_manager._train_buffer),
         },
+        "posts_today": posts_today,
     }
 
 

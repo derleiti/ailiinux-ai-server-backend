@@ -86,8 +86,9 @@ class AdminDashboard
         <div class="wrap nova-ai-dashboard">
             <h1><?php _e('Nova AI Dashboard', 'nova-ai-frontend'); ?></h1>
 
+            <div id="nova-dashboard-alert" class="nova-dashboard-alert" role="alert" aria-live="polite" hidden></div>
+
             <div class="nova-ai-stats-grid">
-                <!-- Auto-Publisher Status -->
                 <div class="nova-ai-stat-card">
                     <h2><?php _e('Auto-Publisher', 'nova-ai-frontend'); ?></h2>
                     <div class="stat-value" id="nova-publisher-status">
@@ -96,16 +97,14 @@ class AdminDashboard
                     <p class="stat-label"><?php _e('Status', 'nova-ai-frontend'); ?></p>
                 </div>
 
-                <!-- Crawler Status -->
                 <div class="nova-ai-stat-card">
                     <h2><?php _e('Crawler', 'nova-ai-frontend'); ?></h2>
                     <div class="stat-value" id="nova-crawler-status">
                         <span class="spinner is-active"></span>
                     </div>
-                    <p class="stat-label"><?php _e('Aktive Jobs', 'nova-ai-frontend'); ?></p>
+                    <p class="stat-label"><?php _e('User & Auto', 'nova-ai-frontend'); ?></p>
                 </div>
 
-                <!-- Posts Today -->
                 <div class="nova-ai-stat-card">
                     <h2><?php _e('Posts Heute', 'nova-ai-frontend'); ?></h2>
                     <div class="stat-value" id="nova-posts-today">
@@ -114,14 +113,156 @@ class AdminDashboard
                     <p class="stat-label"><?php _e('Automatisch erstellt', 'nova-ai-frontend'); ?></p>
                 </div>
 
-                <!-- Pending Results -->
                 <div class="nova-ai-stat-card">
                     <h2><?php _e('Wartend', 'nova-ai-frontend'); ?></h2>
                     <div class="stat-value" id="nova-pending-results">
                         <span class="spinner is-active"></span>
                     </div>
-                    <p class="stat-label"><?php _e('Crawler-Ergebnisse', 'nova-ai-frontend'); ?></p>
+                    <p class="stat-label"><?php _e('Queue-Tiefe', 'nova-ai-frontend'); ?></p>
                 </div>
+            </div>
+
+            <div class="nova-ops-grid">
+                <section id="nova-backend-services" class="nova-card">
+                    <div class="nova-card-header">
+                        <h2><?php _e('Backend Services', 'nova-ai-frontend'); ?></h2>
+                        <span class="brumo-icon" title="<?php esc_attr_e('Brumo approves', 'nova-ai-frontend'); ?>">🐾</span>
+                    </div>
+                    <div class="nova-service-grid">
+                        <article class="nova-service-card" data-service="api">
+                            <div class="nova-service-header">
+                                <span class="nova-service-name"><?php _e('API Health', 'nova-ai-frontend'); ?></span>
+                                <span class="nova-badge nova-badge--warn" id="nova-service-badge-api">—</span>
+                            </div>
+                            <div class="nova-service-meta" id="nova-service-meta-api"></div>
+                        </article>
+                        <article class="nova-service-card" data-service="user">
+                            <div class="nova-service-header">
+                                <span class="nova-service-name"><?php _e('User Crawler', 'nova-ai-frontend'); ?></span>
+                                <span class="nova-badge nova-badge--warn" id="nova-service-badge-user">—</span>
+                            </div>
+                            <div class="nova-service-meta" id="nova-service-meta-user"></div>
+                        </article>
+                        <article class="nova-service-card" data-service="auto">
+                            <div class="nova-service-header">
+                                <span class="nova-service-name"><?php _e('Auto Crawler', 'nova-ai-frontend'); ?></span>
+                                <span class="nova-badge nova-badge--warn" id="nova-service-badge-auto">—</span>
+                            </div>
+                            <div class="nova-service-meta" id="nova-service-meta-auto"></div>
+                        </article>
+                        <article class="nova-service-card" data-service="publisher">
+                            <div class="nova-service-header">
+                                <span class="nova-service-name"><?php _e('Auto-Publisher', 'nova-ai-frontend'); ?></span>
+                                <span class="nova-badge nova-badge--warn" id="nova-service-badge-publisher">—</span>
+                            </div>
+                            <div class="nova-service-meta" id="nova-service-meta-publisher"></div>
+                        </article>
+                        <article class="nova-service-card" data-service="manager">
+                            <div class="nova-service-header">
+                                <span class="nova-service-name"><?php _e('Crawler Manager', 'nova-ai-frontend'); ?></span>
+                                <span class="nova-badge nova-badge--warn" id="nova-service-badge-manager">—</span>
+                            </div>
+                            <div class="nova-service-meta" id="nova-service-meta-manager"></div>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="nova-service-controls" class="nova-card">
+                    <div class="nova-card-header">
+                        <h2><?php _e('Crawler Controls', 'nova-ai-frontend'); ?></h2>
+                        <span class="nova-inline-warning" id="nova-control-status"></span>
+                    </div>
+                    <div class="nova-control-grid">
+                        <div class="nova-control-group" data-instance="user">
+                            <h3><?php _e('User Crawler', 'nova-ai-frontend'); ?></h3>
+                            <div class="nova-control-buttons">
+                                <button type="button" class="button button-secondary nova-control-btn" data-instance="user" data-action="start"><?php _e('Start', 'nova-ai-frontend'); ?></button>
+                                <button type="button" class="button button-secondary nova-control-btn" data-instance="user" data-action="stop"><?php _e('Stop', 'nova-ai-frontend'); ?></button>
+                                <button type="button" class="button button-secondary nova-control-btn" data-instance="user" data-action="restart"><?php _e('Restart', 'nova-ai-frontend'); ?></button>
+                            </div>
+                        </div>
+                        <div class="nova-control-group" data-instance="auto">
+                            <h3><?php _e('Auto Crawler', 'nova-ai-frontend'); ?></h3>
+                            <div class="nova-control-buttons">
+                                <button type="button" class="button button-secondary nova-control-btn" data-instance="auto" data-action="start"><?php _e('Start', 'nova-ai-frontend'); ?></button>
+                                <button type="button" class="button button-secondary nova-control-btn" data-instance="auto" data-action="stop"><?php _e('Stop', 'nova-ai-frontend'); ?></button>
+                                <button type="button" class="button button-secondary nova-control-btn" data-instance="auto" data-action="restart"><?php _e('Restart', 'nova-ai-frontend'); ?></button>
+                            </div>
+                        </div>
+                        <div class="nova-control-group" data-instance="publisher">
+                            <h3><?php _e('Auto-Publisher', 'nova-ai-frontend'); ?></h3>
+                            <div class="nova-control-buttons">
+                                <button type="button" class="button button-secondary nova-control-btn" data-instance="publisher" data-action="start"><?php _e('Start', 'nova-ai-frontend'); ?></button>
+                                <button type="button" class="button button-secondary nova-control-btn" data-instance="publisher" data-action="stop"><?php _e('Stop', 'nova-ai-frontend'); ?></button>
+                                <button type="button" class="button button-secondary nova-control-btn" data-instance="publisher" data-action="restart"><?php _e('Restart', 'nova-ai-frontend'); ?></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="nova-models-panel" class="nova-card">
+                    <div class="nova-card-header">
+                        <h2><?php _e('AI Models & MCP', 'nova-ai-frontend'); ?></h2>
+                        <span class="nova-badge nova-badge--warn" id="nova-mcp-status">—</span>
+                    </div>
+                    <ul class="nova-model-list" id="nova-models-list">
+                        <li><?php _e('Modelle werden geladen …', 'nova-ai-frontend'); ?></li>
+                    </ul>
+                </section>
+
+                <section id="nova-crawler-settings" class="nova-card">
+                    <div class="nova-card-header">
+                        <h2><?php _e('Crawler Settings', 'nova-ai-frontend'); ?></h2>
+                        <span class="nova-inline-warning" id="nova-settings-message"></span>
+                    </div>
+                    <form class="nova-settings" novalidate>
+                        <fieldset>
+                            <legend><?php _e('User Crawler', 'nova-ai-frontend'); ?></legend>
+                            <div class="setting-row">
+                                <label for="nova-setting-user-workers"><?php _e('Workers', 'nova-ai-frontend'); ?></label>
+                                <input type="number" id="nova-setting-user-workers" min="1" step="1" data-field="user_crawler_workers" />
+                                <p class="setting-help"><?php _e('Dedizierte Worker für User-Jobs.', 'nova-ai-frontend'); ?></p>
+                            </div>
+                            <div class="setting-row">
+                                <label for="nova-setting-user-concurrency"><?php _e('Max Concurrent Pages', 'nova-ai-frontend'); ?></label>
+                                <input type="number" id="nova-setting-user-concurrency" min="1" step="1" data-field="user_crawler_max_concurrent" />
+                                <p class="setting-help"><?php _e('Parallel abrufbare Seiten des User-Crawlers.', 'nova-ai-frontend'); ?></p>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend><?php _e('Auto Crawler', 'nova-ai-frontend'); ?></legend>
+                            <div class="setting-row">
+                                <label class="toggle-label" for="nova-setting-auto-enabled">
+                                    <input type="checkbox" id="nova-setting-auto-enabled" data-field="auto_crawler_enabled" />
+                                    <span><?php _e('Auto Crawler aktiv', 'nova-ai-frontend'); ?></span>
+                                </label>
+                                <p class="setting-help"><?php _e('24/7 Hintergrundcrawler aktivieren oder stoppen.', 'nova-ai-frontend'); ?></p>
+                            </div>
+                            <div class="setting-row">
+                                <label for="nova-setting-auto-workers"><?php _e('Worker (konfiguriert)', 'nova-ai-frontend'); ?></label>
+                                <input type="number" id="nova-setting-auto-workers" data-field="auto_crawler_workers" disabled />
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend><?php _e('Retention & Flush', 'nova-ai-frontend'); ?></legend>
+                            <div class="setting-row">
+                                <label for="nova-setting-flush"><?php _e('Flush Interval (Sekunden)', 'nova-ai-frontend'); ?></label>
+                                <input type="number" id="nova-setting-flush" data-field="crawler_flush_interval" disabled />
+                            </div>
+                            <div class="setting-row">
+                                <label for="nova-setting-retention"><?php _e('Retention (Tage)', 'nova-ai-frontend'); ?></label>
+                                <input type="number" id="nova-setting-retention" data-field="crawler_retention_days" disabled />
+                            </div>
+                        </fieldset>
+
+                        <div class="actions">
+                            <button type="submit" class="button button-primary btn-save"><?php _e('Save changes', 'nova-ai-frontend'); ?></button>
+                            <span class="nova-inline-warning" id="nova-settings-status" aria-live="polite"></span>
+                        </div>
+                    </form>
+                </section>
             </div>
 
             <!-- Recent Auto-Posts -->

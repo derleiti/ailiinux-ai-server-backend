@@ -112,3 +112,11 @@ def test_mcp_admin_config_set(monkeypatch):
     data = response.json()['result']
     assert data['updated']['user_crawler_workers'] == 5
     assert updated['user'][0] == 5
+
+
+def test_mcp_status_endpoint():
+    response = client.get('/mcp/status')
+    assert response.status_code == 200
+    data = response.json()
+    assert 'status' in data
+    assert 'methods' in data

@@ -407,3 +407,101 @@
     max-width: 100%;
   }
 }
+
+.nova-dashboard-alert {
+  margin: 16px 0;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(185, 28, 28, 0.2);
+  background: rgba(185, 28, 28, 0.12);
+  color: var(--nova-danger);
+  font-weight: 600;
+}
+
+.nova-dashboard-alert[hidden] {
+  display: none;
+}
+
+.nova-ops-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin: 30px 0;
+}
+
+.nova-control-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.nova-control-group h3 {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--nova-text);
+}
+
+.nova-control-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nova-control-buttons .button {
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-weight: 600;
+}
+
+.nova-model-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.nova-model-list li {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--nova-border);
+  background: var(--nova-surface-alt);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nova-model-list .model-capabilities {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--nova-muted);
+}
+
+.nova-model-list .model-id {
+  font-size: 14px;
+}
+
+.nova-meta-inline {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--nova-muted);
+}
+
+.nova-status-badges {
+  display: inline-flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.nova-badge--info {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--nova-info);
+}
+
+.nova-badge--pending {
+  background: rgba(107, 114, 128, 0.15);
+  color: var(--nova-muted);
+}

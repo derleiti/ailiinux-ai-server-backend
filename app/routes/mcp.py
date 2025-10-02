@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+from datetime import datetime, timezone
 from typing import Any, Awaitable, Callable, Dict, Iterable, List, Optional
 
 from fastapi import APIRouter, HTTPException, Request, status
@@ -227,6 +228,29 @@ async def handle_admin_config_set(params: Dict[str, Any]) -> Dict[str, Any]:
     update_request = CrawlerConfigUpdate(**updates)
     response: CrawlerConfigUpdateResponse = await update_crawler_config(update_request)
     return {"updated": response.updated, "config": response.config.dict()}
+
+
+@router.get("/mcp/status", tags=["MCP"], summary="Health check for MCP subsystem")
+async def mcp_status() -> Dict[str, Any]:
+    try:
+        models = await registry.list_models()
+        status = "ok"
+        model_count = len(models)
+        payload: Dict[str, Any] = {}
+    except Exception as exc:  # pragma: no cover - defensive fallback
+        status = "degraded"
+        model_count = 0
+        payload = {"error": str(exc)}
+
+    payload.update(
+        {
+            "status": status,
+            "methods": sorted(MCP_HANDLERS.keys()),
+            "model_count": model_count,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+        }
+    )
+    return payload
 
 
 Handler = Callable[[Dict[str, Any]], Awaitable[Any]]

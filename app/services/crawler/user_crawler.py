@@ -128,6 +128,7 @@ class UserCrawler:
                 "completed": len([job for job in jobs if job.status == "completed"]),
                 "running": len([job for job in jobs if job.status == "running"]),
             },
+            "last_heartbeat": self._manager.last_heartbeat.isoformat(),
         }
 
     async def get_job(self, job_id: str) -> Optional[CrawlJob]:

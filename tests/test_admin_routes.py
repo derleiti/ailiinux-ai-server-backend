@@ -118,3 +118,30 @@ def test_control_user_stop(monkeypatch):
     assert payload['results']['user']['status'] == 'stopped'
 
     user_crawler._running = original_running
+
+
+def test_status_includes_summary_keys():
+    response = client.get('/admin/crawler/status')
+    assert response.status_code == 200
+    payload = response.json()
+
+    assert 'user_crawler' in payload
+    assert 'auto_crawler' in payload
+    assert 'main_manager' in payload
+
+    user_summary = payload['user_crawler'].get('summary')
+    assert user_summary is not None
+    for key in ['running', 'workers', 'active_jobs', 'queue_depth', 'last_heartbeat']:
+        assert key in user_summary
+
+    manager_summary = payload['main_manager'].get('summary')
+    assert manager_summary is not None
+    assert 'last_heartbeat' in manager_summary
+
+
+def test_metrics_include_posts_today():
+    response = client.get('/admin/crawler/metrics')
+    assert response.status_code == 200
+    data = response.json()
+    assert 'posts_today' in data
+    assert 'posts_today' in data['overview']
