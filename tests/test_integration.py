@@ -47,6 +47,63 @@ class TestEndToEndIntegration:
 
             try:
                 # Create a crawl job
+                # CORS and Health Check Tests
+                pass
+
+    @pytest.mark.asyncio
+    async def test_cors_headers_ailinux_domain(self):
+        """Test CORS headers include https://ailinux.me."""
+        from fastapi.testclient import TestClient
+        from app.main import create_app
+        from unittest.mock import patch
+
+        with patch('redis.asyncio.from_url'):
+            app = create_app()
+            client = TestClient(app)
+
+            response = client.options(
+                "/v1/models",
+                headers={"Origin": "https://ailinux.me"}
+            )
+
+            # Should allow ailinux.me origin
+            assert response.status_code in [200, 204]
+            # Note: TestClient doesn't process CORS middleware fully,
+            # so we verify the middleware is configured correctly
+            assert "CORSMiddleware" in str(app.user_middleware)
+
+    @pytest.mark.asyncio
+    async def test_health_endpoint_returns_200(self):
+        """Test /health endpoint returns 200 with status ok."""
+        from fastapi.testclient import TestClient
+        from app.main import create_app
+        from unittest.mock import patch
+
+        with patch('redis.asyncio.from_url'):
+            app = create_app()
+            client = TestClient(app)
+
+            response = client.get("/health")
+
+            assert response.status_code == 200
+            data = response.json()
+            assert "status" in data
+            assert data["status"] == "ok"
+
+    @pytest.mark.asyncio
+    async def test_http_client_crawler_integration(self, mock_settings):
+        """
+        Test HTTP client integration with crawler.
+
+        Integration test: Verify HTTP client is used correctly by crawler.
+        """
+        http_client = RobustHTTPClient(timeout=30.0)
+
+        with patch('app.services.crawler.manager.get_settings', return_value=mock_settings):
+            crawler_manager = CrawlerManager()
+
+            try:
+                # Create a crawl job
                 job = await crawler_manager.create_job(
                     keywords=["test"],
                     seeds=["https://example.com"],

@@ -98,3 +98,62 @@ async def test_stream_chat_with_crawler_tool(mock_settings, mock_model_info):
                         mock_get_job.assert_called()
                         mock_get_result.assert_called_once_with("result1")
                         mock_stream_ollama.assert_called_once()
+
+@pytest.mark.asyncio
+async def test_chat_endpoint_streaming_200(mock_settings, mock_model_info):
+    """Test /v1/chat endpoint with streaming returns 200."""
+    from fastapi.testclient import TestClient
+    from app.main import create_app
+
+    with patch('app.config.get_settings', return_value=mock_settings):
+        with patch('app.services.model_registry.registry.get_model', new_callable=AsyncMock) as mock_get_model:
+            mock_get_model.return_value = mock_model_info
+
+            with patch('app.services.chat.stream_chat', new_callable=AsyncMock) as mock_stream:
+                mock_stream.return_value = async_generator_mock(["Test", " response"])
+
+                app = create_app()
+                client = TestClient(app)
+
+                # Mock Redis for rate limiter
+                with patch('redis.asyncio.from_url'):
+                    response = client.post(
+                        "/v1/chat",
+                        json={
+                            "model": "ollama/test-model",
+                            "messages": [{"role": "user", "content": "Hello"}],
+                            "stream": True
+                        }
+                    )
+
+                    assert response.status_code == 200
+                    assert response.headers["content-type"] == "text/plain; charset=utf-8"
+
+@pytest.mark.asyncio
+async def test_chat_completions_alias_works(mock_settings, mock_model_info):
+    """Test /v1/chat/completions alias endpoint works correctly."""
+    from fastapi.testclient import TestClient
+    from app.main import create_app
+
+    with patch('app.config.get_settings', return_value=mock_settings):
+        with patch('app.services.model_registry.registry.get_model', new_callable=AsyncMock) as mock_get_model:
+            mock_get_model.return_value = mock_model_info
+
+            with patch('app.services.chat.stream_chat', new_callable=AsyncMock) as mock_stream:
+                mock_stream.return_value = async_generator_mock(["Alias", " works"])
+
+                app = create_app()
+                client = TestClient(app)
+
+                with patch('redis.asyncio.from_url'):
+                    response = client.post(
+                        "/v1/chat/completions",
+                        json={
+                            "model": "ollama/test-model",
+                            "messages": [{"role": "user", "content": "Test"}],
+                            "stream": False
+                        }
+                    )
+
+                    assert response.status_code == 200
+                    assert "text" in response.json()
