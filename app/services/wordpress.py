@@ -11,7 +11,7 @@ class WordPressService:
     def __init__(self) -> None:
         s = get_settings()
         self.wordpress_url = s.wordpress_url
-        self.username = s.wordpress_username
+        self.username = s.wordpress_user
         self.password = s.wordpress_password
         if not self.wordpress_url or not self.username or not self.password:
             raise api_error("WordPress credentials/url are not configured", status_code=503, code="wordpress_unavailable")

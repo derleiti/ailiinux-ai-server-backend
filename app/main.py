@@ -13,16 +13,16 @@ from app.utils.logging_middleware import LoggingMiddleware
 from app.routes import health, admin, mcp, orchestration
 from app.routes import models, agents, chat, vision, sd, crawler, posts
 
-settings = get_settings()
 
 def create_app() -> FastAPI:
+    settings = get_settings() # Moved inside create_app
     app = FastAPI(title="AILinux AI Server Backend", description="AI-powered services for AILinux", version="0.1.0")
 
     # Middlewares
     app.add_middleware(LoggingMiddleware)
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.CORS_ALLOWED_ORIGINS.split(","),
+        allow_origins=settings.cors_allowed_origins.split(","), # Split the string into a list
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
@@ -42,7 +42,7 @@ def create_app() -> FastAPI:
     # Startup/Shutdown
     @app.on_event("startup")
     async def on_startup():
-        redis_connection = redis.from_url(settings.REDIS_URL, encoding="utf-8", decode_responses=True)
+        redis_connection = redis.from_url(settings.redis_url, encoding="utf-8", decode_responses=True) # Changed to lowercase
         await FastAPILimiter.init(redis_connection)
 
     @app.on_event("shutdown")

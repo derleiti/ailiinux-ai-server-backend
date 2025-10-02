@@ -318,10 +318,18 @@ class Frontend
             self::VERSION
         );
 
+        wp_enqueue_script(
+            'nova-ai-api-client',
+            $pluginUrl . 'assets/api-client.js',
+            [],
+            self::VERSION,
+            true
+        );
+
         wp_register_script(
             'nova-ai-app',
             $pluginUrl . 'assets/app.js',
-            [],
+            ['nova-ai-api-client'], // Make app.js dependent on api-client.js
             self::VERSION,
             true
         );
