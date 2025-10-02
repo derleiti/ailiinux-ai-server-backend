@@ -201,16 +201,23 @@
      */
     async post(endpoint, data, config = {}) {
       const url = `${this.baseURL}${endpoint}`;
-      const options = {
+      let options = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           'Accept': 'application/json',
           'X-AILinux-Client': this.clientHeader,
           ...(config.headers || {}),
         },
-        body: JSON.stringify(data),
       };
+
+      if (config.isFormData) {
+        // For FormData, fetch automatically sets Content-Type: multipart/form-data
+        // We should not set Content-Type header manually, as it will break the boundary string
+        options.body = data;
+      } else {
+        options.headers['Content-Type'] = 'application/json';
+        options.body = JSON.stringify(data);
+      }
 
       return robustFetch(url, options, config);
     }

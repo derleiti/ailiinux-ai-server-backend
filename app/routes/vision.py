@@ -8,7 +8,11 @@ from ..services import vision as vision_service
 from ..utils.errors import api_error
 from ..utils.throttle import request_slot
 
+import logging
+
 router = APIRouter(tags=["vision"])
+
+logger = logging.getLogger("ailinux.vision.routes")
 
 
 class VisionRequest(BaseModel):
@@ -40,6 +44,7 @@ async def analyze_image_upload(
 
     data = await image_file.read()
     if not data:
+        logger.error("Image upload was empty for vision analysis", extra={"code": "empty_upload"})
         raise api_error("Image upload was empty", status_code=422, code="empty_upload")
 
     async with request_slot():

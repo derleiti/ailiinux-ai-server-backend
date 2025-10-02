@@ -214,97 +214,97 @@ async def stream_chat(
                     ollama_query=user_query,
                     priority="high",  # <<< ensure AI-requested crawls are high priority
                 )
-            yield f"Crawl job {job.id} gestartet. Status: {job.status}. Bitte warten Sie, während ich die Ergebnisse sammle.\n\n"
+                yield f"Crawl job {job.id} gestartet. Status: {job.status}. Bitte warten Sie, während ich die Ergebnisse sammle.\n\n"
 
-            # Poll job status until completed or failed
-            job_status = job.status
-            while job_status in ["queued", "running"]:
-                await asyncio.sleep(5) # Poll every 5 seconds
-                updated_job = await crawler_manager.get_job(job.id)
-                if updated_job:
-                    job_status = updated_job.status
-                    yield f"Crawl job {job.id} Status: {job_status}. Seiten gecrawlt: {updated_job.pages_crawled}.\n"
-                else:
-                    yield f"Fehler: Crawl job {job.id} nicht gefunden.\n"
-                    break
-            
-            if job_status == "completed" and updated_job and updated_job.results:
-                yield "Crawling abgeschlossen. Ich analysiere die Ergebnisse...\n\n"
+                    # Poll job status until completed or failed
+                job_status = job.status
+                while job_status in ["queued", "running"]:
+                    await asyncio.sleep(5) # Poll every 5 seconds
+                    updated_job = await crawler_manager.get_job(job.id)
+                    if updated_job:
+                        job_status = updated_job.status
+                        yield f"Crawl job {job.id} Status: {job_status}. Seiten gecrawlt: {updated_job.pages_crawled}.\n"
+                    else:
+                        yield f"Fehler: Crawl job {job.id} nicht gefunden.\n"
+                        break
                 
-                crawl_results_context = "Gecrawlte Ergebnisse:\n"
-                for result_id in updated_job.results[:3]: # Limit context to top 3 results
-                    result = await crawler_manager.get_result(result_id)
-                    if result:
-                        title = result.title or "Kein Titel"
-                        url = result.url or "Keine URL"
-                        content_snippet = ""
-                        if result.extracted_content_ollama: # Prioritize Ollama extracted content
-                            content_snippet = result.extracted_content_ollama[:500] + "..." if len(result.extracted_content_ollama) > 500 else result.extracted_content_ollama
-                            crawl_results_context += f"- Titel: {title}\n"
-                            crawl_results_context += f"  URL: {url}\n"
-                            crawl_results_context += f"  Extrahierter Inhalt (Ollama): {content_snippet}\n\n"
-                        elif result.summary:
-                            content_snippet = result.summary[:500] + "..." if len(result.summary) > 500 else result.summary
-                            crawl_results_context += f"- Titel: {title}\n"
-                            crawl_results_context += f"  URL: {url}\n"
-                            crawl_results_context += f"  Zusammenfassung: {content_snippet}\n\n"
-                        elif result.excerpt:
-                            content_snippet = result.excerpt[:500] + "..." if len(result.excerpt) > 500 else result.excerpt
-                            crawl_results_context += f"- Titel: {title}\n"
-                            crawl_results_context += f"  URL: {url}\n"
-                            crawl_results_context += f"  Auszug: {content_snippet}\n\n"
+                if job_status == "completed" and updated_job and updated_job.results:
+                    yield "Crawling abgeschlossen. Ich analysiere die Ergebnisse...\n\n"
+                    
+                    crawl_results_context = "Gecrawlte Ergebnisse:\n"
+                    for result_id in updated_job.results[:3]: # Limit context to top 3 results
+                        result = await crawler_manager.get_result(result_id)
+                        if result:
+                            title = result.title or "Kein Titel"
+                            url = result.url or "Keine URL"
+                            content_snippet = ""
+                            if result.extracted_content_ollama: # Prioritize Ollama extracted content
+                                content_snippet = result.extracted_content_ollama[:500] + "..." if len(result.extracted_content_ollama) > 500 else result.extracted_content_ollama
+                                crawl_results_context += f"- Titel: {title}\n"
+                                crawl_results_context += f"  URL: {url}\n"
+                                crawl_results_context += f"  Extrahierter Inhalt (Ollama): {content_snippet}\n\n"
+                            elif result.summary:
+                                content_snippet = result.summary[:500] + "..." if len(result.summary) > 500 else result.summary
+                                crawl_results_context += f"- Titel: {title}\n"
+                                crawl_results_context += f"  URL: {url}\n"
+                                crawl_results_context += f"  Zusammenfassung: {content_snippet}\n\n"
+                            elif result.excerpt:
+                                content_snippet = result.excerpt[:500] + "..." if len(result.excerpt) > 500 else result.excerpt
+                                crawl_results_context += f"- Titel: {title}\n"
+                                crawl_results_context += f"  URL: {url}\n"
+                                crawl_results_context += f"  Auszug: {content_snippet}\n\n"
 
-                augmented_messages = formatted_messages + [
-                    {"role": "system", "content": "Hier ist Kontext aus einem Crawl-Job:"},
-                    {"role": "system", "content": crawl_results_context},
-                    {"role": "user", "content": f"Basierend auf den gecrawlten Ergebnissen, beantworten Sie bitte meine ursprüngliche Frage: {user_query}"}
-                ]
-                logger.debug("Crawler augmented messages length: %d", len(json.dumps(augmented_messages)))
+                    augmented_messages = formatted_messages + [
+                        {"role": "system", "content": "Hier ist Kontext aus einem Crawl-Job:"},
+                        {"role": "system", "content": crawl_results_context},
+                        {"role": "user", "content": f"Basierend auf den gecrawlten Ergebnissen, beantworten Sie bitte meine ursprüngliche Frage: {user_query}"}
+                    ]
+                    logger.debug("Crawler augmented messages length: %d", len(json.dumps(augmented_messages)))
 
-                try:
-                    if model.provider == "ollama":
-                        async for chunk in _stream_ollama(
-                            request_model, augmented_messages, temperature=temperature, stream=stream, timeout=settings.request_timeout
-                        ):
-                            yield chunk
-                    elif model.provider == "mistral":
-                        async for chunk in _stream_mistral(
-                            request_model, augmented_messages, api_key=settings.mixtral_api_key, organisation_id=settings.ailinux_mixtral_organisation_id, temperature=temperature, stream=stream, timeout=settings.request_timeout
-                        ):
-                            yield chunk
-                    elif model.provider == "gemini":
-                        async for chunk in _stream_gemini(
-                            request_model, augmented_messages, api_key=settings.gemini_api_key, temperature=temperature, stream=stream, timeout=settings.request_timeout
-                        ):
-                            yield chunk
-                    elif model.provider == "gpt-oss":
-                        if not settings.gpt_oss_api_key:
-                            raise api_error("GPT-OSS support is not configured", status_code=503, code="gpt_oss_unavailable")
-                        async for chunk in _stream_gpt_oss(
-                            request_model,
-                            augmented_messages,
-                            api_key=settings.gpt_oss_api_key,
-                            base_url=settings.gpt_oss_base_url,
-                            temperature=temperature,
-                            stream=stream,
-                            timeout=settings.request_timeout,
-                        ):
-                            yield chunk
-                except Exception as exc:
-                    logger.error("Error during crawler augmented chat streaming: %s", exc)
-                    raise
-                # Successfully streamed augmented response, exit early
-                return
-            elif job_status == "failed":
-                yield f"Crawl job {job.id} fehlgeschlagen: {updated_job.error or 'Unbekannter Fehler'}.\n"
-                return
-            else:
-                # Provide more context when no relevant results are found
-                if updated_job and updated_job.pages_crawled > 0:
-                    yield f"Crawl job {job.id} abgeschlossen. Es wurden {updated_job.pages_crawled} Seiten gecrawlt, aber keine Ergebnisse, die direkt auf Ihre Anfrage passen, wurden gefunden. Versuchen Sie, Ihre Suchanfrage zu präzisieren oder andere Keywords zu verwenden.\n"
+                    try:
+                        if model.provider == "ollama":
+                            async for chunk in _stream_ollama(
+                                request_model, augmented_messages, temperature=temperature, stream=stream, timeout=settings.request_timeout
+                            ):
+                                yield chunk
+                        elif model.provider == "mistral":
+                            async for chunk in _stream_mistral(
+                                request_model, augmented_messages, api_key=settings.mixtral_api_key, organisation_id=settings.ailinux_mixtral_organisation_id, temperature=temperature, stream=stream, timeout=settings.request_timeout
+                            ):
+                                yield chunk
+                        elif model.provider == "gemini":
+                            async for chunk in _stream_gemini(
+                                request_model, augmented_messages, api_key=settings.gemini_api_key, temperature=temperature, stream=stream, timeout=settings.request_timeout
+                            ):
+                                yield chunk
+                        elif model.provider == "gpt-oss":
+                            if not settings.gpt_oss_api_key:
+                                raise api_error("GPT-OSS support is not configured", status_code=503, code="gpt_oss_unavailable")
+                            async for chunk in _stream_gpt_oss(
+                                request_model,
+                                augmented_messages,
+                                api_key=settings.gpt_oss_api_key,
+                                base_url=settings.gpt_oss_base_url,
+                                temperature=temperature,
+                                stream=stream,
+                                timeout=settings.request_timeout,
+                            ):
+                                yield chunk
+                    except Exception as exc:
+                        logger.error("Error during web search augmented chat streaming: %s", exc)
+                        raise
+                    # Successfully streamed augmented response, exit early
+                    return
+                elif job_status == "failed":
+                    yield f"Crawl job {job.id} fehlgeschlagen: {updated_job.error or 'Unbekannter Fehler'}.\n"
+                    return
                 else:
-                    yield f"Crawl job {job.id} abgeschlossen, aber es wurden keine Seiten gecrawlt oder relevante Ergebnisse gefunden. Die angegebenen URLs waren möglicherweise nicht erreichbar oder enthielten keine durchsuchbaren Inhalte. Versuchen Sie, Ihre Anfrage zu überprüfen oder andere Links anzugeben.\n"
-                return
+                    # Provide more context when no relevant results are found
+                    if updated_job and updated_job.pages_crawled > 0:
+                        yield f"Crawl job {job.id} abgeschlossen. Es wurden {updated_job.pages_crawled} Seiten gecrawlt, aber keine Ergebnisse, die direkt auf Ihre Anfrage passen, wurden gefunden. Versuchen Sie, Ihre Suchanfrage zu präzisieren oder andere Keywords zu verwenden.\n"
+                    else:
+                        yield f"Crawl job {job.id} abgeschlossen, aber es wurden keine Seiten gecrawlt oder relevante Ergebnisse gefunden. Die angegebenen URLs waren möglicherweise nicht erreichbar oder enthielten keine durchsuchbaren Inhalte. Versuchen Sie, Ihre Anfrage zu überprüfen oder andere Links anzugeben.\n"
+                    return
         except Exception as exc:
             logger.error("Crawler tool failed: %s", exc)
             yield f"Entschuldigung, beim Starten des Crawl-Tools ist ein Fehler aufgetreten: {exc}.\n"
