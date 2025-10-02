@@ -32,11 +32,11 @@ class BBPressService:
             return
 
         settings = get_settings()
-        if not settings.wordpress_url or not settings.wordpress_username or not settings.wordpress_password:
+        if not settings.wordpress_url or not settings.wordpress_user or not settings.wordpress_password:
             raise api_error("BBPress (WordPress) credentials/url are not configured", status_code=503, code="bbpress_unavailable")
 
         self._wordpress_url = settings.wordpress_url
-        self._username = settings.wordpress_username
+        self._username = settings.wordpress_user
         self._password = settings.wordpress_password
         self._client = httpx.AsyncClient(base_url=str(self._wordpress_url), timeout=settings.request_timeout)
 
