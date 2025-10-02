@@ -328,8 +328,8 @@ class Frontend
 
         wp_register_script(
             'nova-ai-app',
-            $pluginUrl . 'assets/app.js',
-            ['nova-ai-api-client'], // Make app.js dependent on api-client.js
+            $pluginUrl . 'assets/app.v2.js', // Changed to app.v2.js
+            ['nova-ai-api-client'],
             self::VERSION,
             true
         );

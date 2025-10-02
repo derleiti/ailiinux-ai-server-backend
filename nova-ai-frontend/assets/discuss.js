@@ -277,7 +277,7 @@
     const timeout = setTimeout(() => controller.abort(), 60000); // 60s timeout
 
     try {
-      const response = await fetch(`${API_BASE}/v1/chat/completions`, {
+      const response = await fetch(`${API_BASE}/v1/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -464,7 +464,7 @@
         throw new Error('Keine Internetverbindung. Bitte überprüfen Sie Ihre Netzwerkverbindung.');
       }
 
-      const response = await apiClient.postStream('/v1/chat/completions', {
+      const response = await apiClient.postStream('/v1/chat', {
         model: payload.model,
         messages: payload.messages,
         stream: true,

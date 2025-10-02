@@ -10,6 +10,7 @@
  * - Toast-Notifications für Netzwerkstatus
  */
 (function (window) {
+  console.log('api-client.js loaded and executing'); // Added for debugging
   const DEFAULT_TIMEOUT = 30000; // 30 Sekunden
   const MAX_RETRIES = 3;
   const RETRY_DELAY = 1000; // 1 Sekunde
@@ -183,7 +184,7 @@
         headers: {
           'Accept': 'application/json',
           'X-AILinux-Client': this.clientHeader,
-          ...config.headers,
+          ...(config.headers || {}),
         },
       };
 
@@ -206,7 +207,7 @@
           'Content-Type': 'application/json',
           'Accept': 'application/json',
           'X-AILinux-Client': this.clientHeader,
-          ...config.headers,
+          ...(config.headers || {}),
         },
         body: JSON.stringify(data),
       };
@@ -233,7 +234,7 @@
           'Content-Type': 'application/json',
           'Accept': 'text/plain',
           'X-AILinux-Client': this.clientHeader,
-          ...config.headers,
+          ...(config.headers || {}),
         },
         body: JSON.stringify(data),
       };
@@ -291,5 +292,6 @@
   window.robustFetch = robustFetch;
   window.showNotification = showNotification;
   window.isOnline = () => isOnline;
+  console.log('NovaAPIClient exposed globally'); // Added for debugging
 
 })(window);

@@ -38,8 +38,8 @@ async def _chat_generator(payload: ChatRequest) -> AsyncGenerator[str, None]:
             if chunk:
                 yield chunk
 
-@router.post("/chat/completions", dependencies=[Depends(RateLimiter(times=5, seconds=10))])
-async def chat_completions(payload: ChatRequest):
+@router.post("/chat", dependencies=[Depends(RateLimiter(times=5, seconds=10))])
+async def chat_endpoint(payload: ChatRequest):
     if not payload.messages:
         raise api_error("At least one message is required", status_code=422, code="missing_messages")
 

@@ -9,6 +9,8 @@ class Settings(BaseSettings):
     # --- Core timeouts ---
     request_timeout: float = Field(default=30.0, validation_alias="REQUEST_TIMEOUT")
     ollama_timeout_ms: int = Field(default=15000, validation_alias="OLLAMA_TIMEOUT_MS")
+    max_concurrent_requests: int = Field(default=8, validation_alias="MAX_CONCURRENT_REQUESTS")
+    request_queue_timeout: float = Field(default=15.0, validation_alias="REQUEST_QUEUE_TIMEOUT")
 
     # --- CORS ---
     cors_allowed_origins: str = Field(default=",".join(DEFAULT_ALLOWED_ORIGINS), validation_alias="CORS_ALLOWED_ORIGINS")
