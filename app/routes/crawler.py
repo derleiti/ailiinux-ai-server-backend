@@ -14,6 +14,7 @@ from ..schemas import (
     CrawlResultResponse,
 )
 from ..services.crawler.manager import crawler_manager
+from ..services.crawler.user_crawler import user_crawler
 
 router = APIRouter(prefix="/crawler", tags=["crawler"])
 
@@ -46,19 +47,37 @@ def _serialize_result(result, *, include_content: bool = True) -> dict:
 
 @router.post("/jobs", response_model=CrawlJobResponse)
 async def create_job(payload: CrawlJobRequest):
-    job = await crawler_manager.create_job(
-        keywords=payload.keywords,
-        seeds=[str(url) for url in payload.seeds],
-        max_depth=payload.max_depth,
-        max_pages=payload.max_pages,
-        rate_limit=payload.rate_limit,
-        relevance_threshold=payload.relevance_threshold,
-        allow_external=payload.allow_external,
-        user_context=payload.user_context,
-        requested_by=payload.requested_by,
-        metadata=payload.metadata or {},
-        priority=payload.priority, # Pass priority from payload
-    )
+    """
+    Create crawler job.
+
+    IMPORTANT: User-initiated jobs (e.g., from /crawl prompt) automatically use
+    the fast user_crawler instance with dedicated workers for quick processing.
+    """
+    # Determine if this is a user request (from /crawl prompt)
+    is_user_request = payload.requested_by == "user" or payload.priority == "high"
+
+    if is_user_request and len(payload.seeds) == 1:
+        # Use fast user_crawler for single-URL user requests
+        job = await user_crawler.crawl_url(
+            url=str(payload.seeds[0]),
+            keywords=payload.keywords,
+            max_pages=payload.max_pages,
+        )
+    else:
+        # Use main crawler_manager for bulk/auto jobs
+        job = await crawler_manager.create_job(
+            keywords=payload.keywords,
+            seeds=[str(url) for url in payload.seeds],
+            max_depth=payload.max_depth,
+            max_pages=payload.max_pages,
+            rate_limit=payload.rate_limit,
+            relevance_threshold=payload.relevance_threshold,
+            allow_external=payload.allow_external,
+            user_context=payload.user_context,
+            requested_by=payload.requested_by,
+            metadata=payload.metadata or {},
+            priority=payload.priority,
+        )
     return _serialize_job(job)
 
 

@@ -38,7 +38,7 @@ class Settings(BaseSettings):
     wordpress_user: str | None = Field(default=None, validation_alias="WORDPRESS_USER")
     wordpress_password: str | None = Field(default=None, validation_alias="WORDPRESS_PASSWORD")
 
-    # Crawler
+    # Crawler - User Instance (fast, for /crawl prompts)
     crawler_enabled: bool = Field(default=True, validation_alias="CRAWLER_ENABLED")
     crawler_max_memory_bytes: int = Field(default=256*1024*1024, validation_alias="CRAWLER_MAX_MEMORY_BYTES")
     crawler_spool_dir: str = Field(default="data/crawler_spool", validation_alias="CRAWLER_SPOOL_DIR")
@@ -47,6 +47,14 @@ class Settings(BaseSettings):
     crawler_retention_days: int = Field(default=30, validation_alias="CRAWLER_RETENTION_DAYS")
     crawler_summary_model: str | None = Field(default=None, validation_alias="CRAWLER_SUMMARY_MODEL")
     crawler_ollama_model: str | None = Field(default=None, validation_alias="CRAWLER_OLLAMA_MODEL")
+
+    # User Crawler Settings (fast, dedicated for user prompts)
+    user_crawler_workers: int = Field(default=4, validation_alias="USER_CRAWLER_WORKERS")
+    user_crawler_max_concurrent: int = Field(default=8, validation_alias="USER_CRAWLER_MAX_CONCURRENT")
+
+    # Auto Crawler Settings (background, slower)
+    auto_crawler_workers: int = Field(default=2, validation_alias="AUTO_CRAWLER_WORKERS")
+    auto_crawler_enabled: bool = Field(default=True, validation_alias="AUTO_CRAWLER_ENABLED")
 
     # WordPress/bbPress Publishing
     wordpress_category_id: int = Field(default=1, validation_alias="WORDPRESS_CATEGORY_ID")

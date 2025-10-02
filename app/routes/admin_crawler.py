@@ -1,0 +1,250 @@
+from __future__ import annotations
+
+from typing import Dict, Any, List
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel
+
+from ..services.crawler.user_crawler import user_crawler
+from ..services.crawler.manager import crawler_manager
+from ..services.auto_crawler import auto_crawler
+from ..services.auto_publisher import auto_publisher
+from ..config import get_settings
+
+router = APIRouter(prefix="/admin/crawler", tags=["admin-crawler"])
+
+
+class CrawlerStatusResponse(BaseModel):
+    user_crawler: Dict[str, Any]
+    auto_crawler: Dict[str, Any]
+    auto_publisher: Dict[str, Any]
+    main_manager: Dict[str, Any]
+
+
+class CrawlerConfigResponse(BaseModel):
+    user_crawler_workers: int
+    user_crawler_max_concurrent: int
+    auto_crawler_workers: int
+    auto_crawler_enabled: bool
+    crawler_max_memory_bytes: int
+    crawler_flush_interval: int
+    crawler_retention_days: int
+    wordpress_category_id: int
+    bbpress_forum_id: int
+
+
+class CrawlerConfigUpdate(BaseModel):
+    user_crawler_workers: int | None = None
+    auto_crawler_enabled: bool | None = None
+
+
+class CrawlerControlRequest(BaseModel):
+    action: str  # "start", "stop", "restart"
+    instance: str  # "user", "auto", "publisher", "all"
+
+
+@router.get("/status", response_model=CrawlerStatusResponse)
+async def get_crawler_status():
+    """
+    Get comprehensive status of all crawler instances.
+
+    Returns detailed information about:
+    - User Crawler (fast, for /crawl prompts)
+    - Auto Crawler (24/7 background)
+    - Auto Publisher (WordPress/bbPress)
+    - Main Crawler Manager (shared)
+    """
+    # User Crawler Status
+    user_status = await user_crawler.get_status()
+
+    # Auto Crawler Status
+    auto_status = await auto_crawler.get_status()
+
+    # Auto Publisher Status
+    publisher_running = auto_publisher._task is not None and not auto_publisher._task.done()
+
+    # Main Manager Stats
+    manager_stats = {
+        "total_jobs": len(crawler_manager._jobs),
+        "high_priority_queue": crawler_manager._high_priority_job_queue.qsize(),
+        "low_priority_queue": crawler_manager._job_queue.qsize(),
+        "worker_running": crawler_manager._worker_task is not None and not crawler_manager._worker_task.done(),
+        "memory_usage_bytes": crawler_manager._store._memory_usage,
+        "training_shards": len(crawler_manager._train_index.get("shards", [])),
+    }
+
+    return {
+        "user_crawler": user_status,
+        "auto_crawler": auto_status,
+        "auto_publisher": {
+            "running": publisher_running,
+            "interval_seconds": auto_publisher._interval,
+            "min_score": auto_publisher._min_score,
+            "max_posts_per_hour": auto_publisher._max_posts_per_hour,
+        },
+        "main_manager": manager_stats,
+    }
+
+
+@router.get("/config", response_model=CrawlerConfigResponse)
+async def get_crawler_config():
+    """Get current crawler configuration."""
+    settings = get_settings()
+
+    return {
+        "user_crawler_workers": settings.user_crawler_workers,
+        "user_crawler_max_concurrent": settings.user_crawler_max_concurrent,
+        "auto_crawler_workers": settings.auto_crawler_workers,
+        "auto_crawler_enabled": settings.auto_crawler_enabled,
+        "crawler_max_memory_bytes": settings.crawler_max_memory_bytes,
+        "crawler_flush_interval": settings.crawler_flush_interval,
+        "crawler_retention_days": settings.crawler_retention_days,
+        "wordpress_category_id": settings.wordpress_category_id,
+        "bbpress_forum_id": settings.bbpress_forum_id,
+    }
+
+
+@router.post("/control")
+async def control_crawler(request: CrawlerControlRequest):
+    """
+    Control crawler instances (start/stop/restart).
+
+    Examples:
+    - {"action": "start", "instance": "user"}
+    - {"action": "stop", "instance": "auto"}
+    - {"action": "restart", "instance": "publisher"}
+    - {"action": "restart", "instance": "all"}
+    """
+    action = request.action.lower()
+    instance = request.instance.lower()
+
+    if action not in ["start", "stop", "restart"]:
+        raise HTTPException(status_code=400, detail="Invalid action. Use: start, stop, restart")
+
+    if instance not in ["user", "auto", "publisher", "all"]:
+        raise HTTPException(status_code=400, detail="Invalid instance. Use: user, auto, publisher, all")
+
+    results = {}
+
+    async def control_user():
+        if action == "start":
+            await user_crawler.start()
+            return {"status": "started"}
+        elif action == "stop":
+            await user_crawler.stop()
+            return {"status": "stopped"}
+        elif action == "restart":
+            await user_crawler.stop()
+            await user_crawler.start()
+            return {"status": "restarted"}
+
+    async def control_auto():
+        if action == "start":
+            await auto_crawler.start()
+            return {"status": "started"}
+        elif action == "stop":
+            await auto_crawler.stop()
+            return {"status": "stopped"}
+        elif action == "restart":
+            await auto_crawler.stop()
+            await auto_crawler.start()
+            return {"status": "restarted"}
+
+    async def control_publisher():
+        if action == "start":
+            await auto_publisher.start()
+            return {"status": "started"}
+        elif action == "stop":
+            await auto_publisher.stop()
+            return {"status": "stopped"}
+        elif action == "restart":
+            await auto_publisher.stop()
+            await auto_publisher.start()
+            return {"status": "restarted"}
+
+    if instance == "all":
+        results["user"] = await control_user()
+        results["auto"] = await control_auto()
+        results["publisher"] = await control_publisher()
+    elif instance == "user":
+        results["user"] = await control_user()
+    elif instance == "auto":
+        results["auto"] = await control_auto()
+    elif instance == "publisher":
+        results["publisher"] = await control_publisher()
+
+    return {"action": action, "instance": instance, "results": results}
+
+
+@router.get("/metrics")
+async def get_crawler_metrics():
+    """
+    Get detailed crawler metrics and performance statistics.
+    """
+    user_status = await user_crawler.get_status()
+    auto_status = await auto_crawler.get_status()
+
+    # Calculate aggregate metrics
+    total_jobs = len(crawler_manager._jobs)
+    total_results = len(crawler_manager._store._records)
+
+    # Get recent job statistics
+    completed_jobs = [j for j in crawler_manager._jobs.values() if j.status == "completed"]
+    failed_jobs = [j for j in crawler_manager._jobs.values() if j.status == "failed"]
+    running_jobs = [j for j in crawler_manager._jobs.values() if j.status == "running"]
+
+    return {
+        "overview": {
+            "total_jobs": total_jobs,
+            "total_results": total_results,
+            "completed_jobs": len(completed_jobs),
+            "failed_jobs": len(failed_jobs),
+            "running_jobs": len(running_jobs),
+        },
+        "user_crawler": {
+            "workers": user_status["workers"],
+            "queues": user_status["queues"],
+            "stats": user_status["stats"],
+        },
+        "auto_crawler": {
+            "categories": auto_status,
+        },
+        "storage": {
+            "memory_usage_bytes": crawler_manager._store._memory_usage,
+            "max_memory_bytes": crawler_manager._store.max_memory_bytes,
+            "memory_usage_percent": (crawler_manager._store._memory_usage / crawler_manager._store.max_memory_bytes * 100)
+                if crawler_manager._store.max_memory_bytes > 0 else 0,
+            "records_in_memory": len(crawler_manager._store._records),
+        },
+        "training": {
+            "shards": len(crawler_manager._train_index.get("shards", [])),
+            "buffer_size": len(crawler_manager._train_buffer),
+        },
+    }
+
+
+@router.get("/jobs/recent")
+async def get_recent_jobs(limit: int = 20):
+    """Get recent crawler jobs with details."""
+    jobs = await crawler_manager.list_jobs()
+
+    # Sort by created_at descending
+    jobs.sort(key=lambda j: j.created_at, reverse=True)
+
+    recent_jobs = []
+    for job in jobs[:limit]:
+        recent_jobs.append({
+            "id": job.id,
+            "status": job.status,
+            "priority": job.priority,
+            "keywords": job.keywords,
+            "seeds": job.seeds,
+            "pages_crawled": job.pages_crawled,
+            "max_pages": job.max_pages,
+            "results_count": len(job.results),
+            "created_at": job.created_at.isoformat(),
+            "completed_at": job.completed_at.isoformat() if job.completed_at else None,
+            "requested_by": job.requested_by,
+            "error": job.error,
+        })
+
+    return {"jobs": recent_jobs, "total": len(jobs)}
