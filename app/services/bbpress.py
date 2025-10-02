@@ -3,6 +3,7 @@ from __future__ import annotations
 import base64
 import logging
 from typing import Dict, List, Optional
+from urllib.parse import urljoin
 
 import httpx
 
@@ -72,7 +73,8 @@ class BBPressService:
         # Hinweis: bbPress hat keine offizielle REST API
         # Wir nutzen die bbPress Plugin REST API (falls installiert)
         # oder erstellen Topics als Custom Post Type
-        url = self.wordpress_url.join("wp-json/wp/v2/topic")
+        base = str(self.wordpress_url).rstrip("/") + "/"
+        url = urljoin(base, "wp-json/wp/v2/topic")
         headers = self._get_auth_headers()
         headers["Content-Type"] = "application/json"
 
@@ -135,7 +137,8 @@ class BBPressService:
             )
 
         # bbPress Reply als Custom Post Type
-        url = self.wordpress_url.join("wp-json/wp/v2/reply")
+        base = str(self.wordpress_url).rstrip("/") + "/"
+        url = urljoin(base, "wp-json/wp/v2/reply")
         headers = self._get_auth_headers()
         headers["Content-Type"] = "application/json"
 
@@ -184,7 +187,8 @@ class BBPressService:
                 code="wordpress_unavailable",
             )
 
-        url = self.wordpress_url.join("wp-json/wp/v2/forum?per_page=100")
+        base = str(self.wordpress_url).rstrip("/") + "/"
+        url = urljoin(base, "wp-json/wp/v2/forum?per_page=100")
         headers = self._get_auth_headers()
 
         async with httpx.AsyncClient(timeout=30.0) as client:

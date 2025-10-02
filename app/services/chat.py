@@ -99,8 +99,8 @@ async def _get_initial_response(
         ):
             chunks.append(chunk)
     elif model.provider == "gpt-oss":
-        if not settings.gpt_oss_api_key:
-            raise api_error("GPT-OSS support is not configured", status_code=503, code="gpt_oss_unavailable")
+        if not settings.gpt_oss_api_key or not settings.gpt_oss_base_url:
+            raise api_error("GPT-OSS support is not configured (missing API key or base URL)", status_code=503, code="gpt_oss_unavailable")
         async for chunk in _stream_gpt_oss(
             request_model,
             messages,

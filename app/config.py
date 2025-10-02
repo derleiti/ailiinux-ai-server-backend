@@ -2,7 +2,7 @@ from __future__ import annotations
 from functools import lru_cache
 from typing import Optional, List
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import AnyHttpUrl
+from pydantic import AnyHttpUrl, Field
 
 DEFAULT_ALLOWED_ORIGINS = ["http://localhost:5173", "http://localhost:3000", "https://ailinux.me"]
 
@@ -27,41 +27,48 @@ class Settings(BaseSettings):
     LLM_DEFAULT: str = "gpt-oss:cloud/120b"
     LLM_HEAVY: str = "deepseek-670b-cloud"
 
-    GPT_OSS_API_BASE: Optional[str] = None
-    GPT_OSS_API_KEY: Optional[str] = None
-    GPT_OSS_MODEL_ID: Optional[str] = "gpt-oss:cloud/120b"
-    GPT_OSS_TIMEOUT_MS: int = 30000
+    gpt_oss_api_base: Optional[str] = Field(default=None, validation_alias="GPT_OSS_API_BASE")
+    gpt_oss_api_key: Optional[str] = Field(default=None, validation_alias="GPT_OSS_API_KEY")
+    gpt_oss_model_id: Optional[str] = Field(default="gpt-oss:cloud/120b", validation_alias="GPT_OSS_MODEL_ID")
+    gpt_oss_timeout_ms: int = Field(default=30000, validation_alias="GPT_OSS_TIMEOUT_MS")
 
-    DEEPSEEK_API_BASE: Optional[str] = None
-    DEEPSEEK_API_KEY: Optional[str] = None
-    DEEPSEEK_MODEL_ID: Optional[str] = "deepseek-670b-cloud"
-    DEEPSEEK_TIMEOUT_MS: int = 60000
+    deepseek_api_base: Optional[str] = Field(default=None, validation_alias="DEEPSEEK_API_BASE")
+    deepseek_api_key: Optional[str] = Field(default=None, validation_alias="DEEPSEEK_API_KEY")
+    deepseek_model_id: Optional[str] = Field(default="deepseek-670b-cloud", validation_alias="DEEPSEEK_MODEL_ID")
+    deepseek_timeout_ms: int = Field(default=60000, validation_alias="DEEPSEEK_TIMEOUT_MS")
 
-    OPENROUTER_API_BASE: Optional[str] = "https://openrouter.ai/api/v1"
-    OPENROUTER_API_KEY: Optional[str] = None
-    OPENROUTER_MODEL_ID: Optional[str] = "xai/grok-4o-mini"
-    OPENROUTER_TIMEOUT_MS: int = 20000
+    openrouter_api_base: Optional[str] = Field(default="https://openrouter.ai/api/v1", validation_alias="OPENROUTER_API_BASE")
+    openrouter_api_key: Optional[str] = Field(default=None, validation_alias="OPENROUTER_API_KEY")
+    openrouter_model_id: Optional[str] = Field(default="xai/grok-4o-mini", validation_alias="OPENROUTER_MODEL_ID")
+    openrouter_timeout_ms: int = Field(default=20000, validation_alias="OPENROUTER_TIMEOUT_MS")
 
-    ZJ_API_BASE: Optional[str] = "https://api.zukijourney.com/v1"
-    ZJ_API_KEY: Optional[str] = None
-    ZJ_MODEL_ID: Optional[str] = None
-    ZJ_TIMEOUT_MS: int = 30000
+    zj_api_base: Optional[str] = Field(default="https://api.zukijourney.com/v1", validation_alias="ZJ_API_BASE")
+    zj_api_key: Optional[str] = Field(default=None, validation_alias="ZJ_API_KEY")
+    zj_model_id: Optional[str] = Field(default=None, validation_alias="ZJ_MODEL_ID")
+    zj_timeout_ms: int = Field(default=30000, validation_alias="ZJ_TIMEOUT_MS")
 
     # Vision/Image/Ollama
-    gemini_api_key: Optional[str] = None
-    ollama_base: AnyHttpUrl = "http://127.0.0.1:11434"
-    stable_diffusion_url: AnyHttpUrl = "http://127.0.0.1:7860"
+    gemini_api_key: Optional[str] = Field(default=None, validation_alias="GEMINI_API_KEY")
+    ollama_base: AnyHttpUrl = Field(default="http://127.0.0.1:11434", validation_alias="OLLAMA_BASE")
+    ollama_model: Optional[str] = Field(default=None, validation_alias="OLLAMA_MODEL")
+    ollama_timeout_ms: int = Field(default=120000, validation_alias="OLLAMA_TIMEOUT_MS")
+    stable_diffusion_url: AnyHttpUrl = Field(default="http://127.0.0.1:7860", validation_alias="STABLE_DIFFUSION_URL")
 
     # WordPress / bbPress
-    wordpress_url: Optional[AnyHttpUrl] = None
-    wordpress_username: Optional[str] = None
-    wordpress_password: Optional[str] = None
-    wordpress_category_id: int = 0
-    bbpress_forum_id: int = 0
+    wordpress_url: Optional[AnyHttpUrl] = Field(default=None, validation_alias="WORDPRESS_URL")
+    wordpress_username: Optional[str] = Field(default=None, validation_alias="WORDPRESS_USERNAME")
+    wordpress_password: Optional[str] = Field(default=None, validation_alias="WORDPRESS_PASSWORD")
+    wordpress_category_id: int = Field(default=0, validation_alias="WORDPRESS_CATEGORY_ID")
+    bbpress_forum_id: int = Field(default=0, validation_alias="BBPRESS_FORUM_ID")
+
+    # Mixtral (Mistral API) - added for consistency
+    mixtral_api_key: Optional[str] = Field(default=None, validation_alias="MIXTRAL_API_KEY")
+    ailinux_mixtral_organisation_id: Optional[str] = Field(default=None, validation_alias="AILINUX_MIXTRAL_ORG_ID")
 
     model_config = SettingsConfigDict(
         env_file=".env",
-        extra="ignore"
+        extra="ignore",
+        case_sensitive=False # Allow case-insensitive matching for env vars if no alias is provided
     )
 
 @lru_cache

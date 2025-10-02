@@ -71,7 +71,7 @@ class ModelRegistry:
         settings = self._settings
         try:
             # Instantiate HttpClient for Ollama
-            ollama_client = HttpClient(base_url=str(settings.ollama_base), timeout_ms=settings.OLLAMA_TIMEOUT_MS)
+            ollama_client = HttpClient(base_url=str(settings.ollama_base), timeout_ms=settings.ollama_timeout_ms)
             response = await ollama_client.client.get("/api/tags") # Use the httpx.AsyncClient directly
             response.raise_for_status()
         except httpx.RequestError as exc:
