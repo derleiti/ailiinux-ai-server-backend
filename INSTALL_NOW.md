@@ -7,13 +7,14 @@ The httpx dependency conflict has been fixed. You can now install all dependenci
 ## 📦 What Was Fixed
 
 **Problem:**
-- `mistralai 1.2.6` required `httpx<0.28.0`
-- We had `httpx==0.28.1` → conflict!
+- `mistralai` had a breaking change in requirements:
+  - Old (1.2.x): required `httpx<0.28.0`
+  - New (1.9.10): requires `httpx>=0.28.1`
 
 **Solution:**
-- ✅ Downgraded `httpx` to `0.27.2` (compatible with all AI SDKs)
+- ✅ Upgraded `httpx` to `0.28.1` (latest stable)
 - ✅ Upgraded `mistralai` to `1.9.10` (latest stable)
-- ✅ All packages now compatible
+- ✅ All AI SDKs now compatible with httpx 0.28.1
 
 ## 🔧 Install Now
 
@@ -62,7 +63,7 @@ python -c "import mistralai; print(f'Mistral: {mistralai.__version__}')"
 
 # Expected output:
 # FastAPI: 0.118.0
-# HTTPX: 0.27.2
+# HTTPX: 0.28.1
 # Anthropic: 0.39.0
 # OpenAI: 1.57.4
 # Mistral: 1.9.10
@@ -91,7 +92,7 @@ python -m pytest tests/ -v
 | FastAPI | 0.118.0 | ✅ Latest |
 | Uvicorn | 0.32.1 | ✅ Latest |
 | Pydantic | 2.10.3 | ✅ Latest |
-| **HTTPX** | **0.27.2** | ✅ **Compatible** |
+| **HTTPX** | **0.28.1** | ✅ **Latest Stable** |
 | Anthropic | 0.39.0 | ✅ Latest |
 | OpenAI | 1.57.4 | ✅ Latest |
 | **Mistral AI** | **1.9.10** | ✅ **Latest** |
@@ -103,9 +104,9 @@ All AI SDKs are now compatible:
 
 - **Anthropic 0.39.0**: requires `httpx>=0.23.0,<1` ✅
 - **OpenAI 1.57.4**: requires `httpx>=0.23.0,<1` ✅
-- **Mistral AI 1.9.10**: requires `httpx>=0.27.0,<0.28.0` ✅
+- **Mistral AI 1.9.10**: requires `httpx>=0.28.1` ✅
 
-**Our choice: `httpx==0.27.2`** satisfies all requirements!
+**Our choice: `httpx==0.28.1`** satisfies all requirements!
 
 ## ❓ Still Having Issues?
 
