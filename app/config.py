@@ -41,6 +41,16 @@ class Settings(BaseSettings):
     # Crawler
     crawler_enabled: bool = Field(default=True, validation_alias="CRAWLER_ENABLED")
     crawler_max_memory_bytes: int = Field(default=256*1024*1024, validation_alias="CRAWLER_MAX_MEMORY_BYTES")
+    crawler_spool_dir: str = Field(default="data/crawler_spool", validation_alias="CRAWLER_SPOOL_DIR")
+    crawler_train_dir: str = Field(default="data/crawler_spool/train", validation_alias="CRAWLER_TRAIN_DIR")
+    crawler_flush_interval: int = Field(default=3600, validation_alias="CRAWLER_FLUSH_INTERVAL")
+    crawler_retention_days: int = Field(default=30, validation_alias="CRAWLER_RETENTION_DAYS")
+    crawler_summary_model: str | None = Field(default=None, validation_alias="CRAWLER_SUMMARY_MODEL")
+    crawler_ollama_model: str | None = Field(default=None, validation_alias="CRAWLER_OLLAMA_MODEL")
+
+    # WordPress/bbPress Publishing
+    wordpress_category_id: int = Field(default=1, validation_alias="WORDPRESS_CATEGORY_ID")
+    bbpress_forum_id: int = Field(default=1, validation_alias="BBPRESS_FORUM_ID")
 
     class Config:
         env_file = ".env"

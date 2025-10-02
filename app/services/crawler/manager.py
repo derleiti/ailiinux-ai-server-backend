@@ -503,6 +503,35 @@ class CrawlerManager:
         # Crawlee manages its own client and playwright instances
         logger.info("Crawler manager stopped")
 
+    async def crawl_url(self, url: str, *, keywords: Optional[List[str]] = None, max_pages: int = 10) -> CrawlJob:
+        """
+        Lightweight wrapper for orchestrator to crawl a single URL.
+
+        Creates a job with sensible defaults for quick crawling and content extraction.
+        Used by orchestration workflows (e.g., crawl_summarize_and_post).
+
+        Args:
+            url: The URL to crawl
+            keywords: Optional keywords for relevance scoring (defaults to generic terms)
+            max_pages: Maximum pages to crawl (default: 10)
+
+        Returns:
+            CrawlJob instance
+        """
+        if not keywords:
+            keywords = ["tech", "news", "ai", "linux", "software"]
+
+        return await self.create_job(
+            keywords=keywords,
+            seeds=[url],
+            max_depth=2,
+            max_pages=max_pages,
+            allow_external=False,
+            user_context="Orchestrator crawl",
+            requested_by="orchestrator",
+            priority="normal",
+        )
+
     async def create_job(
         self,
         *,

@@ -89,6 +89,9 @@ class AutoPublisher:
             # Sortiere nach Score
             unposted.sort(key=lambda x: x.get("score", 0), reverse=True)
 
+            # Track published content hashes to avoid duplicates within this run
+            published_hashes = set()
+
             # Poste die Top N Ergebnisse
             posted_count = 0
             for result_data in unposted[:self._max_posts_per_hour]:
@@ -101,17 +104,27 @@ class AutoPublisher:
                     if not result or result.posted_at:
                         continue
 
+                    # IDEMPOTENCY CHECK: Skip if content_hash already published in this run
+                    if result.content_hash and result.content_hash in published_hashes:
+                        logger.info("Skipping duplicate content (hash: %s) for result: %s", result.content_hash[:8], result.title)
+                        continue
+
                     # Erstelle WordPress Post
                     await self._create_wordpress_post(result)
 
                     # Erstelle bbPress Forum Topic
                     await self._create_forum_topic(result)
 
+                    # Mark hash as published
+                    if result.content_hash:
+                        published_hashes.add(result.content_hash)
+
                     posted_count += 1
                     logger.info(
-                        "Published result: %s (score: %.2f)",
+                        "Published result: %s (score: %.2f, hash: %s)",
                         result.title,
                         result.score,
+                        result.content_hash[:8] if result.content_hash else "N/A",
                     )
 
                 except Exception as exc:
@@ -129,6 +142,11 @@ class AutoPublisher:
 
     async def _create_wordpress_post(self, result) -> None:
         """Erstellt WordPress Post aus Crawler-Ergebnis."""
+        # ENV validation: Check if WordPress is configured
+        if not self._settings.wordpress_url or not self._settings.wordpress_user or not self._settings.wordpress_password:
+            logger.warning("WordPress not configured, skipping post creation for: %s", result.title)
+            return
+
         # Generiere Artikel mit GPT-OSS
         model_id = getattr(self._settings, "crawler_summary_model", None) or "gpt-oss:cloud/120b"
         model = await registry.get_model(model_id)
@@ -201,8 +219,11 @@ Nutze professionellen Journalismus-Stil, sei objektiv und informativ."""
 
     async def _create_forum_topic(self, result) -> None:
         """Erstellt bbPress Forum Topic aus Crawler-Ergebnis."""
-        # Standard Forum ID (sollte in .env konfigurierbar sein)
-        # TODO: Add BBPRESS_FORUM_ID to config
+        # ENV validation: Check if bbPress/WordPress is configured
+        if not self._settings.wordpress_url or not self._settings.wordpress_user or not self._settings.wordpress_password:
+            logger.warning("bbPress (WordPress) not configured, skipping forum topic for: %s", result.title)
+            return
+
         forum_id = self._settings.bbpress_forum_id
 
         try:

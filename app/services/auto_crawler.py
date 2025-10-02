@@ -75,16 +75,17 @@ class AutoCrawler:
 
     async def start(self) -> None:
         """Startet alle Kategorie-Crawler parallel."""
-        if self._tasks:
-            logger.warning("Auto-crawler already running")
+        if self._tasks and not all(task.done() for task in self._tasks):
+            logger.warning("Auto-crawler already running - preventing duplicate start")
             return
 
         logger.info("Starting 24/7 auto-crawler for all categories")
         self._stop_event.clear()
+        self._tasks = []  # Clear any old completed tasks
 
         # Starte einen Task pro Kategorie
         for category in CRAWL_SOURCES.keys():
-            task = asyncio.create_task(self._crawl_category_loop(category))
+            task = asyncio.create_task(self._crawl_category_loop(category), name=f"auto-crawler-{category}")
             self._tasks.append(task)
             logger.info(f"Started crawler for category: {category}")
 
@@ -104,9 +105,11 @@ class AutoCrawler:
         logger.info("Auto-crawler stopped")
 
     async def _crawl_category_loop(self, category: str) -> None:
-        """Endlos-Loop für eine Kategorie."""
+        """Endlos-Loop für eine Kategorie mit robustem Error-Handling."""
         interval = CRAWL_INTERVALS.get(category, 7200)
         sources = CRAWL_SOURCES.get(category, [])
+        error_count = 0
+        max_consecutive_errors = 3
 
         while not self._stop_event.is_set():
             try:
@@ -117,22 +120,31 @@ class AutoCrawler:
                         break
 
                     try:
-                        # Erstelle Crawl-Job
+                        # Erstelle Crawl-Job mit priority
                         job = await crawler_manager.create_job(
                             keywords=[category, "tech", "news"],
                             seeds=[url],
                             max_pages=10,
                             max_depth=2,
                             user_context=f"Category: {category}, Source: {url}",
+                            priority="low",  # Auto-crawler jobs are low priority
                         )
 
                         logger.info(f"Created crawl job {job.id} for {url} (category: {category})")
+                        error_count = 0  # Reset error counter on success
 
                         # Warte kurz zwischen einzelnen URLs
                         await asyncio.sleep(30)
 
                     except Exception as exc:
-                        logger.error(f"Error crawling {url}: {exc}")
+                        error_count += 1
+                        logger.error(f"Error crawling {url} (error {error_count}/{max_consecutive_errors}): {exc}")
+
+                        if error_count >= max_consecutive_errors:
+                            logger.warning(f"Too many consecutive errors for {category}, backing off for 5 minutes")
+                            await asyncio.sleep(300)
+                            error_count = 0
+
                         continue
 
                 # Speichere Zeitpunkt des letzten Crawls
@@ -143,9 +155,11 @@ class AutoCrawler:
                 await asyncio.sleep(interval)
 
             except asyncio.CancelledError:
+                logger.info(f"Auto-crawler for category {category} cancelled")
                 break
             except Exception as exc:
                 logger.error(f"Error in {category} crawler loop: {exc}", exc_info=True)
+                logger.info(f"Backing off for 5 minutes due to unexpected error in {category}")
                 await asyncio.sleep(300)  # 5 Minuten bei Fehler
 
     async def get_status(self) -> Dict[str, object]:

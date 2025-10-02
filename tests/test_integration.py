@@ -10,7 +10,7 @@ from unittest.mock import AsyncMock, Mock, patch, MagicMock
 from datetime import datetime, timezone, timedelta
 import asyncio
 
-from app.utils.http_client import RobustHTTPClient
+# RobustHTTPClient import removed - not used in current tests
 from app.services.crawler.manager import CrawlerManager, CrawlResult
 from app.services.auto_publisher import AutoPublisher
 from app.services.auto_crawler import AutoCrawler
@@ -40,15 +40,10 @@ class TestEndToEndIntegration:
 
         Integration test: Verify HTTP client is used correctly by crawler.
         """
-        http_client = RobustHTTPClient(timeout=30.0)
-
         with patch('app.services.crawler.manager.get_settings', return_value=mock_settings):
             crawler_manager = CrawlerManager()
-
-            try:
-                # Create a crawl job
-                # CORS and Health Check Tests
-                pass
+            # CORS and Health Check Tests
+            pass
 
     @pytest.mark.asyncio
     async def test_cors_headers_ailinux_domain(self):

@@ -1,0 +1,21 @@
+{
+  "url": "https://example1.com",
+  "unique_key": "f82daa878447e12733ae0d4d933560835d172f582a068462c4e937a8bbd31211",
+  "method": "GET",
+  "headers": {
+    "x-crawl-parent": "seed"
+  },
+  "payload": null,
+  "user_data": {
+    "__crawlee": {
+      "state": 3
+    }
+  },
+  "retry_count": 0,
+  "no_retry": false,
+  "loaded_url": "https://example1.com/",
+  "handled_at": "2025-10-02 08:14:18.868319+00:00",
+  "id": "TBH52w9g0U7PO0V",
+  "json_": "{\n  \"url\": \"https://example1.com\",\n  \"unique_key\": \"f82daa878447e12733ae0d4d933560835d172f582a068462c4e937a8bbd31211\",\n  \"method\": \"GET\",\n  \"headers\": {\n    \"x-crawl-parent\": \"seed\"\n  },\n  \"payload\": null,\n  \"user_data\": {\n    \"__crawlee\": {\n      \"state\": 3\n    }\n  },\n  \"retry_count\": 0,\n  \"no_retry\": false,\n  \"loaded_url\": \"https://example1.com/\",\n  \"handled_at\": \"2025-10-02 08:14:18.868319+00:00\",\n  \"id\": \"TBH52w9g0U7PO0V\",\n  \"order_no\": null\n}",
+  "order_no": null
+}
