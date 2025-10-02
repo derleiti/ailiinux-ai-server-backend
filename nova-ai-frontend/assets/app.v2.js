@@ -464,7 +464,7 @@
         throw new Error('Keine Internetverbindung. Bitte überprüfen Sie Ihre Netzwerkverbindung.');
       }
 
-      const response = await apiClient.postStream('/v1/chat', {
+      const response = await apiClient.postStream('/v1/chat/completions', {
         model: payload.model,
         messages: payload.messages,
         stream: true,
@@ -473,12 +473,23 @@
         timeout: 120000, // 2 Minuten für Chat-Streaming
       });
 
+      if (response.status === 429) {
+        const retryAfter = response.headers.get('Retry-After');
+        const waitMessage = retryAfter ? `Please retry in ${retryAfter} seconds.` : 'Please try again in a moment.';
+        bubble.textContent = `🚦 Rate limit reached. ${waitMessage}`;
+        bubble.classList.add('warning');
+        if (window.showNotification) {
+          window.showNotification('Rate limit reached. Please wait a moment before retrying.', 'warning');
+        }
+        return;
+      }
+
       if (!response.ok) {
         const error = await safeJson(response);
 
         // Enhanced error handling for 404 endpoint mismatch
         if (response.status === 404) {
-          throw new Error(`Endpoint not found (404). Expected /v1/chat endpoint. Check API configuration at: ${API_BASE}`);
+          throw new Error(`Endpoint not found (404). Expected /v1/chat/completions endpoint. Check API configuration at: ${API_BASE}`);
         }
 
         throw new Error(error.error?.message || `HTTP ${response.status}: ${response.statusText}`);

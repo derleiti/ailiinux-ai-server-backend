@@ -62,6 +62,7 @@ async def create_job(payload: CrawlJobRequest):
             url=str(payload.seeds[0]),
             keywords=payload.keywords,
             max_pages=payload.max_pages,
+            idempotency_key=payload.idempotency_key,
         )
     else:
         # Use main crawler_manager for bulk/auto jobs
@@ -77,6 +78,7 @@ async def create_job(payload: CrawlJobRequest):
             requested_by=payload.requested_by,
             metadata=payload.metadata or {},
             priority=payload.priority,
+            idempotency_key=payload.idempotency_key,
         )
     return _serialize_job(job)
 

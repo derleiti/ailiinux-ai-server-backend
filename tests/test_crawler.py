@@ -241,6 +241,32 @@ class TestCrawlerManager:
         assert job.max_pages <= 500
 
     @pytest.mark.asyncio
+    async def test_create_job_idempotency(self, crawler_manager):
+        """Creating a job with the same idempotency key returns the existing job."""
+        params = dict(
+            keywords=["ai"],
+            seeds=["https://example.com"],
+            priority="high",
+            idempotency_key="test-key",
+        )
+
+        job_first = await crawler_manager.create_job(**params)
+        job_second = await crawler_manager.create_job(**params)
+
+        assert job_first.id == job_second.id
+
+    @pytest.mark.asyncio
+    async def test_should_visit_uses_shared_seen_set(self, crawler_manager):
+        """Shared seen-set prevents revisiting the same URL twice."""
+        url = "https://example.com/resource"
+
+        first_visit = await crawler_manager._should_visit(url)
+        second_visit = await crawler_manager._should_visit(url)
+
+        assert first_visit is True
+        assert second_visit is False
+
+    @pytest.mark.asyncio
     async def test_get_job_by_id(self, crawler_manager):
         """
         Test retrieving job by ID.
@@ -580,9 +606,9 @@ class TestCrawlerManager:
         """
         await crawler_manager.start()
 
-        # Verify worker task is created
-        assert crawler_manager._worker_task is not None
-        assert not crawler_manager._worker_task.done()
+        # Verify worker tasks are created
+        assert crawler_manager._worker_tasks
+        assert all(not task.done() for task in crawler_manager._worker_tasks)
 
         await crawler_manager.stop()
 

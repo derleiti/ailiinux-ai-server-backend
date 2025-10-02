@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel, Field, HttpUrl
 
 
 class CrawlJobRequest(BaseModel):
@@ -16,8 +16,9 @@ class CrawlJobRequest(BaseModel):
     allow_external: bool = False
     user_context: Optional[str] = None
     requested_by: Optional[str] = None
-    metadata: Dict[str, Any] = {}
+    metadata: Dict[str, Any] = Field(default_factory=dict)
     priority: str = "low" # New priority field
+    idempotency_key: Optional[str] = None
 
 
 class CrawlJobResponse(CrawlJobRequest):

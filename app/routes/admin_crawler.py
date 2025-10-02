@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime, timezone
 from typing import Dict, Any, List
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
@@ -34,12 +35,18 @@ class CrawlerConfigResponse(BaseModel):
 
 class CrawlerConfigUpdate(BaseModel):
     user_crawler_workers: int | None = None
+    user_crawler_max_concurrent: int | None = None
     auto_crawler_enabled: bool | None = None
 
 
 class CrawlerControlRequest(BaseModel):
     action: str  # "start", "stop", "restart"
     instance: str  # "user", "auto", "publisher", "all"
+
+
+class CrawlerConfigUpdateResponse(BaseModel):
+    config: CrawlerConfigResponse
+    updated: Dict[str, Any]
 
 
 @router.get("/status", response_model=CrawlerStatusResponse)
@@ -59,17 +66,21 @@ async def get_crawler_status():
     # Auto Crawler Status
     auto_status = await auto_crawler.get_status()
 
+    manager_metrics = await crawler_manager.metrics()
+    manager_jobs = await crawler_manager.list_jobs()
+    active_workers = sum(1 for task in crawler_manager._worker_tasks if not task.done())
+
     # Auto Publisher Status
     publisher_running = auto_publisher._task is not None and not auto_publisher._task.done()
 
     # Main Manager Stats
     manager_stats = {
-        "total_jobs": len(crawler_manager._jobs),
-        "high_priority_queue": crawler_manager._high_priority_job_queue.qsize(),
-        "low_priority_queue": crawler_manager._job_queue.qsize(),
-        "worker_running": crawler_manager._worker_task is not None and not crawler_manager._worker_task.done(),
+        "total_jobs": len(manager_jobs),
+        "queue_depth": manager_metrics["queue_depth"],
+        "active_workers": active_workers,
         "memory_usage_bytes": crawler_manager._store._memory_usage,
         "training_shards": len(crawler_manager._train_index.get("shards", [])),
+        "categories": manager_metrics["categories"],
     }
 
     return {
@@ -103,6 +114,41 @@ async def get_crawler_config():
     }
 
 
+@router.post("/config", response_model=CrawlerConfigUpdateResponse)
+async def update_crawler_config(payload: CrawlerConfigUpdate) -> CrawlerConfigUpdateResponse:
+    """Dynamically update crawler configuration without restarting services."""
+    settings = get_settings()
+    updates: Dict[str, Any] = {}
+
+    user_updates: Dict[str, int] = {}
+    if payload.user_crawler_workers is not None and payload.user_crawler_workers > 0:
+        settings.user_crawler_workers = payload.user_crawler_workers
+        user_updates["workers"] = payload.user_crawler_workers
+        updates["user_crawler_workers"] = payload.user_crawler_workers
+
+    if payload.user_crawler_max_concurrent is not None and payload.user_crawler_max_concurrent > 0:
+        settings.user_crawler_max_concurrent = payload.user_crawler_max_concurrent
+        user_updates["max_concurrent"] = payload.user_crawler_max_concurrent
+        updates["user_crawler_max_concurrent"] = payload.user_crawler_max_concurrent
+
+    if user_updates:
+        await user_crawler.apply_config(
+            worker_count=user_updates.get("workers"),
+            max_concurrent=user_updates.get("max_concurrent"),
+        )
+
+    if payload.auto_crawler_enabled is not None:
+        settings.auto_crawler_enabled = payload.auto_crawler_enabled
+        updates["auto_crawler_enabled"] = payload.auto_crawler_enabled
+        if payload.auto_crawler_enabled:
+            await auto_crawler.start()
+        else:
+            await auto_crawler.stop()
+
+    config = await get_crawler_config()
+    return CrawlerConfigUpdateResponse(config=config, updated=updates)
+
+
 @router.post("/control")
 async def control_crawler(request: CrawlerControlRequest):
     """
@@ -123,43 +169,78 @@ async def control_crawler(request: CrawlerControlRequest):
     if instance not in ["user", "auto", "publisher", "all"]:
         raise HTTPException(status_code=400, detail="Invalid instance. Use: user, auto, publisher, all")
 
-    results = {}
+    timestamp = datetime.now(timezone.utc).isoformat()
 
-    async def control_user():
+    def response(status: str, *, changed: bool, detail: str | None = None) -> dict[str, Any]:
+        payload = {"status": status, "changed": changed, "timestamp": timestamp}
+        if detail:
+            payload["detail"] = detail
+        return payload
+
+    def user_running() -> bool:
+        return getattr(user_crawler, "_running", False)
+
+    def auto_running() -> bool:
+        return any(not task.done() for task in getattr(auto_crawler, "_tasks", []))
+
+    def publisher_running() -> bool:
+        return auto_publisher._task is not None and not auto_publisher._task.done()
+
+    async def control_user() -> dict[str, Any]:
+        is_running = user_running()
         if action == "start":
+            if is_running:
+                return response("running", changed=False, detail="already running")
             await user_crawler.start()
-            return {"status": "started"}
-        elif action == "stop":
+            return response("running", changed=True)
+        if action == "stop":
+            if not is_running:
+                return response("stopped", changed=False, detail="already stopped")
             await user_crawler.stop()
-            return {"status": "stopped"}
-        elif action == "restart":
+            return response("stopped", changed=True)
+        if action == "restart":
             await user_crawler.stop()
             await user_crawler.start()
-            return {"status": "restarted"}
+            return response("running", changed=True, detail="restarted")
+        raise RuntimeError("Unsupported action")
 
-    async def control_auto():
+    async def control_auto() -> dict[str, Any]:
+        is_running = auto_running()
         if action == "start":
+            if is_running:
+                return response("running", changed=False, detail="already running")
             await auto_crawler.start()
-            return {"status": "started"}
-        elif action == "stop":
+            return response("running", changed=True)
+        if action == "stop":
+            if not is_running:
+                return response("stopped", changed=False, detail="already stopped")
             await auto_crawler.stop()
-            return {"status": "stopped"}
-        elif action == "restart":
+            return response("stopped", changed=True)
+        if action == "restart":
             await auto_crawler.stop()
             await auto_crawler.start()
-            return {"status": "restarted"}
+            return response("running", changed=True, detail="restarted")
+        raise RuntimeError("Unsupported action")
 
-    async def control_publisher():
+    async def control_publisher() -> dict[str, Any]:
+        is_running = publisher_running()
         if action == "start":
+            if is_running:
+                return response("running", changed=False, detail="already running")
             await auto_publisher.start()
-            return {"status": "started"}
-        elif action == "stop":
+            return response("running", changed=True)
+        if action == "stop":
+            if not is_running:
+                return response("stopped", changed=False, detail="already stopped")
             await auto_publisher.stop()
-            return {"status": "stopped"}
-        elif action == "restart":
+            return response("stopped", changed=True)
+        if action == "restart":
             await auto_publisher.stop()
             await auto_publisher.start()
-            return {"status": "restarted"}
+            return response("running", changed=True, detail="restarted")
+        raise RuntimeError("Unsupported action")
+
+    results: Dict[str, Any] = {}
 
     if instance == "all":
         results["user"] = await control_user()
@@ -172,7 +253,7 @@ async def control_crawler(request: CrawlerControlRequest):
     elif instance == "publisher":
         results["publisher"] = await control_publisher()
 
-    return {"action": action, "instance": instance, "results": results}
+    return {"action": action, "instance": instance, "results": results, "timestamp": timestamp}
 
 
 @router.get("/metrics")
@@ -182,31 +263,46 @@ async def get_crawler_metrics():
     """
     user_status = await user_crawler.get_status()
     auto_status = await auto_crawler.get_status()
+    manager_metrics = await crawler_manager.metrics()
+    manager_jobs = await crawler_manager.list_jobs()
 
-    # Calculate aggregate metrics
-    total_jobs = len(crawler_manager._jobs)
+    user_stats = user_status.get("stats", {})
+    auto_stats = manager_metrics["categories"].get("auto", {})
+    background_stats = manager_metrics["categories"].get("background", {})
+
+    def error_rate(stats: Dict[str, Any]) -> float:
+        success = stats.get("pages_crawled", 0)
+        failed = stats.get("pages_failed", 0)
+        total = success + failed
+        if total == 0:
+            return 0.0
+        return failed / total
+
     total_results = len(crawler_manager._store._records)
-
-    # Get recent job statistics
-    completed_jobs = [j for j in crawler_manager._jobs.values() if j.status == "completed"]
-    failed_jobs = [j for j in crawler_manager._jobs.values() if j.status == "failed"]
-    running_jobs = [j for j in crawler_manager._jobs.values() if j.status == "running"]
+    completed_jobs = [j for j in manager_jobs if j.status == "completed"]
+    failed_jobs = [j for j in manager_jobs if j.status == "failed"]
+    running_jobs = [j for j in manager_jobs if j.status == "running"]
 
     return {
         "overview": {
-            "total_jobs": total_jobs,
+            "total_jobs": len(manager_jobs),
             "total_results": total_results,
             "completed_jobs": len(completed_jobs),
             "failed_jobs": len(failed_jobs),
             "running_jobs": len(running_jobs),
         },
         "user_crawler": {
-            "workers": user_status["workers"],
-            "queues": user_status["queues"],
-            "stats": user_status["stats"],
+            "workers": user_status.get("workers", {}),
+            "queue_depth": user_status.get("queues", {}),
+            "metrics": user_stats,
+            "error_rate": error_rate(user_stats),
         },
         "auto_crawler": {
             "categories": auto_status,
+            "queue_depth": manager_metrics["queue_depth"],
+            "metrics": auto_stats,
+            "background": background_stats,
+            "error_rate": error_rate(auto_stats),
         },
         "storage": {
             "memory_usage_bytes": crawler_manager._store._memory_usage,

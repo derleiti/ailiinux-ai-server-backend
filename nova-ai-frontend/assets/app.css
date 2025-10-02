@@ -261,6 +261,12 @@
   color: #ffd9e0;
 }
 
+.bubble.warning {
+  border-color: rgba(250, 204, 21, 0.35);
+  background: rgba(250, 204, 21, 0.12);
+  color: #fde68a;
+}
+
 .vision-result,
 .image-result {
   margin-top: 1.6rem;

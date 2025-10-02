@@ -75,6 +75,12 @@ class AutoCrawler:
 
     async def start(self) -> None:
         """Startet alle Kategorie-Crawler parallel."""
+        # Refresh settings to pick up runtime changes
+        self._settings = get_settings()
+        if not self._settings.auto_crawler_enabled:
+            logger.info("Auto-crawler start requested but feature is disabled via settings")
+            return
+
         if self._tasks and not all(task.done() for task in self._tasks):
             logger.warning("Auto-crawler already running - preventing duplicate start")
             return
@@ -82,6 +88,8 @@ class AutoCrawler:
         logger.info("Starting 24/7 auto-crawler for all categories")
         self._stop_event.clear()
         self._tasks = []  # Clear any old completed tasks
+
+        await crawler_manager.start(worker_count=max(1, self._settings.auto_crawler_workers))
 
         # Starte einen Task pro Kategorie
         for category in CRAWL_SOURCES.keys():
