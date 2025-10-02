@@ -9,7 +9,7 @@
 | **FastAPI** | 0.104.0 | **0.118.0** | Latest stable, enhanced WebSocket |
 | **Uvicorn** | 0.24.0 | **0.32.1** | HTTP/2, performance boost |
 | **Pydantic** | 2.0.0 | **2.10.3** | 10x faster validation |
-| **HTTPX** | 0.25.0 | **0.28.1** | Modern async client |
+| **HTTPX** | 0.25.0 | **0.27.2** | Stable (AI SDK compatible) |
 | **Redis** | 5.0.0 | **5.2.1** | Latest stable |
 | **Pytest** | 7.4.0 | **8.3.4** | Enhanced testing |
 
@@ -17,7 +17,7 @@
 
 - ✨ **OpenAI SDK 1.57.4** - GPT-4o, o1 support
 - ✨ **Anthropic SDK 0.39.0** - Claude 3.5 ready
-- ✨ **Mistral AI SDK 1.2.6** - Mixtral integration
+- ✨ **Mistral AI SDK 1.9.10** - Latest stable (Dec 2024)
 - ✨ **Ruff 0.8.4** - Super-fast linting
 - ✨ **Black 24.10.0** - Code formatting
 - ✨ **MyPy 1.13.0** - Type checking
@@ -108,7 +108,24 @@ curl -sS http://127.0.0.1:8000/health
 
 ## 🐛 Known Issues & Fixes
 
-### Issue 1: Pydantic v1 Compatibility
+### Issue 1: HTTPX Dependency Conflict (FIXED)
+
+**Symptom:**
+```
+ERROR: Cannot install httpx==0.28.1 because these package versions have conflicting dependencies.
+mistralai 1.2.6 depends on httpx<0.28.0 and >=0.27.0
+```
+
+**Solution:** We've pinned httpx to 0.27.2 and upgraded Mistral AI to 1.9.10:
+- `httpx==0.27.2` - Compatible with all AI SDKs
+- `mistralai==1.9.10` - Latest stable
+
+**Fix (if you still see this):**
+```bash
+pip install httpx==0.27.2 mistralai==1.9.10
+```
+
+### Issue 2: Pydantic v1 Compatibility
 
 **Symptom:** `ImportError: cannot import name 'BaseSettings'`
 
