@@ -1,19 +1,42 @@
-# Core Framework
-fastapi>=0.104.0
-uvicorn[standard]>=0.24.0
-pydantic>=2.0.0
-pydantic-settings>=2.0.0
+# ========================================
+# AILinux AI Server Backend - Dependencies
+# Cutting-edge stable versions (2025)
+# ========================================
 
-# HTTP Clients
-httpx>=0.25.0
+# Core Framework - Latest Stable
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.10.0
+pydantic-settings>=2.6.0
 
-# Rate Limiting
-fastapi-limiter>=0.1.5
-redis>=5.0.0
+# HTTP Clients & Async
+httpx>=0.28.0
+aiohttp>=3.11.0
 
-# AI Providers (optional)
-google-generativeai>=0.3.0
+# Rate Limiting & Caching
+fastapi-limiter>=0.1.6
+redis>=5.2.0
 
-# Testing
-pytest>=7.4.0
-pytest-asyncio>=0.21.0
+# AI Provider SDKs
+google-generativeai>=0.8.3
+anthropic>=0.39.0
+openai>=1.54.0
+
+# Data Processing & Validation
+python-multipart>=0.0.18
+email-validator>=2.2.0
+
+# Testing & Development
+pytest>=8.3.0
+pytest-asyncio>=0.24.0
+pytest-cov>=6.0.0
+httpx>=0.28.0  # For test client
+
+# Code Quality
+ruff>=0.8.0
+black>=24.10.0
+mypy>=1.13.0
+
+# Optional: Performance & Monitoring
+psutil>=6.1.0
+prometheus-client>=0.21.0
