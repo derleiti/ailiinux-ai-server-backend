@@ -475,6 +475,12 @@
 
       if (!response.ok) {
         const error = await safeJson(response);
+
+        // Enhanced error handling for 404 endpoint mismatch
+        if (response.status === 404) {
+          throw new Error(`Endpoint not found (404). Expected /v1/chat endpoint. Check API configuration at: ${API_BASE}`);
+        }
+
         throw new Error(error.error?.message || `HTTP ${response.status}: ${response.statusText}`);
       }
 
@@ -505,6 +511,9 @@
       let errorMsg = 'Fehler beim Chat-Streaming';
       if (error.message === 'Request timeout') {
         errorMsg = 'Die Anfrage hat zu lange gedauert. Bitte versuchen Sie es erneut.';
+      } else if (error.message.includes('Endpoint not found') || error.message.includes('404')) {
+        errorMsg = `⚠️ ${error.message}`;
+        console.error('API Endpoint Mismatch:', error.message);
       } else if (error.message.includes('Keine Internetverbindung')) {
         errorMsg = error.message;
       } else if (error.message.includes('HTTP')) {
