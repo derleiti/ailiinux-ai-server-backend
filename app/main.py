@@ -1,13 +1,17 @@
 from __future__ import annotations
 import asyncio, logging, time
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi_limiter import FastAPILimiter
 import redis.asyncio as redis
+from starlette import status
 
 from app.config import get_settings
 from app.utils.logging_middleware import LoggingMiddleware
+
+logger = logging.getLogger("ailinux.main")
 
 # Routers
 from app.routes import health, admin, mcp, orchestration
@@ -38,6 +42,14 @@ def create_app() -> FastAPI:
             message = detail if isinstance(detail, str) else "Unexpected error"
             payload = {"error": {"message": message, "code": "http_error"}}
         return JSONResponse(status_code=exc.status_code, content=payload)
+
+    @app.exception_handler(RequestValidationError)
+    async def validation_exception_handler(request: Request, exc: RequestValidationError):
+        logger.error("Validation error for request: %s, errors: %s", request.url, exc.errors())
+        return JSONResponse(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            content={"error": {"message": "Validation error", "details": exc.errors(), "code": "validation_error"}},
+        )
 
     # Startup/Shutdown
     @app.on_event("startup")
