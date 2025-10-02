@@ -50,3 +50,11 @@ async def chat_endpoint(payload: ChatRequest):
     async for chunk in _chat_generator(payload):
         collected.append(chunk)
     return {"text": "".join(collected)}
+
+@router.post("/chat/completions", dependencies=[Depends(RateLimiter(times=5, seconds=10))])
+async def chat_completions_alias(payload: ChatRequest):
+    """
+    Alias for /chat endpoint for backwards compatibility.
+    Redirects to the main chat endpoint implementation.
+    """
+    return await chat_endpoint(payload)
