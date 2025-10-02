@@ -10,7 +10,7 @@ pydantic==2.10.3
 pydantic-settings==2.7.0
 
 # HTTP Clients & Async
-httpx==0.28.1
+httpx==0.27.2  # Compatible with all AI SDKs (mistralai requires <0.28)
 aiohttp==3.11.11
 
 # Rate Limiting & Caching
@@ -21,7 +21,7 @@ redis==5.2.1
 google-generativeai==0.8.3
 anthropic==0.39.0
 openai==1.57.4
-mistralai==1.2.6
+mistralai==1.9.10  # Latest stable (Dec 2024)
 
 # Data Processing & Validation
 python-multipart==0.0.20
