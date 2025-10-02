@@ -9,7 +9,7 @@
 | **FastAPI** | 0.104.0 | **0.118.0** | Latest stable, enhanced WebSocket |
 | **Uvicorn** | 0.24.0 | **0.32.1** | HTTP/2, performance boost |
 | **Pydantic** | 2.0.0 | **2.10.3** | 10x faster validation |
-| **HTTPX** | 0.25.0 | **0.27.2** | Stable (AI SDK compatible) |
+| **HTTPX** | 0.25.0 | **0.28.1** | Latest stable (all AI SDKs compatible) |
 | **Redis** | 5.0.0 | **5.2.1** | Latest stable |
 | **Pytest** | 7.4.0 | **8.3.4** | Enhanced testing |
 
@@ -112,17 +112,23 @@ curl -sS http://127.0.0.1:8000/health
 
 **Symptom:**
 ```
-ERROR: Cannot install httpx==0.28.1 because these package versions have conflicting dependencies.
-mistralai 1.2.6 depends on httpx<0.28.0 and >=0.27.0
+ERROR: Cannot install httpx because these package versions have conflicting dependencies.
+mistralai 1.9.10 depends on httpx>=0.28.1
 ```
 
-**Solution:** We've pinned httpx to 0.27.2 and upgraded Mistral AI to 1.9.10:
-- `httpx==0.27.2` - Compatible with all AI SDKs
-- `mistralai==1.9.10` - Latest stable
+**Root Cause:** Mistral AI had a breaking change:
+- Old versions (1.2.x): required `httpx<0.28.0`
+- New version (1.9.10): requires `httpx>=0.28.1`
 
-**Fix (if you still see this):**
+**Solution:** We've upgraded httpx to 0.28.1:
+- `httpx==0.28.1` - Latest stable, compatible with ALL AI SDKs
+- `mistralai==1.9.10` - Latest stable
+- `anthropic==0.39.0` - Compatible with httpx 0.28.1
+- `openai==1.57.4` - Compatible with httpx 0.28.1
+
+**Verification:**
 ```bash
-pip install httpx==0.27.2 mistralai==1.9.10
+python3 verify-deps.py  # Check compatibility before installing
 ```
 
 ### Issue 2: Pydantic v1 Compatibility
